@@ -34,7 +34,7 @@
 
     .card {
       width: 100%;
-      max-width: 430px;
+      max-width: 520px;
       background: #ffffff;
       border-radius: 24px;
       padding: 32px;
@@ -46,7 +46,6 @@
       margin-bottom: 28px;
     }
 
-    /* ESCUDO INSTITUCIONAL */
     .institution-logo {
       display: block;
       width: 155px;
@@ -60,6 +59,10 @@
       color: #123f73;
       font-size: 27px;
       margin-bottom: 5px;
+    }
+
+    h2 {
+      color: #123f73;
     }
 
     .subtitle {
@@ -164,20 +167,11 @@
       text-align: center;
     }
 
-    .welcome-icon {
-      font-size: 52px;
-      margin-bottom: 14px;
-    }
-
-    .welcome h2 {
-      color: #123f73;
-      margin-bottom: 8px;
-    }
-
     .welcome-name {
       font-weight: 700;
       margin: 18px 0 4px;
       color: #0f172a;
+      font-size: 18px;
     }
 
     .document {
@@ -186,29 +180,100 @@
       margin-bottom: 22px;
     }
 
-    .password-info {
+    .password-panel {
       background: #fff7ed;
       border: 1px solid #fed7aa;
-      color: #9a3412;
-      border-radius: 12px;
-      padding: 14px;
+      border-radius: 14px;
+      padding: 20px;
       text-align: left;
+      margin: 20px 0;
+    }
+
+    .password-panel h3 {
+      color: #9a3412;
+      margin-bottom: 8px;
+    }
+
+    .password-panel .intro {
+      color: #9a3412;
       font-size: 14px;
       line-height: 1.5;
-      margin: 20px 0;
+      margin-bottom: 18px;
     }
 
-    .app-preview {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 17px;
+    .password-help {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: -7px 0 15px;
+    }
+
+    .section-title {
       text-align: left;
-      margin: 20px 0;
+      color: #123f73;
+      margin: 24px 0 12px;
+      font-size: 19px;
     }
 
-    .app-preview strong {
-      color: #123f73;
+    .student-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .student-card {
+      border: 1px solid #dbe4ef;
+      border-radius: 14px;
+      padding: 16px;
+      background: #f8fafc;
+      text-align: left;
+    }
+
+    .student-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e3edf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .student-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+    }
+
+    .student-relation {
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .empty-state {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 14px;
+      padding: 20px;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .success-box {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #166534;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 16px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
     }
 
     @media (max-width: 480px) {
@@ -235,9 +300,9 @@
 
   <main class="card">
 
-    <!-- ======================================================
+    <!-- =====================================================
          LOGIN
-    ======================================================= -->
+    ====================================================== -->
 
     <section id="loginView">
 
@@ -245,7 +310,7 @@
 
         <img
           src="NEW%20LOGO.png"
-          alt="Escudo de la Unidad Educativa Benjamín Ramírez Arteaga"
+          alt="Escudo UEBRA"
           class="institution-logo"
         >
 
@@ -260,7 +325,6 @@
       <form id="loginForm">
 
         <div class="field">
-
           <label for="documento">
             Documento del representante
           </label>
@@ -272,11 +336,9 @@
             placeholder="Ej.: 0105079396"
             required
           >
-
         </div>
 
         <div class="field">
-
           <label for="password">
             Contraseña
           </label>
@@ -288,7 +350,6 @@
             placeholder="Ingrese su contraseña"
             required
           >
-
         </div>
 
         <button
@@ -314,9 +375,9 @@
     </section>
 
 
-    <!-- ======================================================
-         USUARIO AUTENTICADO
-    ======================================================= -->
+    <!-- =====================================================
+         CUENTA FAMILIAR
+    ====================================================== -->
 
     <section
       id="userView"
@@ -344,37 +405,104 @@
       ></p>
 
 
-      <!-- PRIMER INGRESO -->
+      <!-- ===================================================
+           CAMBIO OBLIGATORIO DE CONTRASEÑA
+      ==================================================== -->
 
       <div
-        id="passwordChangeNotice"
-        class="password-info hidden"
+        id="passwordChangePanel"
+        class="password-panel hidden"
       >
 
-        <strong>Primer ingreso</strong><br>
+        <h3>Primer ingreso</h3>
 
-        Su contraseña actual es temporal.
-        Antes de consultar información estudiantil
-        deberá crear una nueva contraseña.
+        <p class="intro">
+          Su contraseña actual es temporal.
+          Para proteger la información de su representado,
+          debe crear una nueva contraseña antes de continuar.
+        </p>
+
+        <form id="changePasswordForm">
+
+          <div class="field">
+
+            <label for="newPassword">
+              Nueva contraseña
+            </label>
+
+            <input
+              id="newPassword"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Escriba su nueva contraseña"
+              minlength="8"
+              required
+            >
+
+          </div>
+
+          <div class="field">
+
+            <label for="confirmPassword">
+              Confirmar nueva contraseña
+            </label>
+
+            <input
+              id="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Repita la nueva contraseña"
+              minlength="8"
+              required
+            >
+
+          </div>
+
+          <p class="password-help">
+            Utilice al menos 8 caracteres. Evite usar su número
+            de documento como contraseña.
+          </p>
+
+          <button
+            id="changePasswordButton"
+            class="primary"
+            type="submit"
+          >
+            Guardar nueva contraseña
+          </button>
+
+          <div
+            id="passwordMessage"
+            class="message"
+          ></div>
+
+        </form>
 
       </div>
 
 
-      <!-- CUENTA HABILITADA -->
+      <!-- ===================================================
+           ÁREA HABILITADA
+      ==================================================== -->
 
       <div
-        id="appReady"
-        class="app-preview hidden"
+        id="familyArea"
+        class="hidden"
       >
 
-        <strong>
-          Cuenta habilitada
-        </strong>
+        <div class="success-box">
+          <strong>Cuenta habilitada correctamente.</strong><br>
+          Ya puede consultar la información de sus representados.
+        </div>
 
-        <p style="margin-top:7px;">
-          La cuenta está preparada para consultar
-          los estudiantes representados.
-        </p>
+        <h3 class="section-title">
+          Mis representados
+        </h3>
+
+        <div
+          id="studentList"
+          class="student-list"
+        ></div>
 
       </div>
 
@@ -397,7 +525,7 @@
 <script>
 
   // ==========================================================
-  // CONFIGURACIÓN SUPABASE
+  // SUPABASE
   // ==========================================================
 
   const SUPABASE_URL =
@@ -443,14 +571,39 @@
   const familyDocument =
     document.getElementById("familyDocument");
 
-  const passwordChangeNotice =
-    document.getElementById("passwordChangeNotice");
+  const passwordChangePanel =
+    document.getElementById("passwordChangePanel");
 
-  const appReady =
-    document.getElementById("appReady");
+  const changePasswordForm =
+    document.getElementById("changePasswordForm");
+
+  const newPasswordInput =
+    document.getElementById("newPassword");
+
+  const confirmPasswordInput =
+    document.getElementById("confirmPassword");
+
+  const changePasswordButton =
+    document.getElementById("changePasswordButton");
+
+  const passwordMessage =
+    document.getElementById("passwordMessage");
+
+  const familyArea =
+    document.getElementById("familyArea");
+
+  const studentList =
+    document.getElementById("studentList");
 
   const logoutButton =
     document.getElementById("logoutButton");
+
+
+  // ==========================================================
+  // VARIABLES
+  // ==========================================================
+
+  let currentFamily = null;
 
 
   // ==========================================================
@@ -458,9 +611,7 @@
   // ==========================================================
 
   function limpiarDocumento(valor) {
-
     return String(valor || "").trim();
-
   }
 
 
@@ -471,30 +622,24 @@
       .toLowerCase();
 
     return `familia.${seguro}@familias.uebra.local`;
-
   }
 
 
   function mostrarMensaje(
+    elemento,
     texto,
     tipo = "error"
   ) {
 
-    loginMessage.textContent = texto;
-
-    loginMessage.className =
-      `message ${tipo}`;
-
+    elemento.textContent = texto;
+    elemento.className = `message ${tipo}`;
   }
 
 
-  function limpiarMensaje() {
+  function limpiarMensaje(elemento) {
 
-    loginMessage.textContent = "";
-
-    loginMessage.className =
-      "message";
-
+    elemento.textContent = "";
+    elemento.className = "message";
   }
 
 
@@ -508,12 +653,10 @@
 
       event.preventDefault();
 
-      limpiarMensaje();
+      limpiarMensaje(loginMessage);
 
       const documento =
-        limpiarDocumento(
-          documentoInput.value
-        );
+        limpiarDocumento(documentoInput.value);
 
       const password =
         passwordInput.value;
@@ -522,18 +665,16 @@
       if (!documento || !password) {
 
         mostrarMensaje(
+          loginMessage,
           "Ingrese su documento y contraseña."
         );
 
         return;
-
       }
 
 
       loginButton.disabled = true;
-
-      loginButton.textContent =
-        "Ingresando...";
+      loginButton.textContent = "Ingresando...";
 
 
       try {
@@ -544,11 +685,8 @@
 
         const { error } =
           await db.auth.signInWithPassword({
-
             email: emailInterno,
-
             password: password
-
           });
 
 
@@ -557,11 +695,11 @@
           console.error(error);
 
           mostrarMensaje(
+            loginMessage,
             "Documento o contraseña incorrectos."
           );
 
           return;
-
         }
 
 
@@ -573,6 +711,7 @@
         console.error(error);
 
         mostrarMensaje(
+          loginMessage,
           "No fue posible iniciar sesión. Intente nuevamente."
         );
 
@@ -580,10 +719,7 @@
       } finally {
 
         loginButton.disabled = false;
-
-        loginButton.textContent =
-          "Ingresar";
-
+        loginButton.textContent = "Ingresar";
       }
 
     }
@@ -598,16 +734,13 @@
 
     const {
       data: { user }
-    } =
-      await db.auth.getUser();
+    } = await db.auth.getUser();
 
 
     if (!user) {
 
       mostrarLogin();
-
       return;
-
     }
 
 
@@ -621,10 +754,7 @@
           activo,
           must_change_password
         `)
-        .eq(
-          "auth_user_id",
-          user.id
-        )
+        .eq("auth_user_id", user.id)
         .maybeSingle();
 
 
@@ -640,11 +770,11 @@
       mostrarLogin();
 
       mostrarMensaje(
+        loginMessage,
         "La cuenta no está vinculada a un representante autorizado."
       );
 
       return;
-
     }
 
 
@@ -655,12 +785,15 @@
       mostrarLogin();
 
       mostrarMensaje(
+        loginMessage,
         "Esta cuenta se encuentra inactiva."
       );
 
       return;
-
     }
+
+
+    currentFamily = data;
 
 
     familyName.textContent =
@@ -671,33 +804,334 @@
       `Documento: ${data.documento}`;
 
 
-    loginView.classList.add(
-      "hidden"
-    );
-
-    userView.classList.remove(
-      "hidden"
-    );
+    loginView.classList.add("hidden");
+    userView.classList.remove("hidden");
 
 
     if (data.must_change_password) {
 
-      passwordChangeNotice
+      passwordChangePanel
         .classList.remove("hidden");
 
-      appReady
+      familyArea
         .classList.add("hidden");
 
     } else {
 
-      passwordChangeNotice
+      passwordChangePanel
         .classList.add("hidden");
 
-      appReady
+      familyArea
         .classList.remove("hidden");
 
+      await cargarRepresentados();
     }
 
+  }
+
+
+  // ==========================================================
+  // CAMBIAR CONTRASEÑA
+  // ==========================================================
+
+  changePasswordForm.addEventListener(
+    "submit",
+    async (event) => {
+
+      event.preventDefault();
+
+      limpiarMensaje(passwordMessage);
+
+
+      const nueva =
+        newPasswordInput.value;
+
+      const confirmar =
+        confirmPasswordInput.value;
+
+
+      if (nueva.length < 8) {
+
+        mostrarMensaje(
+          passwordMessage,
+          "La nueva contraseña debe tener al menos 8 caracteres."
+        );
+
+        return;
+      }
+
+
+      if (nueva !== confirmar) {
+
+        mostrarMensaje(
+          passwordMessage,
+          "Las contraseñas no coinciden."
+        );
+
+        return;
+      }
+
+
+      changePasswordButton.disabled = true;
+
+      changePasswordButton.textContent =
+        "Guardando...";
+
+
+      try {
+
+        // 1. CAMBIAR CONTRASEÑA REAL EN SUPABASE AUTH
+
+        const {
+          error: passwordError
+        } =
+          await db.auth.updateUser({
+            password: nueva
+          });
+
+
+        if (passwordError) {
+
+          console.error(passwordError);
+
+          mostrarMensaje(
+            passwordMessage,
+            "No fue posible cambiar la contraseña."
+          );
+
+          return;
+        }
+
+
+        // 2. FINALIZAR PRIMER ACCESO
+
+        const {
+          data: rpcData,
+          error: rpcError
+        } =
+          await db.rpc(
+            "finalizar_primer_acceso_familia"
+          );
+
+
+        if (rpcError) {
+
+          console.error(rpcError);
+
+          mostrarMensaje(
+            passwordMessage,
+            "La contraseña fue actualizada, pero no fue posible habilitar la cuenta. Comuníquese con la institución."
+          );
+
+          return;
+        }
+
+
+        if (rpcData !== true) {
+
+          mostrarMensaje(
+            passwordMessage,
+            "No fue posible completar la activación de la cuenta."
+          );
+
+          return;
+        }
+
+
+        // 3. ACTUALIZAR ESTADO LOCAL
+
+        currentFamily.must_change_password =
+          false;
+
+
+        // 4. LIMPIAR CAMPOS
+
+        newPasswordInput.value = "";
+        confirmPasswordInput.value = "";
+
+
+        // 5. MOSTRAR ÁREA FAMILIAR
+
+        passwordChangePanel
+          .classList.add("hidden");
+
+        familyArea
+          .classList.remove("hidden");
+
+
+        await cargarRepresentados();
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        mostrarMensaje(
+          passwordMessage,
+          "Ocurrió un problema al actualizar la contraseña."
+        );
+
+
+      } finally {
+
+        changePasswordButton.disabled =
+          false;
+
+        changePasswordButton.textContent =
+          "Guardar nueva contraseña";
+      }
+
+    }
+  );
+
+
+  // ==========================================================
+  // CARGAR REPRESENTADOS
+  // ==========================================================
+
+  async function cargarRepresentados() {
+
+    studentList.innerHTML =
+      `<div class="empty-state">
+        Cargando representados...
+       </div>`;
+
+
+    const {
+      data,
+      error
+    } =
+      await db
+        .from("student_family")
+        .select(`
+          parentesco,
+          es_representante,
+          student_id,
+          students (
+            id,
+            nombre,
+            cedula,
+            estado
+          )
+        `)
+        .eq(
+          "family_member_id",
+          currentFamily.id
+        )
+        .eq(
+          "es_representante",
+          true
+        )
+        .eq(
+          "activo",
+          true
+        );
+
+
+    if (error) {
+
+      console.error(
+        "Error cargando representados:",
+        error
+      );
+
+      studentList.innerHTML =
+        `<div class="empty-state">
+          No fue posible cargar los representados.
+         </div>`;
+
+      return;
+    }
+
+
+    if (!data || data.length === 0) {
+
+      studentList.innerHTML =
+        `<div class="empty-state">
+          No existen estudiantes vinculados actualmente
+          a esta cuenta.
+         </div>`;
+
+      return;
+    }
+
+
+    studentList.innerHTML = "";
+
+
+    data.forEach((relacion) => {
+
+      const estudiante =
+        relacion.students;
+
+
+      if (!estudiante) {
+        return;
+      }
+
+
+      const tarjeta =
+        document.createElement("div");
+
+
+      tarjeta.className =
+        "student-card";
+
+
+      tarjeta.innerHTML = `
+
+        <div class="student-icon">
+          🎓
+        </div>
+
+        <div class="student-name">
+          ${escapeHtml(estudiante.nombre)}
+        </div>
+
+        <div class="student-relation">
+          Parentesco:
+          ${escapeHtml(
+            relacion.parentesco ||
+            "Representante"
+          )}
+        </div>
+
+      `;
+
+
+      studentList.appendChild(
+        tarjeta
+      );
+
+    });
+
+
+    if (
+      studentList.children.length === 0
+    ) {
+
+      studentList.innerHTML =
+        `<div class="empty-state">
+          No existen estudiantes vinculados actualmente
+          a esta cuenta.
+         </div>`;
+    }
+
+  }
+
+
+  // ==========================================================
+  // SEGURIDAD HTML
+  // ==========================================================
+
+  function escapeHtml(valor) {
+
+    return String(valor ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
   }
 
 
@@ -711,24 +1145,28 @@
 
       await db.auth.signOut();
 
-      mostrarLogin();
+      currentFamily = null;
 
+      mostrarLogin();
     }
   );
 
 
   function mostrarLogin() {
 
-    userView.classList.add(
-      "hidden"
-    );
-
-    loginView.classList.remove(
-      "hidden"
-    );
+    userView.classList.add("hidden");
+    loginView.classList.remove("hidden");
 
     passwordInput.value = "";
 
+    newPasswordInput.value = "";
+    confirmPasswordInput.value = "";
+
+    passwordChangePanel
+      .classList.add("hidden");
+
+    familyArea
+      .classList.add("hidden");
   }
 
 
@@ -747,7 +1185,6 @@
     if (session) {
 
       await cargarCuentaFamiliar();
-
     }
 
   }
