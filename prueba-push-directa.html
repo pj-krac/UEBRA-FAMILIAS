@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123f73">
+<title>UEBRA - Prueba Push directa</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#123f73;color:#172033;padding:24px}
+.card{max-width:560px;margin:45px auto;background:#fff;border-radius:22px;padding:28px;text-align:center}
+h1{color:#123f73;font-size:26px} p{line-height:1.5}
+button{width:100%;border:0;border-radius:12px;padding:16px;background:#123f73;color:#fff;font-size:16px;font-weight:700}
+#r{margin-top:18px;background:#f1f5f9;border-radius:12px;padding:15px;line-height:1.55;word-break:break-word}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🔔 UEBRA · Prueba Push directa</h1>
+<p>Esta prueba intenta crear la suscripción Push directamente desde el botón, sin llamar primero a <code>Notification.requestPermission()</code>.</p>
+<button id="b">Probar suscripción Push</button>
+<div id="r">Esperando prueba…</div>
+</div>
+<script>
+const VAPID_PUBLIC_KEY="BNH4ttxelktkfwbKn6igForFToiB0LW0YMWaMgaTy6KTs870N26KiOGZmNJCf_T2QwHeRd-wqjX7sBO_IRc-BQg";
+function b64(s){
+ const p="=".repeat((4-s.length%4)%4);
+ const b=(s+p).replace(/-/g,"+").replace(/_/g,"/");
+ const raw=atob(b);
+ return Uint8Array.from([...raw].map(c=>c.charCodeAt(0)));
+}
+document.getElementById("b").addEventListener("click", async()=>{
+ const r=document.getElementById("r"), b=document.getElementById("b");
+ b.disabled=true;
+ const before=("Notification" in window)?Notification.permission:"no disponible";
+ try{
+   if(!("serviceWorker" in navigator)) throw new Error("Service Worker no disponible");
+   if(!("PushManager" in window)) throw new Error("PushManager no disponible");
+   const reg=await navigator.serviceWorker.register("./sw.js");
+   await navigator.serviceWorker.ready;
+   let sub=await reg.pushManager.getSubscription();
+   if(!sub){
+     sub=await reg.pushManager.subscribe({
+       userVisibleOnly:true,
+       applicationServerKey:b64(VAPID_PUBLIC_KEY)
+     });
+   }
+   r.innerHTML="<b>ÉXITO</b><br>Antes: "+before+
+     "<br>Después: "+Notification.permission+
+     "<br>Suscripción Push: creada";
+ }catch(e){
+   r.innerHTML="<b>RESULTADO</b><br>Antes: "+before+
+     "<br>Después: "+(("Notification" in window)?Notification.permission:"no disponible")+
+     "<br>Error: "+e.name+" — "+e.message;
+ }finally{b.disabled=false}
+});
+</script>
+</body>
+</html>
