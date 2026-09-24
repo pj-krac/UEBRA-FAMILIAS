@@ -115,6 +115,9 @@ button{
   color:#123f73;
   margin-top:18px;
 }
+.push-button{width:100%;margin-top:14px;background:#e8f2ff;color:#123f73;border:1px solid #c9def5}
+.push-button.enabled{background:#dcfce7;color:#166534;border-color:#bbf7d0}
+.push-status{text-align:center;color:#64748b;font-size:12px;line-height:1.4;margin-top:7px}
 
 .message{
   display:none;
@@ -729,6 +732,9 @@ button{
   </div>
 
 
+  <button id="pushButton" class="push-button hidden" type="button">🔔 Activar notificaciones</button>
+  <div id="pushStatus" class="push-status hidden"></div>
+
   <button id="logoutButton"
           class="secondary"
           type="button">
@@ -753,6 +759,9 @@ const db = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+
+const VAPID_PUBLIC_KEY =
+"BNH4ttxelktkfwbKn6igForFToiB0LW0YMWaMgaTy6KTs870N26KiOGZmNJCf_T2QwHeRd-wqjX7sBO_IRc-BQg";
 
 
 let currentFamily = null;
@@ -958,6 +967,7 @@ async function loadFamily(){
     studentView.classList.add("hidden");
 
     await loadStudents();
+    await setupPushUI();
   }
 
 }
@@ -1060,6 +1070,7 @@ document.getElementById("changePasswordForm")
     representativesView.classList.remove("hidden");
 
     await loadStudents();
+    await setupPushUI();
 
 
   }finally{
@@ -1671,6 +1682,63 @@ async function loadNotifications(){
 
 }
 
+
+
+// NOTIFICACIONES PUSH
+function urlBase64ToUint8Array(base64String){
+  const padding="=".repeat((4-base64String.length%4)%4);
+  const base64=(base64String+padding).replace(/-/g,"+").replace(/_/g,"/");
+  const rawData=atob(base64);
+  return Uint8Array.from([...rawData].map(c=>c.charCodeAt(0)));
+}
+async function setupPushUI(){
+  const button=document.getElementById("pushButton"),status=document.getElementById("pushStatus");
+  if(!("serviceWorker" in navigator)||!("PushManager" in window)||!("Notification" in window)){
+    button.classList.add("hidden");status.classList.remove("hidden");status.textContent="Este navegador no admite notificaciones Push.";return;
+  }
+  button.classList.remove("hidden");status.classList.remove("hidden");
+  try{
+    const registration=await navigator.serviceWorker.register("./sw.js");
+    const subscription=await registration.pushManager.getSubscription();
+    if(subscription&&Notification.permission==="granted"){
+      button.textContent="✓ Notificaciones activadas";button.classList.add("enabled");
+      status.textContent="Este dispositivo está preparado para recibir avisos.";
+    }else{
+      button.textContent="🔔 Activar notificaciones";button.classList.remove("enabled");
+      status.textContent="Activa los avisos para recibir faltas, atrasos y novedades.";
+    }
+  }catch(error){console.error(error);status.textContent="No fue posible preparar las notificaciones."}
+}
+async function activatePush(){
+  const button=document.getElementById("pushButton"),status=document.getElementById("pushStatus");
+  if(!currentFamily)return;
+  button.disabled=true;status.textContent="Preparando notificaciones…";
+  try{
+    const permission=await Notification.requestPermission();
+    if(permission!=="granted"){status.textContent="El permiso de notificaciones no fue concedido.";return}
+    const registration=await navigator.serviceWorker.register("./sw.js");
+    await navigator.serviceWorker.ready;
+    let subscription=await registration.pushManager.getSubscription();
+    if(!subscription){
+      subscription=await registration.pushManager.subscribe({
+        userVisibleOnly:true,
+        applicationServerKey:urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+      });
+    }
+    const json=subscription.toJSON();
+    const {error}=await db.from("family_push_subscriptions").upsert({
+      family_member_id:currentFamily.id,endpoint:json.endpoint,
+      p256dh:json.keys?.p256dh,auth_key:json.keys?.auth,activo:true,
+      updated_at:new Date().toISOString()
+    },{onConflict:"endpoint"});
+    if(error)throw error;
+    button.textContent="✓ Notificaciones activadas";button.classList.add("enabled");
+    status.textContent="Este dispositivo está preparado para recibir avisos.";
+  }catch(error){
+    console.error(error);status.textContent="No fue posible activar las notificaciones: "+(error.message||"Error desconocido");
+  }finally{button.disabled=false}
+}
+document.getElementById("pushButton").addEventListener("click",activatePush);
 
 // CERRAR SESIÓN
 
