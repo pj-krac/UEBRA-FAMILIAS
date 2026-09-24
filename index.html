@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123f73">
+
+  <title>UEBRA Familias</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, #0c315d 0%, #174f88 55%, #2c73aa 100%);
+      color: #1e293b;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 22px 60px rgba(0,0,0,.22);
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: #123f73;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      color: #123f73;
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: #334155;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+      transition: .2s;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #123f73;
+      color: white;
+    }
+
+    .primary:hover {
+      background: #0c315d;
+    }
+
+    .primary:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+    }
+
+    .secondary {
+      background: #e8eef6;
+      color: #123f73;
+      margin-top: 10px;
+    }
+
+    .message {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .message.error {
+      display: block;
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .message.ok {
+      display: block;
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .security-note {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .welcome {
+      text-align: center;
+    }
+
+    .welcome-icon {
+      font-size: 52px;
+      margin-bottom: 14px;
+    }
+
+    .welcome h2 {
+      color: #123f73;
+      margin-bottom: 8px;
+    }
+
+    .welcome-name {
+      font-weight: 700;
+      margin: 18px 0 4px;
+      color: #0f172a;
+    }
+
+    .document {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .password-info {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 20px 0;
+    }
+
+    .app-preview {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 17px;
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .app-preview strong {
+      color: #123f73;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 25px 20px;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <main class="card">
+
+    <!-- LOGIN -->
+    <section id="loginView">
+
+      <div class="brand">
+        <div class="logo">UE</div>
+        <h1>UEBRA Familias</h1>
+        <p class="subtitle">
+          Unidad Educativa Benjamín Ramírez Arteaga
+        </p>
+      </div>
+
+      <form id="loginForm">
+
+        <div class="field">
+          <label for="documento">Documento del representante</label>
+          <input
+            id="documento"
+            type="text"
+            autocomplete="username"
+            placeholder="Ej.: 0105079396"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Ingrese su contraseña"
+            required
+          >
+        </div>
+
+        <button
+          id="loginButton"
+          class="primary"
+          type="submit"
+        >
+          Ingresar
+        </button>
+
+        <div id="loginMessage" class="message"></div>
+
+      </form>
+
+      <div class="security-note">
+        Acceso exclusivo para representantes autorizados.<br>
+        La información estudiantil es de carácter confidencial.
+      </div>
+
+    </section>
+
+
+    <!-- USUARIO AUTENTICADO -->
+    <section id="userView" class="hidden welcome">
+
+      <div class="welcome-icon">👨‍👩‍👧‍👦</div>
+
+      <h2>Bienvenido a UEBRA Familias</h2>
+
+      <p class="welcome-name" id="familyName"></p>
+      <p class="document" id="familyDocument"></p>
+
+      <div id="passwordChangeNotice" class="password-info hidden">
+        <strong>Primer ingreso</strong><br>
+        Su contraseña actual es temporal. Antes de consultar
+        información estudiantil deberá crear una nueva contraseña.
+      </div>
+
+      <div id="appReady" class="app-preview hidden">
+        <strong>Cuenta habilitada</strong>
+        <p style="margin-top:7px;">
+          La cuenta está preparada para consultar los estudiantes
+          representados.
+        </p>
+      </div>
+
+      <button
+        id="logoutButton"
+        class="secondary"
+        type="button"
+      >
+        Cerrar sesión
+      </button>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<script>
+  // ==========================================================
+  // CONFIGURACIÓN SUPABASE
+  // ==========================================================
+
+  const SUPABASE_URL =
+    "https://ohfxllcapjrjogpeofwa.supabase.co";
+
+  const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_qLsRH4XC-MhfEisjCmtc1g_3a_Sty34";
+
+  const db = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+
+  // ==========================================================
+  // ELEMENTOS
+  // ==========================================================
+
+  const loginView = document.getElementById("loginView");
+  const userView = document.getElementById("userView");
+
+  const loginForm = document.getElementById("loginForm");
+  const documentoInput = document.getElementById("documento");
+  const passwordInput = document.getElementById("password");
+  const loginButton = document.getElementById("loginButton");
+  const loginMessage = document.getElementById("loginMessage");
+
+  const familyName = document.getElementById("familyName");
+  const familyDocument = document.getElementById("familyDocument");
+
+  const passwordChangeNotice =
+    document.getElementById("passwordChangeNotice");
+
+  const appReady =
+    document.getElementById("appReady");
+
+  const logoutButton =
+    document.getElementById("logoutButton");
+
+
+  // ==========================================================
+  // UTILIDADES
+  // ==========================================================
+
+  function limpiarDocumento(valor) {
+    return String(valor || "").trim();
+  }
+
+  function crearCorreoInterno(documento) {
+
+    const seguro = documento
+      .replace(/[^A-Za-z0-9]/g, "")
+      .toLowerCase();
+
+    return `familia.${seguro}@familias.uebra.local`;
+  }
+
+  function mostrarMensaje(texto, tipo = "error") {
+
+    loginMessage.textContent = texto;
+    loginMessage.className = `message ${tipo}`;
+  }
+
+  function limpiarMensaje() {
+
+    loginMessage.textContent = "";
+    loginMessage.className = "message";
+  }
+
+
+  // ==========================================================
+  // LOGIN
+  // ==========================================================
+
+  loginForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    limpiarMensaje();
+
+    const documento =
+      limpiarDocumento(documentoInput.value);
+
+    const password =
+      passwordInput.value;
+
+    if (!documento || !password) {
+      mostrarMensaje(
+        "Ingrese su documento y contraseña."
+      );
+      return;
+    }
+
+    loginButton.disabled = true;
+    loginButton.textContent = "Ingresando...";
+
+    try {
+
+      const emailInterno =
+        crearCorreoInterno(documento);
+
+      const { error } =
+        await db.auth.signInWithPassword({
+          email: emailInterno,
+          password: password
+        });
+
+      if (error) {
+
+        console.error(error);
+
+        mostrarMensaje(
+          "Documento o contraseña incorrectos."
+        );
+
+        return;
+      }
+
+      await cargarCuentaFamiliar();
+
+    } catch (error) {
+
+      console.error(error);
+
+      mostrarMensaje(
+        "No fue posible iniciar sesión. Intente nuevamente."
+      );
+
+    } finally {
+
+      loginButton.disabled = false;
+      loginButton.textContent = "Ingresar";
+    }
+
+  });
+
+
+  // ==========================================================
+  // CARGAR CUENTA FAMILIAR
+  // ==========================================================
+
+  async function cargarCuentaFamiliar() {
+
+    const {
+      data: { user }
+    } = await db.auth.getUser();
+
+    if (!user) {
+      mostrarLogin();
+      return;
+    }
+
+    const { data, error } =
+      await db
+        .from("family_members")
+        .select(`
+          id,
+          documento,
+          nombres,
+          activo,
+          must_change_password
+        `)
+        .eq("auth_user_id", user.id)
+        .maybeSingle();
+
+    if (error || !data) {
+
+      console.error(error);
+
+      await db.auth.signOut();
+
+      mostrarLogin();
+
+      mostrarMensaje(
+        "La cuenta no está vinculada a un representante autorizado."
+      );
+
+      return;
+    }
+
+    if (!data.activo) {
+
+      await db.auth.signOut();
+
+      mostrarLogin();
+
+      mostrarMensaje(
+        "Esta cuenta se encuentra inactiva."
+      );
+
+      return;
+    }
+
+    familyName.textContent = data.nombres;
+    familyDocument.textContent =
+      `Documento: ${data.documento}`;
+
+    loginView.classList.add("hidden");
+    userView.classList.remove("hidden");
+
+    if (data.must_change_password) {
+
+      passwordChangeNotice.classList.remove("hidden");
+      appReady.classList.add("hidden");
+
+    } else {
+
+      passwordChangeNotice.classList.add("hidden");
+      appReady.classList.remove("hidden");
+    }
+  }
+
+
+  // ==========================================================
+  // CERRAR SESIÓN
+  // ==========================================================
+
+  logoutButton.addEventListener("click", async () => {
+
+    await db.auth.signOut();
+    mostrarLogin();
+  });
+
+
+  function mostrarLogin() {
+
+    userView.classList.add("hidden");
+    loginView.classList.remove("hidden");
+
+    passwordInput.value = "";
+  }
+
+
+  // ==========================================================
+  // RESTAURAR SESIÓN
+  // ==========================================================
+
+  async function iniciar() {
+
+    const {
+      data: { session }
+    } = await db.auth.getSession();
+
+    if (session) {
+      await cargarCuentaFamiliar();
+    }
+  }
+
+  iniciar();
+
+</script>
+
+</body>
+</html>
