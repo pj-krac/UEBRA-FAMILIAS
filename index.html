@@ -46,19 +46,14 @@
       margin-bottom: 28px;
     }
 
-    .logo {
-      width: 82px;
-      height: 82px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
-      background: #123f73;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 29px;
-      font-weight: 800;
-      letter-spacing: 1px;
+    /* ESCUDO INSTITUCIONAL */
+    .institution-logo {
+      display: block;
+      width: 155px;
+      height: auto;
+      max-height: 155px;
+      object-fit: contain;
+      margin: 0 auto 12px;
     }
 
     h1 {
@@ -225,6 +220,11 @@
         padding: 25px 20px;
         border-radius: 20px;
       }
+
+      .institution-logo {
+        width: 135px;
+        max-height: 135px;
+      }
     }
   </style>
 </head>
@@ -235,21 +235,36 @@
 
   <main class="card">
 
-    <!-- LOGIN -->
+    <!-- ======================================================
+         LOGIN
+    ======================================================= -->
+
     <section id="loginView">
 
       <div class="brand">
-        <div class="logo">UE</div>
+
+        <img
+          src="NEW%20LOGO.png"
+          alt="Escudo de la Unidad Educativa Benjamín Ramírez Arteaga"
+          class="institution-logo"
+        >
+
         <h1>UEBRA Familias</h1>
+
         <p class="subtitle">
           Unidad Educativa Benjamín Ramírez Arteaga
         </p>
+
       </div>
 
       <form id="loginForm">
 
         <div class="field">
-          <label for="documento">Documento del representante</label>
+
+          <label for="documento">
+            Documento del representante
+          </label>
+
           <input
             id="documento"
             type="text"
@@ -257,10 +272,15 @@
             placeholder="Ej.: 0105079396"
             required
           >
+
         </div>
 
         <div class="field">
-          <label for="password">Contraseña</label>
+
+          <label for="password">
+            Contraseña
+          </label>
+
           <input
             id="password"
             type="password"
@@ -268,6 +288,7 @@
             placeholder="Ingrese su contraseña"
             required
           >
+
         </div>
 
         <button
@@ -278,7 +299,10 @@
           Ingresar
         </button>
 
-        <div id="loginMessage" class="message"></div>
+        <div
+          id="loginMessage"
+          class="message"
+        ></div>
 
       </form>
 
@@ -290,29 +314,70 @@
     </section>
 
 
-    <!-- USUARIO AUTENTICADO -->
-    <section id="userView" class="hidden welcome">
+    <!-- ======================================================
+         USUARIO AUTENTICADO
+    ======================================================= -->
 
-      <div class="welcome-icon">👨‍👩‍👧‍👦</div>
+    <section
+      id="userView"
+      class="hidden welcome"
+    >
 
-      <h2>Bienvenido a UEBRA Familias</h2>
+      <img
+        src="NEW%20LOGO.png"
+        alt="Escudo UEBRA"
+        class="institution-logo"
+      >
 
-      <p class="welcome-name" id="familyName"></p>
-      <p class="document" id="familyDocument"></p>
+      <h2>
+        Bienvenido a UEBRA Familias
+      </h2>
 
-      <div id="passwordChangeNotice" class="password-info hidden">
+      <p
+        class="welcome-name"
+        id="familyName"
+      ></p>
+
+      <p
+        class="document"
+        id="familyDocument"
+      ></p>
+
+
+      <!-- PRIMER INGRESO -->
+
+      <div
+        id="passwordChangeNotice"
+        class="password-info hidden"
+      >
+
         <strong>Primer ingreso</strong><br>
-        Su contraseña actual es temporal. Antes de consultar
-        información estudiantil deberá crear una nueva contraseña.
+
+        Su contraseña actual es temporal.
+        Antes de consultar información estudiantil
+        deberá crear una nueva contraseña.
+
       </div>
 
-      <div id="appReady" class="app-preview hidden">
-        <strong>Cuenta habilitada</strong>
+
+      <!-- CUENTA HABILITADA -->
+
+      <div
+        id="appReady"
+        class="app-preview hidden"
+      >
+
+        <strong>
+          Cuenta habilitada
+        </strong>
+
         <p style="margin-top:7px;">
-          La cuenta está preparada para consultar los estudiantes
-          representados.
+          La cuenta está preparada para consultar
+          los estudiantes representados.
         </p>
+
       </div>
+
 
       <button
         id="logoutButton"
@@ -330,6 +395,7 @@
 
 
 <script>
+
   // ==========================================================
   // CONFIGURACIÓN SUPABASE
   // ==========================================================
@@ -350,17 +416,32 @@
   // ELEMENTOS
   // ==========================================================
 
-  const loginView = document.getElementById("loginView");
-  const userView = document.getElementById("userView");
+  const loginView =
+    document.getElementById("loginView");
 
-  const loginForm = document.getElementById("loginForm");
-  const documentoInput = document.getElementById("documento");
-  const passwordInput = document.getElementById("password");
-  const loginButton = document.getElementById("loginButton");
-  const loginMessage = document.getElementById("loginMessage");
+  const userView =
+    document.getElementById("userView");
 
-  const familyName = document.getElementById("familyName");
-  const familyDocument = document.getElementById("familyDocument");
+  const loginForm =
+    document.getElementById("loginForm");
+
+  const documentoInput =
+    document.getElementById("documento");
+
+  const passwordInput =
+    document.getElementById("password");
+
+  const loginButton =
+    document.getElementById("loginButton");
+
+  const loginMessage =
+    document.getElementById("loginMessage");
+
+  const familyName =
+    document.getElementById("familyName");
+
+  const familyDocument =
+    document.getElementById("familyDocument");
 
   const passwordChangeNotice =
     document.getElementById("passwordChangeNotice");
@@ -377,8 +458,11 @@
   // ==========================================================
 
   function limpiarDocumento(valor) {
+
     return String(valor || "").trim();
+
   }
+
 
   function crearCorreoInterno(documento) {
 
@@ -387,18 +471,30 @@
       .toLowerCase();
 
     return `familia.${seguro}@familias.uebra.local`;
+
   }
 
-  function mostrarMensaje(texto, tipo = "error") {
+
+  function mostrarMensaje(
+    texto,
+    tipo = "error"
+  ) {
 
     loginMessage.textContent = texto;
-    loginMessage.className = `message ${tipo}`;
+
+    loginMessage.className =
+      `message ${tipo}`;
+
   }
+
 
   function limpiarMensaje() {
 
     loginMessage.textContent = "";
-    loginMessage.className = "message";
+
+    loginMessage.className =
+      "message";
+
   }
 
 
@@ -406,67 +502,92 @@
   // LOGIN
   // ==========================================================
 
-  loginForm.addEventListener("submit", async (event) => {
+  loginForm.addEventListener(
+    "submit",
+    async (event) => {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    limpiarMensaje();
+      limpiarMensaje();
 
-    const documento =
-      limpiarDocumento(documentoInput.value);
+      const documento =
+        limpiarDocumento(
+          documentoInput.value
+        );
 
-    const password =
-      passwordInput.value;
+      const password =
+        passwordInput.value;
 
-    if (!documento || !password) {
-      mostrarMensaje(
-        "Ingrese su documento y contraseña."
-      );
-      return;
-    }
 
-    loginButton.disabled = true;
-    loginButton.textContent = "Ingresando...";
+      if (!documento || !password) {
 
-    try {
+        mostrarMensaje(
+          "Ingrese su documento y contraseña."
+        );
 
-      const emailInterno =
-        crearCorreoInterno(documento);
+        return;
 
-      const { error } =
-        await db.auth.signInWithPassword({
-          email: emailInterno,
-          password: password
-        });
+      }
 
-      if (error) {
+
+      loginButton.disabled = true;
+
+      loginButton.textContent =
+        "Ingresando...";
+
+
+      try {
+
+        const emailInterno =
+          crearCorreoInterno(documento);
+
+
+        const { error } =
+          await db.auth.signInWithPassword({
+
+            email: emailInterno,
+
+            password: password
+
+          });
+
+
+        if (error) {
+
+          console.error(error);
+
+          mostrarMensaje(
+            "Documento o contraseña incorrectos."
+          );
+
+          return;
+
+        }
+
+
+        await cargarCuentaFamiliar();
+
+
+      } catch (error) {
 
         console.error(error);
 
         mostrarMensaje(
-          "Documento o contraseña incorrectos."
+          "No fue posible iniciar sesión. Intente nuevamente."
         );
 
-        return;
+
+      } finally {
+
+        loginButton.disabled = false;
+
+        loginButton.textContent =
+          "Ingresar";
+
       }
 
-      await cargarCuentaFamiliar();
-
-    } catch (error) {
-
-      console.error(error);
-
-      mostrarMensaje(
-        "No fue posible iniciar sesión. Intente nuevamente."
-      );
-
-    } finally {
-
-      loginButton.disabled = false;
-      loginButton.textContent = "Ingresar";
     }
-
-  });
+  );
 
 
   // ==========================================================
@@ -477,12 +598,18 @@
 
     const {
       data: { user }
-    } = await db.auth.getUser();
+    } =
+      await db.auth.getUser();
+
 
     if (!user) {
+
       mostrarLogin();
+
       return;
+
     }
+
 
     const { data, error } =
       await db
@@ -494,12 +621,19 @@
           activo,
           must_change_password
         `)
-        .eq("auth_user_id", user.id)
+        .eq(
+          "auth_user_id",
+          user.id
+        )
         .maybeSingle();
+
 
     if (error || !data) {
 
-      console.error(error);
+      console.error(
+        "Error cargando familiar:",
+        error
+      );
 
       await db.auth.signOut();
 
@@ -510,7 +644,9 @@
       );
 
       return;
+
     }
+
 
     if (!data.activo) {
 
@@ -523,25 +659,45 @@
       );
 
       return;
+
     }
 
-    familyName.textContent = data.nombres;
+
+    familyName.textContent =
+      data.nombres;
+
+
     familyDocument.textContent =
       `Documento: ${data.documento}`;
 
-    loginView.classList.add("hidden");
-    userView.classList.remove("hidden");
+
+    loginView.classList.add(
+      "hidden"
+    );
+
+    userView.classList.remove(
+      "hidden"
+    );
+
 
     if (data.must_change_password) {
 
-      passwordChangeNotice.classList.remove("hidden");
-      appReady.classList.add("hidden");
+      passwordChangeNotice
+        .classList.remove("hidden");
+
+      appReady
+        .classList.add("hidden");
 
     } else {
 
-      passwordChangeNotice.classList.add("hidden");
-      appReady.classList.remove("hidden");
+      passwordChangeNotice
+        .classList.add("hidden");
+
+      appReady
+        .classList.remove("hidden");
+
     }
+
   }
 
 
@@ -549,19 +705,30 @@
   // CERRAR SESIÓN
   // ==========================================================
 
-  logoutButton.addEventListener("click", async () => {
+  logoutButton.addEventListener(
+    "click",
+    async () => {
 
-    await db.auth.signOut();
-    mostrarLogin();
-  });
+      await db.auth.signOut();
+
+      mostrarLogin();
+
+    }
+  );
 
 
   function mostrarLogin() {
 
-    userView.classList.add("hidden");
-    loginView.classList.remove("hidden");
+    userView.classList.add(
+      "hidden"
+    );
+
+    loginView.classList.remove(
+      "hidden"
+    );
 
     passwordInput.value = "";
+
   }
 
 
@@ -573,12 +740,18 @@
 
     const {
       data: { session }
-    } = await db.auth.getSession();
+    } =
+      await db.auth.getSession();
+
 
     if (session) {
+
       await cargarCuentaFamiliar();
+
     }
+
   }
+
 
   iniciar();
 
