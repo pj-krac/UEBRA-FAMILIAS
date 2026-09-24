@@ -1714,8 +1714,12 @@ async function activatePush(){
   if(!currentFamily)return;
   button.disabled=true;status.textContent="Preparando notificaciones…";
   try{
+    const before=Notification.permission;
     const permission=await Notification.requestPermission();
-    if(permission!=="granted"){status.textContent="El permiso de notificaciones no fue concedido.";return}
+    if(permission!=="granted"){
+      status.textContent=`DIAGNÓSTICO PUSH — antes: ${before} · después: ${permission} · HTTPS: ${window.isSecureContext ? "sí" : "no"} · Service Worker: ${"serviceWorker" in navigator ? "sí" : "no"} · PushManager: ${"PushManager" in window ? "sí" : "no"}.`;
+      return;
+    }
     const registration=await navigator.serviceWorker.register("./sw.js");
     await navigator.serviceWorker.ready;
     let subscription=await registration.pushManager.getSubscription();
