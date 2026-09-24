@@ -1,1693 +1,354 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123f73">
-
-<title>UEBRA Familias</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh;
-  background:linear-gradient(135deg,#0c315d 0%,#174f88 55%,#2c73aa 100%);
-  color:#1e293b;
-}
-
-.page{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-}
-
-.card{
-  width:100%;
-  max-width:620px;
-  background:#fff;
-  border-radius:24px;
-  padding:32px;
-  box-shadow:0 22px 60px rgba(0,0,0,.22);
-}
-
-.hidden{display:none!important;}
-
-.brand{text-align:center;margin-bottom:26px;}
-
-.institution-logo{
-  display:block;
-  width:150px;
-  height:auto;
-  max-height:150px;
-  object-fit:contain;
-  margin:0 auto 10px;
-}
-
-h1,h2,h3{color:#123f73;}
-
-h1{font-size:27px;margin-bottom:5px;}
-
-.subtitle{
-  color:#64748b;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.field{margin-bottom:17px;}
-
-label{
-  display:block;
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:7px;
-}
-
-input{
-  width:100%;
-  padding:14px 15px;
-  border:1px solid #cbd5e1;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
-}
-
-input:focus{
-  border-color:#2563eb;
-  box-shadow:0 0 0 3px rgba(37,99,235,.12);
-}
-
-button{
-  border:0;
-  border-radius:12px;
-  padding:14px;
-  font-size:15px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.full{width:100%;}
-
-.primary{
-  background:#123f73;
-  color:white;
-}
-
-.primary:hover{background:#0c315d;}
-
-.primary:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
-
-.secondary{
-  width:100%;
-  background:#e8eef6;
-  color:#123f73;
-  margin-top:18px;
-}
-
-.message{
-  display:none;
-  margin-top:15px;
-  padding:12px 14px;
-  border-radius:10px;
-  font-size:14px;
-  line-height:1.45;
-}
-
-.message.error{
-  display:block;
-  background:#fee2e2;
-  color:#991b1b;
-}
-
-.message.ok{
-  display:block;
-  background:#dcfce7;
-  color:#166534;
-}
-
-.security-note{
-  margin-top:22px;
-  padding-top:18px;
-  border-top:1px solid #e2e8f0;
-  text-align:center;
-  color:#64748b;
-  font-size:12px;
-  line-height:1.5;
-}
-
-.family-header{
-  text-align:center;
-  margin-bottom:22px;
-}
-
-.family-name{
-  font-size:18px;
-  font-weight:700;
-  color:#0f172a;
-  margin-top:10px;
-}
-
-.family-document{
-  color:#64748b;
-  font-size:14px;
-  margin-top:4px;
-}
-
-.password-panel{
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  border-radius:14px;
-  padding:20px;
-  margin-top:20px;
-}
-
-.password-panel h3{
-  color:#9a3412;
-  margin-bottom:8px;
-}
-
-.password-panel .intro{
-  color:#9a3412;
-  font-size:14px;
-  line-height:1.5;
-  margin-bottom:18px;
-}
-
-.password-help{
-  color:#64748b;
-  font-size:12px;
-  margin:-6px 0 15px;
-  line-height:1.5;
-}
-
-.section-title{
-  margin:20px 0 12px;
-  font-size:19px;
-}
-
-.student-list{
-  display:grid;
-  gap:12px;
-}
-
-.student-card{
-  width:100%;
-  border:1px solid #dbe4ef;
-  border-radius:15px;
-  padding:16px;
-  background:#f8fafc;
-  text-align:left;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  transition:.18s;
-}
-
-.student-card:hover{
-  border-color:#7ba7d2;
-  transform:translateY(-1px);
-  box-shadow:0 5px 14px rgba(15,63,115,.09);
-}
-
-.student-icon{
-  min-width:48px;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:#e3edf8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-
-.student-info{flex:1;}
-
-.student-name{
-  font-weight:700;
-  color:#0f172a;
-  line-height:1.35;
-}
-
-.student-meta{
-  color:#64748b;
-  font-size:13px;
-  margin-top:5px;
-}
-
-.student-arrow{
-  color:#123f73;
-  font-size:23px;
-}
-
-.empty-state{
-  background:#f8fafc;
-  border:1px dashed #cbd5e1;
-  border-radius:14px;
-  padding:20px;
-  text-align:center;
-  color:#64748b;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.back-button{
-  background:transparent;
-  color:#123f73;
-  padding:7px 0;
-  margin-bottom:16px;
-}
-
-.student-header{
-  text-align:center;
-  border-bottom:1px solid #e2e8f0;
-  padding-bottom:20px;
-}
-
-.student-header h2{
-  font-size:21px;
-  line-height:1.35;
-}
-
-.course-line{
-  color:#64748b;
-  margin-top:7px;
-  font-size:14px;
-}
-
-.tabs{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:7px;
-  margin:20px 0;
-  background:#f1f5f9;
-  padding:6px;
-  border-radius:13px;
-}
-
-.tab{
-  background:transparent;
-  color:#64748b;
-  padding:10px 5px;
-  font-size:13px;
-}
-
-.tab.active{
-  background:#123f73;
-  color:#fff;
-}
-
-.summary{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.stat{
-  border-radius:14px;
-  padding:15px 7px;
-  text-align:center;
-  border:1px solid #e2e8f0;
-  background:#f8fafc;
-}
-
-.stat-number{
-  display:block;
-  font-size:25px;
-  font-weight:800;
-  margin-bottom:4px;
-  color:#123f73;
-}
-
-.stat-label{
-  font-size:12px;
-  color:#64748b;
-}
-
-.history-title{
-  margin:18px 0 10px;
-  font-size:17px;
-}
-
-.history{
-  display:grid;
-  gap:10px;
-}
-
-.history-item{
-  border:1px solid #e2e8f0;
-  border-radius:13px;
-  padding:14px;
-}
-
-.history-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
-}
-
-.history-subject{
-  font-weight:700;
-  color:#0f172a;
-  font-size:14px;
-}
-
-.history-date{
-  color:#64748b;
-  font-size:12px;
-  margin-top:5px;
-}
-
-.status{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-.status-p{
-  background:#dcfce7;
-  color:#166534;
-}
-
-.status-f{
-  background:#fee2e2;
-  color:#991b1b;
-}
-
-.status-a{
-  background:#fef3c7;
-  color:#92400e;
-}
-
-.observation{
-  margin-top:9px;
-  padding-top:9px;
-  border-top:1px solid #eef2f7;
-  font-size:13px;
-  color:#475569;
-  line-height:1.4;
-}
-
-.notice-card{
-  border:1px solid #e2e8f0;
-  border-radius:13px;
-  padding:15px;
-  margin-bottom:10px;
-}
-
-.notice-type{
-  display:inline-block;
-  background:#e3edf8;
-  color:#123f73;
-  border-radius:20px;
-  padding:5px 9px;
-  font-size:11px;
-  font-weight:700;
-  margin-bottom:8px;
-}
-
-.notice-title{
-  font-weight:700;
-  color:#0f172a;
-  line-height:1.4;
-}
-
-.notice-text{
-  color:#475569;
-  font-size:13px;
-  line-height:1.45;
-  margin-top:7px;
-}
-
-.notice-date{
-  color:#94a3b8;
-  font-size:12px;
-  margin-top:8px;
-}
-
-.loading{
-  text-align:center;
-  color:#64748b;
-  padding:25px 10px;
-}
-
-@media(max-width:520px){
-  .page{
-    padding:12px;
-    align-items:flex-start;
-  }
-
-  .card{
-    padding:23px 18px;
-    border-radius:20px;
-    margin-top:10px;
-  }
-
-  .institution-logo{
-    width:130px;
-  }
-
-  .tabs{
-    gap:4px;
-  }
-
-  .tab{
-    font-size:12px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="page">
-<main class="card">
-
-<!-- LOGIN -->
-<section id="loginView">
-
-  <div class="brand">
-    <img src="NEW%20LOGO.png"
-         alt="Escudo UEBRA"
-         class="institution-logo">
-
-    <h1>UEBRA Familias</h1>
-
-    <p class="subtitle">
-      Unidad Educativa Benjamín Ramírez Arteaga
-    </p>
-  </div>
-
-  <form id="loginForm">
-
-    <div class="field">
-      <label for="documento">
-        Documento del representante
-      </label>
-
-      <input id="documento"
-             type="text"
-             autocomplete="username"
-             placeholder="Ej.: 0105079396"
-             required>
-    </div>
-
-    <div class="field">
-      <label for="password">Contraseña</label>
-
-      <input id="password"
-             type="password"
-             autocomplete="current-password"
-             placeholder="Ingrese su contraseña"
-             required>
-    </div>
-
-    <button id="loginButton"
-            class="primary full"
-            type="submit">
-      Ingresar
-    </button>
-
-    <div id="loginMessage" class="message"></div>
-  </form>
-
-  <div class="security-note">
-    Acceso exclusivo para representantes autorizados.<br>
-    La información estudiantil es de carácter confidencial.
-  </div>
-
-</section>
-
-
-<!-- CUENTA FAMILIAR -->
-<section id="familyView" class="hidden">
-
-  <div class="family-header">
-
-    <img src="NEW%20LOGO.png"
-         alt="Escudo UEBRA"
-         class="institution-logo">
-
-    <h2>UEBRA Familias</h2>
-
-    <div id="familyName" class="family-name"></div>
-    <div id="familyDocument" class="family-document"></div>
-
-  </div>
-
-
-  <!-- PRIMER INGRESO -->
-  <div id="passwordChangePanel"
-       class="password-panel hidden">
-
-    <h3>Primer ingreso</h3>
-
-    <p class="intro">
-      Su contraseña actual es temporal.
-      Antes de consultar información estudiantil
-      debe crear una nueva contraseña.
-    </p>
-
-    <form id="changePasswordForm">
-
-      <div class="field">
-        <label>Nueva contraseña</label>
-
-        <input id="newPassword"
-               type="password"
-               minlength="8"
-               autocomplete="new-password"
-               required>
-      </div>
-
-      <div class="field">
-        <label>Confirmar nueva contraseña</label>
-
-        <input id="confirmPassword"
-               type="password"
-               minlength="8"
-               autocomplete="new-password"
-               required>
-      </div>
-
-      <p class="password-help">
-        Utilice al menos 8 caracteres y no use su
-        documento como contraseña.
-      </p>
-
-      <button id="changePasswordButton"
-              class="primary full"
-              type="submit">
-        Guardar nueva contraseña
-      </button>
-
-      <div id="passwordMessage" class="message"></div>
-
-    </form>
-
-  </div>
-
-
-  <!-- REPRESENTADOS -->
-  <div id="representativesView" class="hidden">
-
-    <h3 class="section-title">
-      Mis representados
-    </h3>
-
-    <div id="studentList" class="student-list"></div>
-
-  </div>
-
-
-  <!-- PANEL ESTUDIANTE -->
-  <div id="studentView" class="hidden">
-
-    <button id="backButton"
-            class="back-button"
-            type="button">
-      ← Mis representados
-    </button>
-
-    <div class="student-header">
-
-      <h2 id="selectedStudentName"></h2>
-
-      <div id="selectedStudentCourse"
-           class="course-line">
-      </div>
-
-    </div>
-
-
-    <div class="tabs">
-
-      <button class="tab active"
-              data-tab="attendance"
-              type="button">
-        Asistencia
-      </button>
-
-      <button class="tab"
-              data-tab="notices"
-              type="button">
-        Novedades
-      </button>
-
-      <button class="tab"
-              data-tab="notifications"
-              type="button">
-        Notificaciones
-      </button>
-
-    </div>
-
-
-    <!-- ASISTENCIA -->
-    <div id="attendanceTab">
-
-      <div class="summary">
-
-        <div class="stat">
-          <span id="countP" class="stat-number">0</span>
-          <span class="stat-label">Presentes</span>
-        </div>
-
-        <div class="stat">
-          <span id="countF" class="stat-number">0</span>
-          <span class="stat-label">Faltas</span>
-        </div>
-
-        <div class="stat">
-          <span id="countA" class="stat-number">0</span>
-          <span class="stat-label">Atrasos</span>
-        </div>
-
-      </div>
-
-      <h3 class="history-title">
-        Historial de asistencia
-      </h3>
-
-      <div id="attendanceHistory"></div>
-
-    </div>
-
-
-    <!-- NOVEDADES -->
-    <div id="noticesTab" class="hidden">
-
-      <h3 class="history-title">
-        Novedades del estudiante
-      </h3>
-
-      <div id="noticesList"></div>
-
-    </div>
-
-
-    <!-- NOTIFICACIONES -->
-    <div id="notificationsTab" class="hidden">
-
-      <h3 class="history-title">
-        Notificaciones
-      </h3>
-
-      <div id="notificationsList"></div>
-
-    </div>
-
-  </div>
-
-
-  <button id="logoutButton"
-          class="secondary"
-          type="button">
-    Cerrar sesión
-  </button>
-
-</section>
-
-</main>
-</div>
-
-
-<script>
-
-const SUPABASE_URL =
-"https://ohfxllcapjrjogpeofwa.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_qLsRH4XC-MhfEisjCmtc1g_3a_Sty34";
-
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-
-
-let currentFamily = null;
-let currentStudent = null;
-
-
-const loginView =
-document.getElementById("loginView");
-
-const familyView =
-document.getElementById("familyView");
-
-const representativesView =
-document.getElementById("representativesView");
-
-const studentView =
-document.getElementById("studentView");
-
-const passwordChangePanel =
-document.getElementById("passwordChangePanel");
-
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-
-function internalEmail(documento){
-
-  const safe =
-    String(documento)
-    .trim()
-    .replace(/[^A-Za-z0-9]/g,"")
-    .toLowerCase();
-
-  return `familia.${safe}@familias.uebra.local`;
-}
-
-
-function showMessage(element,text,type="error"){
-
-  element.textContent=text;
-  element.className=`message ${type}`;
-}
-
-
-function clearMessage(element){
-
-  element.textContent="";
-  element.className="message";
-}
-
-
-function formatDate(date){
-
-  if(!date) return "";
-
-  const parts=date.split("-");
-
-  if(parts.length!==3) return date;
-
-  return `${parts[2]}/${parts[1]}/${parts[0]}`;
-}
-
-
-// LOGIN
-
-document.getElementById("loginForm")
-.addEventListener("submit",async e=>{
-
-  e.preventDefault();
-
-  const documento =
-  document.getElementById("documento").value.trim();
-
-  const password =
-  document.getElementById("password").value;
-
-  const message =
-  document.getElementById("loginMessage");
-
-  const button =
-  document.getElementById("loginButton");
-
-  clearMessage(message);
-
-  button.disabled=true;
-  button.textContent="Ingresando...";
-
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>UEBRA Asistencia V2</title><meta name="theme-color" content="#173f6b"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><style>
+:root{font-family:Arial,sans-serif;color:#172033;background:#f4f6f9}*{box-sizing:border-box}body{margin:0}.hide{display:none!important}header{background:#173f6b;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20}header img{width:54px;height:54px;object-fit:contain;background:#fff;border-radius:12px;padding:3px}header h1{font-size:20px;margin:0}header p{margin:3px 0 0;opacity:.8;font-size:13px}.sync{margin-left:auto;font-size:12px;background:#fff2;padding:8px;border-radius:99px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;position:sticky;top:82px;z-index:19;border-bottom:1px solid #ddd}.tab{padding:13px;border:0;background:#fff}.tab.active{font-weight:700;border-bottom:3px solid #173f6b}.wrap{max-width:900px;margin:auto;padding:12px}.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px #0001}.login{max-width:420px;margin:8vh auto}.login img{display:block;width:160px;max-height:160px;object-fit:contain;margin:0 auto 12px}.login h2{text-align:center}.field{display:grid;gap:5px;margin:10px 0}.field input,.field select{padding:12px;border:1px solid #ccd5df;border-radius:10px;font-size:16px}button{font:inherit;border:1px solid #c9d2df;background:#fff;border-radius:10px;padding:11px 13px}.primary{background:#173f6b;color:#fff;border-color:#173f6b}.wide{width:100%}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grow{flex:1}.classnow{border-left:5px solid #173f6b}.classnow h2{margin:0 0 6px}.muted{color:#667085;font-size:13px}.student{background:#fff;border-radius:14px;padding:13px;margin:9px 0}.student b{display:block;font-size:16px;margin-bottom:9px}.status{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.status button{min-height:48px;font-size:17px;font-weight:700}.status button.sel{background:#173f6b;color:#fff}.obs{width:100%;padding:10px;margin-top:8px;border:1px solid #d4d9e1;border-radius:9px}.toolbar{position:sticky;bottom:0;background:#f4f6f9ee;padding:8px 0}.admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.pill{padding:5px 8px;border-radius:99px;background:#eef3f8;font-size:12px}.danger{color:#a00000}.notice{padding:10px;border-radius:10px;background:#fff4d6;margin:10px 0}.ok{background:#e8f7ed}.listitem{padding:10px 0;border-bottom:1px solid #eee}.listitem:last-child{border:0}.attbadge{display:inline-block;margin-top:6px;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}.attbadge.pending{background:#fff4d6;color:#7a5200}.attbadge.done{background:#e8f7ed;color:#176b36}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#173f6b;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:0 8px 28px #0003;z-index:9999;opacity:0;pointer-events:none;transition:.22s;max-width:calc(100% - 28px);text-align:center;font-weight:700}.toast.show{opacity:1;transform:translate(-50%,0)}.toast.error{background:#9f1c1c}.report-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.report-filters label{display:grid;gap:5px;font-size:12px;color:#667085}.report-filters input,.report-filters select{padding:10px;border:1px solid #ccd5df;border-radius:9px;background:#fff;min-width:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.stat{background:#f7f9fc;border:1px solid #e3e8ef;border-radius:12px;padding:10px;text-align:center}.stat b{display:block;font-size:22px}.report-table{width:100%;border-collapse:collapse;font-size:13px}.report-table th,.report-table td{padding:8px;border-bottom:1px solid #e7eaf0;text-align:left;vertical-align:top}.tablewrap{overflow:auto}.tiny{font-size:11px}.statusP,.statusF,.statusA,.statusJ{display:inline-block;min-width:28px;text-align:center;padding:3px 6px;border-radius:999px;font-weight:700}.statusP{background:#e8f7ed}.statusF{background:#fdeaea}.statusA{background:#fff4d6}.statusJ{background:#e8eefc}@media(max-width:620px){.report-filters{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}button:disabled{opacity:.55;cursor:not-allowed}@media(min-width:700px){.admin-grid{grid-template-columns:repeat(4,1fr)}header{border-radius:0 0 16px 16px}.tabs{top:82px}}
+</style></head><body>
+<div id="login" class="wrap"><div class="card login"><img src="./logo-uebra.png"><h2>UEBRA · ASISTENCIA</h2><p class="muted" style="text-align:center">Año lectivo 2026–2027 · Sistema sincronizado</p><div id="cfgwarn" class="notice hide">Falta conectar Supabase. Revisa <b>config.js</b>.</div><label class="field">Correo institucional<input id="email" type="email" autocomplete="username"></label><label class="field">Contraseña<input id="password" type="password" autocomplete="current-password"></label><button id="signin" class="primary wide">Iniciar sesión</button><p id="loginmsg" class="muted"></p></div></div>
+<div id="app" class="hide"><header><img src="./logo-uebra.png"><div><h1>UEBRA · ASISTENCIA</h1><p id="who">Cargando usuario…</p></div><span id="sync" class="sync">● conectado</span></header><div class="tabs"><button class="tab active" data-tab="hoy">Hoy</button><button class="tab" data-tab="historial">Historial</button><button class="tab" data-tab="novedades">Novedades</button><button id="adminTab" class="tab hide" data-tab="admin">Administrar</button></div><main class="wrap">
+<section id="hoy"><div id="todayclasses"></div><div id="attendance" class="hide"><div class="card classnow"><div class="row"><div class="grow"><h2 id="classTitle"></h2><div id="classMeta" class="muted"></div></div><button id="backClasses">← Clases</button></div></div><div class="row"><button id="allP">Marcar todos P</button><span id="summary" class="grow muted"></span></div><div id="students"></div><div class="toolbar"><button id="saveAtt" class="primary wide">Guardar y sincronizar asistencia</button></div></div></section>
+<section id="historial" class="hide"><div class="card"><h2>Historial</h2><p class="muted">Últimos registros realizados con tu usuario.</p><div id="historyList"></div></div></section>
+<section id="novedades" class="hide"><div id="noticesBody"></div></section>
+<section id="admin" class="hide"><div class="card"><h2>Panel administrador</h2><div class="admin-grid"><button data-admin="students">👨‍🎓 Estudiantes</button><button data-admin="teachers">👨‍🏫 Docentes</button><button data-admin="schedules">🗓 Horarios</button><button data-admin="reports">📊 Reportes</button><button data-admin="attendance">📝 Registrar asistencia</button></div></div><div id="adminBody"></div></section>
+</main></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];let sb=null,profile=null,teacher=null,currentSchedule=null,currentStudents=[],currentSession=null;
+const cfg=window.UEBRA_CONFIG||{};const configured=cfg.SUPABASE_URL&&!cfg.SUPABASE_URL.includes('PEGA_AQUI')&&cfg.SUPABASE_ANON_KEY&&!cfg.SUPABASE_ANON_KEY.includes('PEGA_AQUI');if(!configured)$('#cfgwarn').classList.remove('hide');else sb=supabase.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_ANON_KEY);
+$('#signin').onclick=async()=>{if(!sb)return;$('#loginmsg').textContent='Ingresando…';let {data,error}=await sb.auth.signInWithPassword({email:$('#email').value.trim(),password:$('#password').value});if(error){$('#loginmsg').textContent=error.message;return}await boot(data.user)};
+async function boot(user){let {data:p,error}=await sb.from('profiles').select('*').eq('id',user.id).single();if(error||!p){$('#loginmsg').textContent='Tu usuario existe, pero falta crear su perfil ADMIN/DOCENTE.';return}profile=p;let {data:t}=await sb.from('teachers').select('*').eq('profile_id',user.id).maybeSingle();teacher=t;$('#who').textContent=p.nombre+' · '+p.rol;$('#login').classList.add('hide');$('#app').classList.remove('hide');if(p.rol==='ADMIN')$('#adminTab').classList.remove('hide');await updateQueueIndicator();await retryOfflineQueue(false);await loadToday();await loadHistory();}
+function ecuadorParts(){
+ const p=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Guayaquil',year:'numeric',month:'2-digit',day:'2-digit',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+ return Object.fromEntries(p.map(x=>[x.type,x.value]));
+}
+function ecuadorDate(){let p=ecuadorParts();return `${p.year}-${p.month}-${p.day}`}
+function dayNo(){let w=ecuadorParts().weekday;return ({Mon:1,Tue:2,Wed:3,Thu:4,Fri:5})[w]||null}
+function hm(){let p=ecuadorParts();return `${p.hour}:${p.minute}`}
+async function loadToday(){let box=$('#todayclasses');box.classList.remove('hide');box.innerHTML='';$('#attendance').classList.add('hide');currentSchedule=null;currentSession=null;if(!teacher){box.innerHTML='<div class="card"><b>Modo administrador</b><p class="muted">Tu cuenta no está vinculada a un docente. Usa Administrar para gestionar la institución.</p></div>';return}let d=dayNo();if(!d){box.innerHTML='<div class="card">No hay clases programadas para hoy.</div>';return}let {data,error}=await sb.from('schedules').select('*,courses(*)').eq('teacher_id',teacher.id).eq('dia',d).eq('activo',true).order('periodo');if(error){box.innerHTML='<div class="notice">'+esc(error.message)+'</div>';return}if(!data.length){box.innerHTML='<div class="card">No hay horario cargado para hoy.</div>';return}let date=ecuadorDate();let {data:sessions,error:se}=await sb.from('attendance_sessions').select('id,course_id,periodo,asignatura').eq('teacher_id',teacher.id).eq('fecha',date);if(se)sessions=[];let done=new Map((sessions||[]).map(x=>[`${x.course_id}|${x.periodo}|${x.asignatura}`,x.id]));box.innerHTML='<div class="card"><h2>Mis clases de hoy</h2>'+data.map(s=>{let sid=done.get(`${s.course_id}|${s.periodo}|${s.asignatura}`);return `<div class="listitem row"><div class="grow"><b>${s.inicio.slice(0,5)} · ${esc(s.courses.nombre)}</b><div class="muted">${esc(s.asignatura)} · ${esc(s.courses.jornada)} · ${s.inicio.slice(0,5)}–${s.fin.slice(0,5)}</div><span class="attbadge ${sid?'done':'pending'}">${sid?'✓ Registrada':'Pendiente'}</span></div><button data-s="${s.id}" data-session="${sid||''}">${sid?'Revisar / editar':'Pasar asistencia'}</button></div>`}).join('')+'</div>';$$('[data-s]').forEach(b=>b.onclick=()=>openSchedule(data.find(x=>x.id===b.dataset.s),b.dataset.session||null))}
+async function openSchedule(s,sessionId=null){currentSchedule=s;currentSession=null;$('#todayclasses').classList.add('hide');$('#attendance').classList.remove('hide');$('#classTitle').textContent=s.courses.nombre+' · '+s.asignatura;$('#classMeta').textContent=s.courses.jornada+' · '+s.inicio.slice(0,5)+'–'+s.fin.slice(0,5);let {data,error}=await sb.from('students').select('*').eq('course_id',s.course_id).eq('estado','ACTIVO').order('nombre');if(error){toast(error.message,true);return}currentStudents=data||[];$('#students').innerHTML=currentStudents.map((st,i)=>`<div class="student" data-id="${st.id}"><span class="muted">${i+1} · ${esc(st.cedula||'')}</span><b>${esc(st.nombre)}</b><div class="status">${['P','F','A','J'].map(x=>`<button data-st="${x}">${x}</button>`).join('')}</div><input class="obs" placeholder="Observación"></div>`).join('');$$('.status button').forEach(b=>b.onclick=()=>{b.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sum()});if(sessionId){let {data:sess,error:e1}=await sb.from('attendance_sessions').select('*').eq('id',sessionId).single();if(e1){toast('No se pudo recuperar la asistencia guardada: '+e1.message,true);sum();return}currentSession=sess;let {data:marks,error:e2}=await sb.from('attendance').select('student_id,estado,observacion').eq('session_id',sessionId);if(e2){toast('No se pudo recuperar el detalle de asistencia: '+e2.message,true);sum();return}(marks||[]).forEach(m=>{let r=$(`.student[data-id="${m.student_id}"]`);if(!r)return;let b=r.querySelector(`[data-st="${m.estado}"]`);if(b)b.classList.add('sel');r.querySelector('.obs').value=m.observacion||''});}sum()}
+function sum(){let a=$$('.student .sel').map(x=>x.dataset.st),n=currentStudents.length,c=x=>a.filter(v=>v===x).length;$('#summary').textContent=`${a.length}/${n} · P ${c('P')} · F ${c('F')} · A ${c('A')} · J ${c('J')} · pendientes ${n-a.length}`}
+$('#allP').onclick=()=>{$$('.student .status').forEach(d=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));d.querySelector('[data-st=P]').classList.add('sel')});sum()};$('#backClasses').onclick=async()=>{await loadToday()};
+$('#saveAtt').onclick=async()=>{let rows=$$('.student');let miss=rows.filter(r=>!r.querySelector('.sel'));if(miss.length){toast(`Faltan ${miss.length} estudiantes por marcar.`,true);miss[0].scrollIntoView({behavior:'smooth',block:'center'});return}let btn=$('#saveAtt');btn.disabled=true;btn.textContent='Guardando…';let date=ecuadorDate();let {data:sess,error}=await sb.from('attendance_sessions').upsert({course_id:currentSchedule.course_id,teacher_id:teacher.id,fecha:date,periodo:currentSchedule.periodo,asignatura:currentSchedule.asignatura,created_by:profile.id},{onConflict:'course_id,fecha,periodo,asignatura'}).select().single();if(error){btn.disabled=false;btn.textContent='Guardar y sincronizar asistencia';return queueOffline(rows,date,error)}currentSession=sess;let payload=rows.map(r=>({session_id:sess.id,student_id:r.dataset.id,estado:r.querySelector('.sel').dataset.st,observacion:r.querySelector('.obs').value.trim()}));let res=await sb.from('attendance').upsert(payload,{onConflict:'session_id,student_id'});btn.disabled=false;btn.textContent='Guardar y sincronizar asistencia';if(res.error)return queueOffline(rows,date,res.error);$('#sync').textContent='● conectado';toast('✓ Asistencia guardada y sincronizada');await loadHistory();await loadToday()}
+function getOfflineQueue(){try{return JSON.parse(localStorage.getItem('uebra_queue')||'[]')||[]}catch(e){return []}}
+function setOfflineQueue(q){localStorage.setItem('uebra_queue',JSON.stringify(q));updateQueueIndicator()}
+async function updateQueueIndicator(){let n=getOfflineQueue().length;if(!$('#sync'))return;$('#sync').textContent=n?`● ${n} pendiente${n===1?'':'s'}`:(navigator.onLine?'● conectado':'● sin conexión');$('#sync').title=n?'Toca para intentar sincronizar los registros pendientes':'Estado de sincronización'}
+function queueOffline(rows,date,error){
+ let q=getOfflineQueue();
+ let item={
+  id:(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random()),
+  saved_at:new Date().toISOString(),
+  schedule:{
+   id:currentSchedule?.id||null,
+   course_id:currentSchedule?.course_id||null,
+   teacher_id:currentSchedule?.teacher_id||teacher?.id||null,
+   periodo:currentSchedule?.periodo||null,
+   asignatura:currentSchedule?.asignatura||'',
+   courses:currentSchedule?.courses?{nombre:currentSchedule.courses.nombre,jornada:currentSchedule.courses.jornada}:null
+  },
+  date,
+  items:rows.map(r=>({student_id:r.dataset.id,estado:r.querySelector('.sel')?.dataset.st,observacion:r.querySelector('.obs').value.trim()}))
+ };
+ let same=q.findIndex(x=>x.date===item.date&&x.schedule?.course_id===item.schedule.course_id&&Number(x.schedule?.periodo)===Number(item.schedule.periodo)&&x.schedule?.asignatura===item.schedule.asignatura);
+ if(same>=0)q[same]=item;else q.push(item);
+ setOfflineQueue(q);
+ toast('No se pudo confirmar la sincronización. La asistencia quedó protegida en este teléfono y se reintentará automáticamente.',true)
+}
+async function retryOfflineQueue(showMessages=true){
+ if(!sb||!navigator.onLine)return false;
+ let q=getOfflineQueue();
+ if(!q.length){updateQueueIndicator();return true}
+ if(showMessages)toast(`Sincronizando ${q.length} registro${q.length===1?'':'s'} pendiente${q.length===1?'':'s'}…`);
+ let remaining=[],ok=0;
+ for(let item of q){
   try{
+   let s=item.schedule||{};
+   if(!s.course_id||!s.teacher_id||!item.date||!s.periodo||!s.asignatura||!Array.isArray(item.items)||!item.items.length){remaining.push(item);continue}
+   let {data:sess,error:e1}=await sb.from('attendance_sessions').upsert({
+    course_id:s.course_id,teacher_id:s.teacher_id,fecha:item.date,periodo:s.periodo,asignatura:s.asignatura,created_by:profile.id
+   },{onConflict:'course_id,fecha,periodo,asignatura'}).select().single();
+   if(e1||!sess){remaining.push(item);continue}
+   let payload=item.items.filter(x=>x.student_id&&x.estado).map(x=>({session_id:sess.id,student_id:x.student_id,estado:x.estado,observacion:x.observacion||''}));
+   if(!payload.length){remaining.push(item);continue}
+   let {error:e2}=await sb.from('attendance').upsert(payload,{onConflict:'session_id,student_id'});
+   if(e2){remaining.push(item);continue}
+   let {count,error:e3}=await sb.from('attendance').select('id',{count:'exact',head:true}).eq('session_id',sess.id);
+   if(e3||Number(count)!==payload.length){remaining.push(item);continue}
+   ok++;
+  }catch(e){remaining.push(item)}
+ }
+ setOfflineQueue(remaining);
+ if(showMessages){
+  if(ok&&remaining.length)toast(`✓ ${ok} recuperado${ok===1?'':'s'}. Aún quedan ${remaining.length} pendiente${remaining.length===1?'':'s'}.`,true);
+  else if(ok)toast(`✓ ${ok} asistencia${ok===1?'':'s'} recuperada${ok===1?'':'s'} y confirmada${ok===1?'':'s'} en Supabase.`);
+  else if(remaining.length)toast(`No se pudieron sincronizar todavía ${remaining.length} registro${remaining.length===1?'':'s'}. Permanecen protegidos en este teléfono.`,true);
+ }
+ if(ok){await loadToday();await loadHistory()}
+ return remaining.length===0
+}
+async function loadHistory(){if(!profile)return;let q=sb.from('attendance_sessions').select('id,fecha,periodo,asignatura,course_id,teacher_id,created_by,created_at,courses(nombre,jornada)').order('fecha',{ascending:false}).order('periodo',{ascending:false}).limit(100);if(profile.rol!=='ADMIN'&&teacher)q=q.eq('teacher_id',teacher.id);else q=q.eq('created_by',profile.id);let {data,error}=await q;if(error){$('#historyList').innerHTML='<div class="notice">'+esc(error.message)+'</div>';return}$('#historyList').innerHTML=`<div class="row" style="margin-bottom:10px"><input id="histDate" type="date" class="obs grow" style="margin:0"><input id="histSearch" class="obs grow" style="margin:0" placeholder="Buscar curso o asignatura"></div><div id="histRows"></div>`;let render=()=>{let date=$('#histDate').value,txt=($('#histSearch').value||'').toUpperCase();let a=(data||[]).filter(x=>(!date||x.fecha===date)&&(!txt||`${x.courses?.nombre||''} ${x.asignatura||''}`.toUpperCase().includes(txt)));$('#histRows').innerHTML=a.map(x=>`<div class="listitem row"><div class="grow"><b>${x.fecha} · ${esc(x.courses?.nombre||'')}</b><div class="muted">${esc(x.asignatura)} · ${esc(x.courses?.jornada||'')} · período ${x.periodo||'-'}</div></div><button data-hdetail="${x.id}">Ver detalle</button></div>`).join('')||'<p class="muted">Sin registros para este filtro.</p>';$$('[data-hdetail]').forEach(b=>b.onclick=()=>showSessionDetail(b.dataset.hdetail,'#histRows'))};$('#histDate').onchange=render;$('#histSearch').oninput=render;render()}
+async function showSessionDetail(sessionId,target='#histRows'){let {data:sess,error:e1}=await sb.from('attendance_sessions').select('*,courses(nombre,jornada),teachers(nombre)').eq('id',sessionId).single();if(e1){toast(e1.message,true);return}let {data:marks,error:e2}=await sb.from('attendance').select('estado,observacion,students(nombre,cedula)').eq('session_id',sessionId);if(e2){toast(e2.message,true);return}let c=x=>(marks||[]).filter(m=>m.estado===x).length;let el=$(target);el.innerHTML=`<button id="closeDetail">← Volver</button><div class="card" style="margin-top:10px"><h3>${esc(sess.courses?.nombre||'')} · ${esc(sess.asignatura)}</h3><div class="muted">${sess.fecha} · ${esc(sess.courses?.jornada||'')} · período ${sess.periodo} · ${esc(sess.teachers?.nombre||'')}</div><div class="stats"><div class="stat"><b>${c('P')}</b>P</div><div class="stat"><b>${c('F')}</b>F</div><div class="stat"><b>${c('A')}</b>A</div><div class="stat"><b>${c('J')}</b>J</div></div><div class="tablewrap"><table class="report-table"><thead><tr><th>Estudiante</th><th>Estado</th><th>Observación</th></tr></thead><tbody>${(marks||[]).sort((a,b)=>(a.students?.nombre||'').localeCompare(b.students?.nombre||'')).map(m=>`<tr><td>${esc(m.students?.nombre||'')}<div class="muted tiny">${esc(m.students?.cedula||'')}</div></td><td><span class="status${m.estado}">${m.estado}</span></td><td>${esc(m.observacion||'')}</td></tr>`).join('')}</tbody></table></div></div>`;$('#closeDetail').onclick=()=>loadHistory()}
+$$('.tab').forEach(b=>b.onclick=()=>{let id=b.dataset.tab;$$('.tab').forEach(x=>x.classList.toggle('active',x===b));['hoy','historial','novedades','admin'].forEach(x=>$('#'+x).classList.toggle('hide',x!==id));if(id==='admin')showStudents();if(id==='novedades')showNotices()});
+$$('[data-admin]').forEach(b=>b.onclick=()=>({students:showStudents,teachers:showTeachers,schedules:showSchedules,reports:showReports,attendance:showAdminAttendance}[b.dataset.admin]||(()=>{}))());
 
-    const {error} =
-    await db.auth.signInWithPassword({
+async function showNotices(){
+ let box=$('#noticesBody');
+ box.innerHTML='<div class="card">Cargando novedades…</div>';
 
-      email:internalEmail(documento),
-      password
-    });
+ let q=sb.from('courses').select('id,nombre,jornada').eq('activo',true).order('jornada').order('nombre');
+ let {data:courses,error}=await q;
+ if(error){box.innerHTML='<div class="notice">'+esc(error.message)+'</div>';return}
 
-    if(error){
+ // Para docentes, mostrar únicamente cursos donde tengan horario.
+ if(profile.rol!=='ADMIN'){
+  if(!teacher){box.innerHTML='<div class="notice">Tu usuario no está vinculado a un docente.</div>';return}
+  let {data:sc,error:se}=await sb.from('schedules').select('course_id').eq('teacher_id',teacher.id).eq('activo',true);
+  if(se){box.innerHTML='<div class="notice">'+esc(se.message)+'</div>';return}
+  let allowed=new Set((sc||[]).map(x=>x.course_id));
+  courses=(courses||[]).filter(x=>allowed.has(x.id));
+ }
 
-      showMessage(
-        message,
-        "Documento o contraseña incorrectos."
-      );
+ const gradeOrder=['INICIAL I','INICIAL II','PRIMERO EGB','SEGUNDO EGB','TERCERO EGB','CUARTO EGB','QUINTO EGB','SEXTO EGB','SÉPTIMO EGB','SEPTIMO EGB','OCTAVO EGB','NOVENO EGB','DÉCIMO EGB','DECIMO EGB','PRIMERO BGU','SEGUNDO BGU','TERCERO BGU'];
+ const rank=n=>{let i=gradeOrder.indexOf(String(n||'').trim().toUpperCase());return i<0?999:i};
+ courses=(courses||[]).sort((a,b)=>a.jornada.localeCompare(b.jornada,'es')||rank(a.nombre)-rank(b.nombre)||a.nombre.localeCompare(b.nombre,'es'));
 
-      return;
-    }
+ box.innerHTML=`<div class="card"><h2>📝 Novedades pedagógicas</h2><p class="muted">Registra una novedad para uno o varios estudiantes. Solo se mostrará a la familia cuando esté activada la opción de notificación.</p>
+ <div class="report-filters">
+  <label>Curso<select id="nCourse"><option value="">Seleccionar…</option>${courses.map(x=>`<option value="${x.id}">${esc(x.jornada)} · ${esc(x.nombre)}</option>`).join('')}</select></label>
+  <label>Asignatura<select id="nSubject"><option value="">Selecciona primero el curso…</option></select></label>
+  <label>Tipo<select id="nType">
+   <option value="ACADEMICA">Académica</option>
+   <option value="CONVIVENCIA">Convivencia</option>
+   <option value="UNIFORME">Uniforme</option>
+   <option value="INFORMACION">Información</option>
+   <option value="FELICITACION">Felicitación</option>
+  </select></label>
+  <label>Motivo<select id="nReason"></select></label>
+  <label>Fecha<input id="nDate" type="date" value="${ecuadorDate()}"></label>
+ </div>
+ <label class="field">Observación opcional<textarea id="nObs" class="obs" rows="3" placeholder="Detalle breve y objetivo de la novedad"></textarea></label>
+ <label class="row" style="margin:12px 0"><input id="nNotify" type="checkbox" checked> <span>Mostrar esta novedad al representante en UEBRA Familias</span></label>
+ <div id="nStudents"></div>
+ </div>`;
 
-    await loadFamily();
-
-  }catch(error){
-
-    console.error(error);
-
-    showMessage(
-      message,
-      "No fue posible iniciar sesión."
-    );
-
-  }finally{
-
-    button.disabled=false;
-    button.textContent="Ingresar";
-  }
-
-});
-
-
-// CARGAR FAMILIAR
-
-async function loadFamily(){
-
-  const {
-    data:{user}
-  }=await db.auth.getUser();
-
-  if(!user){
-    showLogin();
-    return;
-  }
-
-
-  const {data,error}=
-  await db
-  .from("family_members")
-  .select(`
-    id,
-    documento,
-    nombres,
-    activo,
-    must_change_password
-  `)
-  .eq("auth_user_id",user.id)
-  .maybeSingle();
-
-
-  if(error || !data){
-
-    console.error(error);
-
-    await db.auth.signOut();
-
-    showLogin();
-
-    showMessage(
-      document.getElementById("loginMessage"),
-      "La cuenta no está vinculada a un representante autorizado."
-    );
-
-    return;
-  }
-
-
-  currentFamily=data;
-
-  document.getElementById("familyName")
-  .textContent=data.nombres;
-
-  document.getElementById("familyDocument")
-  .textContent=`Documento: ${data.documento}`;
+ const reasons={
+  ACADEMICA:['Incumplimiento de tareas','No trabaja en clase','No presenta actividad','No trae material','Bajo desempeño académico','Otro'],
+  CONVIVENCIA:['Incumplimiento de normas de convivencia','Interrumpe el desarrollo de la clase','Conflicto entre estudiantes','Comportamiento inadecuado','Otro'],
+  UNIFORME:['Uniforme incompleto','No utiliza el uniforme correspondiente','Presentación personal','Otro'],
+  INFORMACION:['Información académica','Información institucional','Seguimiento al estudiante','Otro'],
+  FELICITACION:['Excelente participación','Cumplimiento destacado','Mejora significativa','Actitud positiva','Desempeño destacado','Otro']
+ };
+ function renderReasons(){
+  let arr=reasons[$('#nType').value]||['Otro'];
+  $('#nReason').innerHTML=arr.map(x=>`<option>${esc(x)}</option>`).join('');
+ }
+ renderReasons();
+ $('#nType').onchange=renderReasons;
+ $('#nCourse').onchange=async()=>{await loadNoticeSubjects();await loadNoticeStudents()};
+}
 
 
-  loginView.classList.add("hidden");
-  familyView.classList.remove("hidden");
+async function loadNoticeSubjects(){
+ let cid=$('#nCourse').value,sel=$('#nSubject');
+ if(!cid){sel.innerHTML='<option value="">Selecciona primero el curso…</option>';return}
+ let q=sb.from('schedules').select('asignatura,teacher_id').eq('course_id',cid).eq('activo',true);
+ if(profile.rol!=='ADMIN'&&teacher)q=q.eq('teacher_id',teacher.id);
+ let {data,error}=await q;
+ if(error){sel.innerHTML='<option value="">Error al cargar</option>';toast(error.message,true);return}
+ let subjects=[...new Set((data||[]).map(x=>x.asignatura).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+ sel.innerHTML='<option value="">Seleccionar…</option>'+subjects.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
+ if(subjects.length===1)sel.value=subjects[0];
+ if(!subjects.length)sel.innerHTML='<option value="">Sin asignaturas en horario</option>';
+}
 
+async function loadNoticeStudents(){
+ let cid=$('#nCourse').value,box=$('#nStudents');
+ if(!cid){box.innerHTML='';return}
+ box.innerHTML='<div class="muted">Cargando estudiantes…</div>';
+ let {data,error}=await sb.from('students').select('id,nombre,cedula').eq('course_id',cid).eq('estado','ACTIVO').order('nombre');
+ if(error){box.innerHTML='<div class="notice">'+esc(error.message)+'</div>';return}
+ let students=data||[];
+ box.innerHTML=`<div class="row" style="margin:12px 0"><b class="grow">${students.length} estudiantes</b><button id="nAll">Seleccionar todos</button><button id="nNone">Quitar selección</button></div>
+ <div>${students.map((s,i)=>`<label class="student row" style="cursor:pointer"><input type="checkbox" class="nStudent" value="${s.id}"><span class="grow"><b style="margin:0">${i+1}. ${esc(s.nombre)}</b><span class="muted">${esc(s.cedula||'')}</span></span></label>`).join('')}</div>
+ <div class="toolbar"><button id="nSave" class="primary wide">Guardar novedad para estudiantes seleccionados</button></div>`;
+ $('#nAll').onclick=()=>$$('.nStudent').forEach(x=>x.checked=true);
+ $('#nNone').onclick=()=>$$('.nStudent').forEach(x=>x.checked=false);
+ $('#nSave').onclick=saveNotices;
+}
 
-  if(data.must_change_password){
+async function saveNotices(){
+ let selected=$$('.nStudent:checked');
+ if(!selected.length){toast('Selecciona al menos un estudiante.',true);return}
+ let cid=$('#nCourse').value,subject=$('#nSubject').value,type=$('#nType').value,reason=$('#nReason').value,obs=$('#nObs').value.trim(),date=$('#nDate').value,notify=$('#nNotify').checked;
+ if(!cid||!subject||!type||!reason||!date){toast('Completa curso, asignatura, tipo, motivo y fecha.',true);return}
+ if(!teacher?.id && profile.rol!=='ADMIN'){toast('Tu usuario no está vinculado a un docente.',true);return}
 
-    passwordChangePanel.classList.remove("hidden");
-    representativesView.classList.add("hidden");
-    studentView.classList.add("hidden");
+ // En ADMIN, si existe vínculo docente se usa; de lo contrario teacher_id queda nulo solo si la BD lo permite.
+ let teacherId=teacher?.id||null;
+ let payload=selected.map(x=>({
+  student_id:x.value,
+  teacher_id:teacherId,
+  course_id:cid,
+  asignatura:subject,
+  tipo:type,
+  motivo:reason,
+  observacion:obs||null,
+  fecha:date,
+  notificar_familia:notify,
+  activo:true
+ }));
+ let btn=$('#nSave');btn.disabled=true;btn.textContent='Guardando…';
+ let {error}=await sb.from('student_notices').insert(payload);
+ btn.disabled=false;btn.textContent='Guardar novedad para estudiantes seleccionados';
+ if(error){toast('No se pudo guardar: '+error.message,true);return}
+ toast(`✓ Novedad guardada para ${selected.length} estudiante${selected.length===1?'':'s'}.`);
+ selected.forEach(x=>x.checked=false);
+ $('#nObs').value='';
+}
 
+async function showStudents(){let {data:c}=await sb.from('courses').select('*').eq('activo',true).order('jornada').order('nombre');$('#adminBody').innerHTML=`<div class="card"><h3>Estudiantes</h3><div class="row"><select id="acourse" class="grow">${(c||[]).map(x=>`<option value="${x.id}">${x.jornada} · ${x.nombre}</option>`).join('')}</select><button id="addStudent">+ Agregar</button></div><input id="asearch" class="obs" placeholder="Buscar estudiante"><div id="alist"></div></div>`;$('#acourse').onchange=renderAdminStudents;$('#asearch').oninput=renderAdminStudents;$('#addStudent').onclick=()=>editStudent(null);renderAdminStudents()}
+async function renderAdminStudents(){let cid=$('#acourse')?.value;if(!cid)return;let {data}=await sb.from('students').select('*').eq('course_id',cid).order('nombre');let q=($('#asearch').value||'').toUpperCase();$('#alist').innerHTML=(data||[]).filter(s=>(s.nombre+' '+(s.cedula||'')).toUpperCase().includes(q)).map(s=>`<div class="listitem row"><div class="grow"><b>${esc(s.nombre)}</b><div class="muted">${s.cedula||'Sin cédula'} · ${s.estado}</div></div><button data-edit-st="${s.id}">Editar</button></div>`).join('');$$('[data-edit-st]').forEach(b=>b.onclick=()=>editStudent(b.dataset.editSt))}
+async function editStudent(id){let old=null;if(id){let {data}=await sb.from('students').select('*').eq('id',id).single();old=data}let nombre=prompt('Apellidos y nombres',old?.nombre||'');if(!nombre)return;let ced=prompt('Cédula',old?.cedula||'')??'';let estado=prompt('Estado: ACTIVO, RETIRADO, TRASLADADO, NUNCA ASISTIÓ, NO PERTENECE',old?.estado||'ACTIVO')||'ACTIVO';let obj={nombre:nombre.trim(),cedula:ced.trim()||null,estado:estado.trim().toUpperCase(),course_id:old?.course_id||$('#acourse').value,updated_at:new Date().toISOString()};let res=id?await sb.from('students').update(obj).eq('id',id):await sb.from('students').insert(obj);if(res.error)alert(res.error.message);else renderAdminStudents()}
+async function showTeachers(){let {data}=await sb.from('teachers').select('*').order('nombre');$('#adminBody').innerHTML='<div class="card"><h3>Docentes</h3><p class="muted">Vincula cada docente con su usuario de acceso desde Supabase/SQL.</p>'+ (data||[]).map(x=>`<div class="listitem"><b>${esc(x.nombre)}</b><div class="muted">${x.profile_id?'Usuario vinculado':'Pendiente de vincular'}</div></div>`).join('')+'</div>'}
+async function showSchedules(){let {data}=await sb.from('schedules').select('*,teachers(nombre),courses(nombre,jornada)').order('dia').order('periodo').limit(200);$('#adminBody').innerHTML='<div class="card"><h3>Horarios</h3><p class="muted">La V2 admite la carga centralizada de horarios. El archivo SQL incluye la estructura; las asignaciones se completan después de verificar los PDFs.</p>'+ (data||[]).map(x=>`<div class="listitem"><b>${x.teachers?.nombre||''}</b><div class="muted">Día ${x.dia} · ${x.periodo}.ª · ${x.courses?.nombre||''} · ${x.asignatura}</div></div>`).join('')+'</div>'}
+async function showReports(){let [{data:courses},{data:teachers}]=await Promise.all([sb.from('courses').select('id,nombre,jornada').eq('activo',true).order('jornada').order('nombre'),sb.from('teachers').select('id,nombre').eq('activo',true).order('nombre')]);let today=ecuadorDate();$('#adminBody').innerHTML=`<div class="card"><h3>📊 Reportes institucionales</h3><div class="report-filters"><label>Desde<input id="rFrom" type="date" value="${today}"></label><label>Hasta<input id="rTo" type="date" value="${today}"></label><label>Jornada<select id="rShift"><option value="">Todas</option><option>MATUTINA</option><option>VESPERTINA</option></select></label><label>Curso<select id="rCourse"><option value="">Todos</option>${(courses||[]).map(x=>`<option value="${x.id}">${esc(x.jornada)} · ${esc(x.nombre)}</option>`).join('')}</select></label><label>Docente<select id="rTeacher"><option value="">Todos</option>${(teachers||[]).map(x=>`<option value="${x.id}">${esc(x.nombre)}</option>`).join('')}</select></label><label>Estudiante<input id="rStudent" placeholder="Nombre o cédula"></label></div><div class="row" style="margin-top:10px"><button id="runReport" class="primary">Consultar</button><button id="clearReport">Hoy / limpiar</button></div></div><div id="reportResults"></div>`;$('#runReport').onclick=runInstitutionReport;$('#clearReport').onclick=()=>{['rShift','rCourse','rTeacher','rStudent'].forEach(id=>$('#'+id).value='');$('#rFrom').value=today;$('#rTo').value=today;runInstitutionReport()};await runInstitutionReport()}
+async function runInstitutionReport(){let box=$('#reportResults');box.innerHTML='<div class="card">Consultando…</div>';let from=$('#rFrom').value,to=$('#rTo').value,course=$('#rCourse').value,tid=$('#rTeacher').value,shift=$('#rShift').value,student=($('#rStudent').value||'').trim().toUpperCase();let q=sb.from('attendance_sessions').select('id,fecha,periodo,asignatura,course_id,teacher_id,courses(nombre,jornada),teachers(nombre)').gte('fecha',from).lte('fecha',to).order('fecha',{ascending:false}).order('periodo');if(course)q=q.eq('course_id',course);if(tid)q=q.eq('teacher_id',tid);let {data:sessions,error}=await q;if(error){box.innerHTML='<div class="notice">'+esc(error.message)+'</div>';return}sessions=(sessions||[]).filter(x=>!shift||x.courses?.jornada===shift);let ids=sessions.map(x=>x.id);let marks=[];if(ids.length){let {data,error:e}=await sb.from('attendance').select('session_id,student_id,estado,observacion,students(nombre,cedula)').in('session_id',ids);if(e){box.innerHTML='<div class="notice">'+esc(e.message)+'</div>';return}marks=data||[]}if(student)marks=marks.filter(m=>`${m.students?.nombre||''} ${m.students?.cedula||''}`.toUpperCase().includes(student));let allowed=new Set(marks.map(m=>m.session_id));if(student)sessions=sessions.filter(s=>allowed.has(s.id));let count=x=>marks.filter(m=>m.estado===x).length;box.innerHTML=`<div class="card"><div class="row"><div class="grow"><h3 style="margin:0">Resultado</h3><div class="muted">${sessions.length} registros de clase · ${marks.length} marcas de estudiantes</div></div></div><div class="stats"><div class="stat"><b>${count('P')}</b>Presentes</div><div class="stat"><b>${count('F')}</b>Faltas</div><div class="stat"><b>${count('A')}</b>Atrasos</div><div class="stat"><b>${count('J')}</b>Justificadas</div></div><div class="tablewrap"><table class="report-table"><thead><tr><th>Fecha</th><th>Curso</th><th>Docente</th><th>Asignatura</th><th>P</th><th>F</th><th>A</th><th>J</th><th></th></tr></thead><tbody>${sessions.map(s=>{let sm=marks.filter(m=>m.session_id===s.id),cc=x=>sm.filter(m=>m.estado===x).length;return `<tr><td>${s.fecha}</td><td>${esc(s.courses?.nombre||'')}<div class="muted tiny">${esc(s.courses?.jornada||'')}</div></td><td>${esc(s.teachers?.nombre||'')}</td><td>${esc(s.asignatura)}</td><td>${cc('P')}</td><td>${cc('F')}</td><td>${cc('A')}</td><td>${cc('J')}</td><td><button data-rdetail="${s.id}">Detalle</button></td></tr>`}).join('')}</tbody></table></div></div>`;$$('[data-rdetail]').forEach(b=>b.onclick=()=>showReportSessionDetail(b.dataset.rdetail))}
+async function showReportSessionDetail(id){let box=$('#reportResults');let {data:sess,error:e1}=await sb.from('attendance_sessions').select('*,courses(nombre,jornada),teachers(nombre)').eq('id',id).single();if(e1){toast(e1.message,true);return}let {data:marks,error:e2}=await sb.from('attendance').select('estado,observacion,students(nombre,cedula)').eq('session_id',id);if(e2){toast(e2.message,true);return}let c=x=>(marks||[]).filter(m=>m.estado===x).length;box.innerHTML=`<button id="backReport">← Volver al reporte</button><div class="card" style="margin-top:10px"><h3>${esc(sess.courses?.nombre||'')} · ${esc(sess.asignatura)}</h3><div class="muted">${sess.fecha} · ${esc(sess.courses?.jornada||'')} · período ${sess.periodo} · ${esc(sess.teachers?.nombre||'')}</div><div class="stats"><div class="stat"><b>${c('P')}</b>P</div><div class="stat"><b>${c('F')}</b>F</div><div class="stat"><b>${c('A')}</b>A</div><div class="stat"><b>${c('J')}</b>J</div></div><div class="tablewrap"><table class="report-table"><thead><tr><th>Estudiante</th><th>Estado</th><th>Observación</th></tr></thead><tbody>${(marks||[]).sort((a,b)=>(a.students?.nombre||'').localeCompare(b.students?.nombre||'')).map(m=>`<tr><td>${esc(m.students?.nombre||'')}<div class="muted tiny">${esc(m.students?.cedula||'')}</div></td><td><span class="status${m.estado}">${m.estado}</span></td><td>${esc(m.observacion||'')}</td></tr>`).join('')}</tbody></table></div></div>`;$('#backReport').onclick=runInstitutionReport}
+
+async function showAdminAttendance(){
+ let [{data:courses,error:ce},{data:teachers,error:te}]=await Promise.all([
+  sb.from('courses').select('id,nombre,jornada,activo').eq('activo',true),
+  sb.from('teachers').select('id,nombre,activo').eq('activo',true).order('nombre')
+ ]);
+ if(ce||te){$('#adminBody').innerHTML='<div class="notice">'+esc((ce||te).message)+'</div>';return}
+
+ const gradeOrder=[
+  'INICIAL I','INICIAL II','PRIMERO EGB','SEGUNDO EGB','TERCERO EGB','CUARTO EGB',
+  'QUINTO EGB','SEXTO EGB','SÉPTIMO EGB','SEPTIMO EGB','OCTAVO EGB','NOVENO EGB',
+  'DÉCIMO EGB','DECIMO EGB','PRIMERO BGU','SEGUNDO BGU','TERCERO BGU'
+ ];
+ const norm=s=>String(s||'').trim().toUpperCase();
+ const gradeRank=name=>{let i=gradeOrder.indexOf(norm(name));return i<0?999:i};
+ courses=(courses||[]).sort((a,b)=>{
+  let ja=norm(a.jornada),jb=norm(b.jornada);
+  if(ja!==jb)return ja.localeCompare(jb,'es');
+  let ra=gradeRank(a.nombre),rb=gradeRank(b.nombre);
+  return ra!==rb?ra-rb:norm(a.nombre).localeCompare(norm(b.nombre),'es');
+ });
+ let teacherMap=new Map((teachers||[]).map(t=>[t.id,t]));
+ let shifts=[...new Set(courses.map(x=>x.jornada).filter(Boolean))];
+ let now=new Date(),today=ecuadorDate();
+
+ $('#adminBody').innerHTML=`<div class="card"><h3>📝 Registrar / corregir asistencia</h3><p class="muted">Selecciona jornada y grado. El sistema usará el horario institucional para mostrar únicamente los docentes de ese grado y, al elegir fecha y período, colocará automáticamente el docente y la asignatura.</p><div class="report-filters"><label>Jornada<select id="aaShift"><option value="">Seleccionar…</option>${shifts.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('')}</select></label><label>Grado / curso<select id="aaCourse"><option value="">Seleccionar…</option></select></label><label>Fecha<input id="aaDate" type="date" value="${today}"></label><label>Período / hora<select id="aaPeriod"><option value="">Seleccionar…</option></select></label><label>Docente<select id="aaTeacher"><option value="">Seleccionar grado primero…</option></select></label><label>Asignatura<input id="aaSubject" list="aaSubjects" placeholder="Se completa con el horario"><datalist id="aaSubjects"></datalist></label></div><div id="aaAutoInfo" class="notice hide"></div><div class="row" style="margin-top:12px"><button id="aaLoad" class="primary">Cargar nómina</button><button id="aaClear">Limpiar</button></div></div><div id="aaWork"></div>`;
+
+ const shift=$('#aaShift'),course=$('#aaCourse'),dateEl=$('#aaDate'),periodEl=$('#aaPeriod'),teacherEl=$('#aaTeacher'),subjectEl=$('#aaSubject'),info=$('#aaAutoInfo');
+ let courseSchedules=[];
+
+ function localDay(dateStr){
+  if(!dateStr)return null;
+  let [y,m,d]=dateStr.split('-').map(Number);
+  let day=new Date(y,m-1,d).getDay();
+  return day>=1&&day<=5?day:null;
+ }
+ function renderCourses(){
+  let v=shift.value;
+  let list=courses.filter(x=>!v||x.jornada===v);
+  course.innerHTML='<option value="">Seleccionar…</option>'+list.map(x=>`<option value="${x.id}">${esc(x.nombre)}</option>`).join('');
+  courseSchedules=[];teacherEl.innerHTML='<option value="">Seleccionar grado primero…</option>';
+  periodEl.innerHTML='<option value="">Seleccionar…</option>';
+  subjectEl.value='';$('#aaSubjects').innerHTML='';info.classList.add('hide');$('#aaWork').innerHTML='';
+ }
+ async function loadCourseSchedules(){
+  let cid=course.value;
+  courseSchedules=[];subjectEl.value='';$('#aaSubjects').innerHTML='';info.classList.add('hide');$('#aaWork').innerHTML='';
+  if(!cid){teacherEl.innerHTML='<option value="">Seleccionar grado primero…</option>';periodEl.innerHTML='<option value="">Seleccionar…</option>';return}
+  let {data,error}=await sb.from('schedules').select('id,dia,periodo,inicio,fin,asignatura,teacher_id,activo').eq('course_id',cid).eq('activo',true).order('dia').order('periodo');
+  if(error){toast(error.message,true);return}
+  courseSchedules=data||[];
+  let tids=[...new Set(courseSchedules.map(x=>x.teacher_id).filter(Boolean))];
+  let gradeTeachers=tids.map(id=>teacherMap.get(id)).filter(Boolean).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+  teacherEl.innerHTML='<option value="">Seleccionar…</option>'+gradeTeachers.map(t=>`<option value="${t.id}">${esc(t.nombre)}</option>`).join('');
+  let subs=[...new Set(courseSchedules.map(x=>x.asignatura).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+  $('#aaSubjects').innerHTML=subs.map(x=>`<option value="${esc(x)}"></option>`).join('');
+  await refreshPeriodsAndAuto();
+ }
+ async function refreshPeriodsAndAuto(){
+  let day=localDay(dateEl.value);
+  subjectEl.value='';teacherEl.value='';info.classList.add('hide');
+  let dayRows=day?courseSchedules.filter(x=>Number(x.dia)===day):[];
+  let periods=[...new Map(dayRows.map(x=>[Number(x.periodo),x])).values()].sort((a,b)=>Number(a.periodo)-Number(b.periodo));
+  if(periods.length){
+   periodEl.innerHTML='<option value="">Seleccionar…</option>'+periods.map(x=>`<option value="${x.periodo}">${x.periodo} · ${(x.inicio||'').slice(0,5)}–${(x.fin||'').slice(0,5)}</option>`).join('');
+   if(dateEl.value===today){
+    let hhmm=hm();
+    let current=dayRows.find(x=>(x.inicio||'').slice(0,5)<=hhmm && hhmm<(x.fin||'').slice(0,5));
+    if(current){periodEl.value=String(current.periodo);autoFromSchedule()}
+   }
   }else{
-
-    passwordChangePanel.classList.add("hidden");
-    representativesView.classList.remove("hidden");
-    studentView.classList.add("hidden");
-
-    await loadStudents();
+   periodEl.innerHTML='<option value="">Seleccionar…</option>'+[1,2,3,4,5,6,7,8,9,10].map(x=>`<option value="${x}">${x}</option>`).join('');
+   info.textContent=day?'No existe horario cargado para este grado en la fecha seleccionada. Puedes escoger manualmente docente, período y asignatura.':'La fecha seleccionada no corresponde a lunes–viernes.';
+   info.classList.remove('hide');
   }
-
+ }
+ function autoFromSchedule(){
+  let day=localDay(dateEl.value),period=Number(periodEl.value);
+  if(!day||!period)return;
+  let matches=courseSchedules.filter(x=>Number(x.dia)===day&&Number(x.periodo)===period);
+  if(matches.length===1){
+   let s=matches[0];
+   teacherEl.value=s.teacher_id||'';
+   subjectEl.value=s.asignatura||'';
+   let tn=teacherMap.get(s.teacher_id)?.nombre||'Docente';
+   info.innerHTML=`✓ Horario encontrado: <b>${esc(tn)}</b> · ${esc(s.asignatura||'')} · ${(s.inicio||'').slice(0,5)}–${(s.fin||'').slice(0,5)}`;
+   info.classList.remove('hide');
+  }else if(matches.length>1){
+   let tids=[...new Set(matches.map(x=>x.teacher_id).filter(Boolean))];
+   teacherEl.innerHTML='<option value="">Seleccionar…</option>'+tids.map(id=>teacherMap.get(id)).filter(Boolean).map(t=>`<option value="${t.id}">${esc(t.nombre)}</option>`).join('');
+   let subs=[...new Set(matches.map(x=>x.asignatura).filter(Boolean))];
+   $('#aaSubjects').innerHTML=subs.map(x=>`<option value="${esc(x)}"></option>`).join('');
+   info.textContent='Hay más de una asignación en este período. Selecciona el docente y la asignatura correspondientes.';
+   info.classList.remove('hide');
+  }else{
+   info.textContent='No encontré una asignación de horario para este período. Puedes seleccionar manualmente.';
+   info.classList.remove('hide');
+  }
+ }
+ shift.onchange=renderCourses;
+ course.onchange=loadCourseSchedules;
+ dateEl.onchange=refreshPeriodsAndAuto;
+ periodEl.onchange=autoFromSchedule;
+ $('#aaLoad').onclick=loadAdminAttendance;
+ $('#aaClear').onclick=showAdminAttendance;
+}
+let adminAttendanceSession=null,adminAttendanceStudents=[];
+async function loadAdminAttendance(){
+ let cid=$('#aaCourse').value,tid=$('#aaTeacher').value,date=$('#aaDate').value,period=Number($('#aaPeriod').value),subject=($('#aaSubject').value||'').trim(),work=$('#aaWork');
+ if(!$('#aaShift').value||!cid||!tid||!date||!period||!subject){toast('Completa jornada, curso, docente, fecha, período y asignatura.',true);return}
+ work.innerHTML='<div class="card">Cargando nómina…</div>';
+ let {data:students,error:se}=await sb.from('students').select('id,nombre,cedula,estado').eq('course_id',cid).eq('estado','ACTIVO').order('nombre');
+ if(se){work.innerHTML='<div class="notice">'+esc(se.message)+'</div>';return}
+ adminAttendanceStudents=students||[];
+ let {data:sessions,error:sesse}=await sb.from('attendance_sessions').select('*').eq('course_id',cid).eq('fecha',date).eq('periodo',period).eq('asignatura',subject).limit(1);
+ if(sesse){work.innerHTML='<div class="notice">'+esc(sesse.message)+'</div>';return}
+ adminAttendanceSession=(sessions||[])[0]||null;
+ if(adminAttendanceSession && adminAttendanceSession.teacher_id && adminAttendanceSession.teacher_id!==tid){$('#aaTeacher').value=adminAttendanceSession.teacher_id;tid=adminAttendanceSession.teacher_id;toast('La asistencia ya existía; se conservó el docente registrado.');}
+ let marks=[];
+ if(adminAttendanceSession){let {data,error}=await sb.from('attendance').select('student_id,estado,observacion').eq('session_id',adminAttendanceSession.id);if(error){work.innerHTML='<div class="notice">'+esc(error.message)+'</div>';return}marks=data||[]}
+ let map=new Map(marks.map(x=>[x.student_id,x]));
+ let courseText=$('#aaCourse').selectedOptions[0]?.textContent||'';
+ work.innerHTML=`<div class="card classnow"><div class="row"><div class="grow"><h3 style="margin:0">${esc(courseText)} · ${esc(subject)}</h3><div class="muted">${esc(date)} · período ${period} · ${adminAttendanceSession?'Asistencia existente: puedes corregirla':'Nueva asistencia'}</div></div><span class="attbadge ${adminAttendanceSession?'done':'pending'}">${adminAttendanceSession?'✓ Registrada':'Pendiente'}</span></div></div><div class="row"><button id="aaAllP">Marcar todos P</button><span id="aaSummary" class="grow muted"></span></div><div id="aaStudents">${adminAttendanceStudents.map((st,i)=>{let m=map.get(st.id);return `<div class="student" data-aa-id="${st.id}"><span class="muted">${i+1} · ${esc(st.cedula||'')}</span><b>${esc(st.nombre)}</b><div class="status">${['P','F','A','J'].map(x=>`<button data-aa-st="${x}" class="${m?.estado===x?'sel':''}">${x}</button>`).join('')}</div><input class="obs" placeholder="Observación" value="${esc(m?.observacion||'')}"></div>`}).join('')}</div><div class="toolbar"><button id="aaSave" class="primary wide">${adminAttendanceSession?'Guardar correcciones':'Guardar asistencia'}</button></div>`;
+ $$('[data-aa-st]').forEach(b=>b.onclick=()=>{b.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');adminAttendanceSummary()});
+ $('#aaAllP').onclick=()=>{$$('#aaStudents .status').forEach(d=>{d.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));d.querySelector('[data-aa-st=P]').classList.add('sel')});adminAttendanceSummary()};
+ $('#aaSave').onclick=saveAdminAttendance;
+ adminAttendanceSummary();
+}
+function adminAttendanceSummary(){let a=$$('#aaStudents .sel').map(x=>x.dataset.aaSt),n=adminAttendanceStudents.length,c=x=>a.filter(v=>v===x).length;let el=$('#aaSummary');if(el)el.textContent=`${a.length}/${n} · P ${c('P')} · F ${c('F')} · A ${c('A')} · J ${c('J')} · pendientes ${n-a.length}`}
+async function saveAdminAttendance(){
+ let rows=$$('#aaStudents .student'),miss=rows.filter(r=>!r.querySelector('.sel'));if(miss.length){toast(`Faltan ${miss.length} estudiantes por marcar.`,true);miss[0].scrollIntoView({behavior:'smooth',block:'center'});return}
+ let cid=$('#aaCourse').value,tid=$('#aaTeacher').value,date=$('#aaDate').value,period=Number($('#aaPeriod').value),subject=($('#aaSubject').value||'').trim(),btn=$('#aaSave');btn.disabled=true;btn.textContent='Guardando…';
+ let sess=adminAttendanceSession;
+ if(!sess){let {data,error}=await sb.from('attendance_sessions').upsert({course_id:cid,teacher_id:tid,fecha:date,periodo:period,asignatura:subject,created_by:profile.id},{onConflict:'course_id,fecha,periodo,asignatura'}).select().single();if(error){btn.disabled=false;btn.textContent='Guardar asistencia';toast(error.message,true);return}sess=data;adminAttendanceSession=sess}
+ let payload=rows.map(r=>({session_id:sess.id,student_id:r.dataset.aaId,estado:r.querySelector('.sel').dataset.aaSt,observacion:r.querySelector('.obs').value.trim()}));
+ let {error}=await sb.from('attendance').upsert(payload,{onConflict:'session_id,student_id'});btn.disabled=false;btn.textContent='Guardar correcciones';if(error){toast(error.message,true);return}toast('✓ Asistencia guardada por administrador');await loadHistory();await loadAdminAttendance();
 }
 
-
-// CAMBIO CONTRASEÑA
-
-document.getElementById("changePasswordForm")
-.addEventListener("submit",async e=>{
-
-  e.preventDefault();
-
-  const password =
-  document.getElementById("newPassword").value;
-
-  const confirm =
-  document.getElementById("confirmPassword").value;
-
-  const message =
-  document.getElementById("passwordMessage");
-
-  const button =
-  document.getElementById("changePasswordButton");
-
-  clearMessage(message);
-
-
-  if(password.length<8){
-
-    showMessage(
-      message,
-      "La contraseña debe tener al menos 8 caracteres."
-    );
-
-    return;
-  }
-
-
-  if(password!==confirm){
-
-    showMessage(
-      message,
-      "Las contraseñas no coinciden."
-    );
-
-    return;
-  }
-
-
-  button.disabled=true;
-  button.textContent="Guardando...";
-
-
-  try{
-
-    const {error:updateError}=
-    await db.auth.updateUser({
-      password
-    });
-
-
-    if(updateError){
-
-      console.error(updateError);
-
-      showMessage(
-        message,
-        "No fue posible cambiar la contraseña."
-      );
-
-      return;
-    }
-
-
-    const {
-      data:rpcData,
-      error:rpcError
-    }=
-    await db.rpc(
-      "finalizar_primer_acceso_familia"
-    );
-
-
-    if(rpcError || rpcData!==true){
-
-      console.error(rpcError);
-
-      showMessage(
-        message,
-        "La contraseña cambió, pero no fue posible completar la activación."
-      );
-
-      return;
-    }
-
-
-    currentFamily.must_change_password=false;
-
-    passwordChangePanel.classList.add("hidden");
-    representativesView.classList.remove("hidden");
-
-    await loadStudents();
-
-
-  }finally{
-
-    button.disabled=false;
-    button.textContent="Guardar nueva contraseña";
-  }
-
-});
-
-
-// REPRESENTADOS
-
-async function loadStudents(){
-
-  const list =
-  document.getElementById("studentList");
-
-  list.innerHTML=
-  `<div class="loading">Cargando representados...</div>`;
-
-
-  const {data,error}=
-  await db
-  .from("student_family")
-  .select(`
-    parentesco,
-    student_id,
-    students(
-      id,
-      nombre,
-      cedula,
-      estado,
-      course_id,
-      courses(
-        id,
-        nombre,
-        jornada
-      )
-    )
-  `)
-  .eq("family_member_id",currentFamily.id)
-  .eq("es_representante",true)
-  .eq("activo",true);
-
-
-  if(error){
-
-    console.error(error);
-
-    list.innerHTML=
-    `<div class="empty-state">
-      No fue posible cargar los representados.
-    </div>`;
-
-    return;
-  }
-
-
-  if(!data?.length){
-
-    list.innerHTML=
-    `<div class="empty-state">
-      No existen estudiantes vinculados a esta cuenta.
-    </div>`;
-
-    return;
-  }
-
-
-  list.innerHTML="";
-
-
-  data.forEach(row=>{
-
-    if(!row.students) return;
-
-    const s=row.students;
-
-    const course=s.courses;
-
-    const courseText=course
-      ? `${course.nombre} · ${course.jornada}`
-      : "Curso no disponible";
-
-
-    const button=document.createElement("button");
-
-    button.type="button";
-    button.className="student-card";
-
-    button.innerHTML=`
-
-      <div class="student-icon">🎓</div>
-
-      <div class="student-info">
-
-        <div class="student-name">
-          ${escapeHtml(s.nombre)}
-        </div>
-
-        <div class="student-meta">
-          ${escapeHtml(courseText)}
-        </div>
-
-        <div class="student-meta">
-          Parentesco:
-          ${escapeHtml(row.parentesco || "Representante")}
-        </div>
-
-      </div>
-
-      <div class="student-arrow">›</div>
-    `;
-
-
-    button.addEventListener("click",()=>{
-
-      openStudent({
-        ...s,
-        parentesco:row.parentesco,
-        course
-      });
-
-    });
-
-
-    list.appendChild(button);
-
-  });
-
-}
-
-
-// ABRIR ESTUDIANTE
-
-async function openStudent(student){
-
-  currentStudent=student;
-
-  representativesView.classList.add("hidden");
-  studentView.classList.remove("hidden");
-
-
-  document.getElementById("selectedStudentName")
-  .textContent=student.nombre;
-
-
-  document.getElementById("selectedStudentCourse")
-  .textContent=student.course
-    ? `${student.course.nombre} · ${student.course.jornada}`
-    : "Información del curso no disponible";
-
-
-  activateTab("attendance");
-
-  await loadAttendance();
-}
-
-
-// VOLVER
-
-document.getElementById("backButton")
-.addEventListener("click",()=>{
-
-  currentStudent=null;
-
-  studentView.classList.add("hidden");
-  representativesView.classList.remove("hidden");
-
-});
-
-
-// PESTAÑAS
-
-document.querySelectorAll(".tab")
-.forEach(button=>{
-
-  button.addEventListener("click",async()=>{
-
-    const tab=button.dataset.tab;
-
-    activateTab(tab);
-
-    if(tab==="attendance")
-      await loadAttendance();
-
-    if(tab==="notices")
-      await loadNotices();
-
-    if(tab==="notifications")
-      await loadNotifications();
-
-  });
-
-});
-
-
-function activateTab(tab){
-
-  document.querySelectorAll(".tab")
-  .forEach(b=>{
-
-    b.classList.toggle(
-      "active",
-      b.dataset.tab===tab
-    );
-
-  });
-
-
-  document.getElementById("attendanceTab")
-  .classList.toggle("hidden",tab!=="attendance");
-
-  document.getElementById("noticesTab")
-  .classList.toggle("hidden",tab!=="notices");
-
-  document.getElementById("notificationsTab")
-  .classList.toggle("hidden",tab!=="notifications");
-}
-
-
-// ASISTENCIA
-
-async function loadAttendance(){
-
-  if(!currentStudent) return;
-
-
-  const history =
-  document.getElementById("attendanceHistory");
-
-
-  history.innerHTML=
-  `<div class="loading">
-    Cargando asistencia...
-  </div>`;
-
-
-  const {data,error}=
-  await db
-  .from("attendance")
-  .select(`
-    id,
-    estado,
-    observacion,
-    updated_at,
-    attendance_sessions(
-      id,
-      fecha,
-      periodo,
-      asignatura
-    )
-  `)
-  .eq("student_id",currentStudent.id);
-
-
-  if(error){
-
-    console.error(error);
-
-    history.innerHTML=
-    `<div class="empty-state">
-      No fue posible consultar la asistencia.
-    </div>`;
-
-    return;
-  }
-
-
-  const rows=(data || []).sort((a,b)=>{
-
-    const fa=a.attendance_sessions?.fecha || "";
-    const fb=b.attendance_sessions?.fecha || "";
-
-    return fb.localeCompare(fa);
-
-  });
-
-
-  const countP =
-  rows.filter(x=>x.estado==="P").length;
-
-  const countF =
-  rows.filter(x=>x.estado==="F").length;
-
-  const countA =
-  rows.filter(x=>x.estado==="A").length;
-
-
-  document.getElementById("countP")
-  .textContent=countP;
-
-  document.getElementById("countF")
-  .textContent=countF;
-
-  document.getElementById("countA")
-  .textContent=countA;
-
-
-  if(!rows.length){
-
-    history.innerHTML=
-    `<div class="empty-state">
-      Todavía no existen registros de asistencia
-      para este estudiante.
-    </div>`;
-
-    return;
-  }
-
-
-  history.innerHTML=
-  `<div class="history"></div>`;
-
-  const container=
-  history.querySelector(".history");
-
-
-  rows.forEach(row=>{
-
-    const session=row.attendance_sessions;
-
-    if(!session) return;
-
-
-    let label="Sin registro";
-    let className="";
-
-
-    if(row.estado==="P"){
-      label="Presente";
-      className="status-p";
-    }
-
-    if(row.estado==="F"){
-      label="Falta";
-      className="status-f";
-    }
-
-    if(row.estado==="A"){
-      label="Atraso";
-      className="status-a";
-    }
-
-
-    const item=document.createElement("div");
-
-    item.className="history-item";
-
-
-    item.innerHTML=`
-
-      <div class="history-top">
-
-        <div>
-
-          <div class="history-subject">
-            ${escapeHtml(session.asignatura || "Asignatura")}
-          </div>
-
-          <div class="history-date">
-            ${escapeHtml(formatDate(session.fecha))}
-            · Período ${escapeHtml(session.periodo ?? "")}
-          </div>
-
-        </div>
-
-        <span class="status ${className}">
-          ${label}
-        </span>
-
-      </div>
-
-      ${
-        row.observacion
-        ?
-        `<div class="observation">
-          ${escapeHtml(row.observacion)}
-        </div>`
-        :
-        ""
-      }
-    `;
-
-
-    container.appendChild(item);
-
-  });
-
-}
-
-
-// NOVEDADES
-
-async function loadNotices(){
-
-  const container=
-  document.getElementById("noticesList");
-
-  container.innerHTML=
-  `<div class="loading">
-    Cargando novedades...
-  </div>`;
-
-
-  const {data,error}=
-  await db
-  .from("student_notices")
-  .select(`
-    id,
-    tipo,
-    motivo,
-    observacion,
-    fecha,
-    created_at
-  `)
-  .eq("student_id",currentStudent.id)
-  .eq("activo",true)
-  .eq("notificar_familia",true)
-  .order("fecha",{ascending:false});
-
-
-  if(error){
-
-    console.error(error);
-
-    container.innerHTML=
-    `<div class="empty-state">
-      No fue posible consultar las novedades.
-    </div>`;
-
-    return;
-  }
-
-
-  if(!data?.length){
-
-    container.innerHTML=
-    `<div class="empty-state">
-      No existen novedades registradas
-      para este estudiante.
-    </div>`;
-
-    return;
-  }
-
-
-  container.innerHTML="";
-
-
-  data.forEach(n=>{
-
-    const item=document.createElement("div");
-
-    item.className="notice-card";
-
-    item.innerHTML=`
-
-      <span class="notice-type">
-        ${escapeHtml(formatNoticeType(n.tipo))}
-      </span>
-
-      <div class="notice-title">
-        ${escapeHtml(n.motivo)}
-      </div>
-
-      ${
-        n.observacion
-        ?
-        `<div class="notice-text">
-          ${escapeHtml(n.observacion)}
-        </div>`
-        :
-        ""
-      }
-
-      <div class="notice-date">
-        ${escapeHtml(formatDate(n.fecha))}
-      </div>
-    `;
-
-    container.appendChild(item);
-
-  });
-
-}
-
-
-function formatNoticeType(type){
-
-  const labels={
-    ACADEMICA:"Académica",
-    CONVIVENCIA:"Convivencia",
-    UNIFORME:"Uniforme",
-    INFORMACION:"Información",
-    FELICITACION:"Felicitación"
-  };
-
-  return labels[type] || type || "Novedad";
-}
-
-
-// NOTIFICACIONES
-
-async function loadNotifications(){
-
-  const container=
-  document.getElementById("notificationsList");
-
-  container.innerHTML=
-  `<div class="loading">
-    Cargando notificaciones...
-  </div>`;
-
-
-  const {data,error}=
-  await db
-  .from("family_notifications")
-  .select(`
-    id,
-    tipo,
-    titulo,
-    mensaje,
-    leida,
-    created_at
-  `)
-  .eq("family_member_id",currentFamily.id)
-  .eq("student_id",currentStudent.id)
-  .order("created_at",{ascending:false});
-
-
-  if(error){
-
-    console.error(error);
-
-    container.innerHTML=
-    `<div class="empty-state">
-      No fue posible consultar las notificaciones.
-    </div>`;
-
-    return;
-  }
-
-
-  if(!data?.length){
-
-    container.innerHTML=
-    `<div class="empty-state">
-      No existen notificaciones para este estudiante.
-    </div>`;
-
-    return;
-  }
-
-
-  container.innerHTML="";
-
-
-  data.forEach(n=>{
-
-    const item=document.createElement("div");
-
-    item.className="notice-card";
-
-    const date=n.created_at
-      ? new Date(n.created_at)
-        .toLocaleString("es-EC")
-      : "";
-
-
-    item.innerHTML=`
-
-      <span class="notice-type">
-        ${escapeHtml(n.tipo || "Notificación")}
-      </span>
-
-      <div class="notice-title">
-        ${escapeHtml(n.titulo || "Notificación")}
-      </div>
-
-      <div class="notice-text">
-        ${escapeHtml(n.mensaje || "")}
-      </div>
-
-      <div class="notice-date">
-        ${escapeHtml(date)}
-      </div>
-    `;
-
-
-    container.appendChild(item);
-
-  });
-
-}
-
-
-// CERRAR SESIÓN
-
-document.getElementById("logoutButton")
-.addEventListener("click",async()=>{
-
-  await db.auth.signOut();
-
-  currentFamily=null;
-  currentStudent=null;
-
-  showLogin();
-
-});
-
-
-function showLogin(){
-
-  familyView.classList.add("hidden");
-  loginView.classList.remove("hidden");
-
-  document.getElementById("password").value="";
-
-}
-
-
-// RESTAURAR SESIÓN
-
-async function init(){
-
-  const {
-    data:{session}
-  }=await db.auth.getSession();
-
-  if(session)
-    await loadFamily();
-
-}
-
-
-init();
-
-</script>
-
-</body>
-</html>
+let toastTimer=null;function toast(msg,isError=false){let t=$('#toast');if(!t)return;t.textContent=msg;t.classList.toggle('error',!!isError);t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+$('#sync')?.addEventListener('click',()=>retryOfflineQueue(true));window.addEventListener('online',async()=>{await updateQueueIndicator();await retryOfflineQueue(true)});window.addEventListener('offline',updateQueueIndicator);if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+if(sb)sb.auth.getUser().then(({data})=>{if(data.user)boot(data.user)});
+</script></body></html>
