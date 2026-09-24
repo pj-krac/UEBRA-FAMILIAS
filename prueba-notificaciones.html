@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prueba notificaciones UEBRA</title>
+
+<style>
+body{
+  font-family:Arial,sans-serif;
+  background:#123f73;
+  padding:24px;
+}
+.card{
+  max-width:560px;
+  margin:40px auto;
+  background:white;
+  padding:28px;
+  border-radius:20px;
+  text-align:center;
+}
+button{
+  width:100%;
+  padding:16px;
+  border:0;
+  border-radius:12px;
+  background:#123f73;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+#resultado{
+  margin-top:20px;
+  padding:15px;
+  background:#f1f5f9;
+  border-radius:12px;
+  line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>🔔 Prueba de notificaciones UEBRA</h2>
+
+<p>
+Esta página únicamente comprobará si Chrome
+permite solicitar notificaciones.
+</p>
+
+<button id="probar">
+🔔 Probar permiso de notificaciones
+</button>
+
+<div id="resultado">
+Esperando prueba...
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("probar")
+.addEventListener("click", async () => {
+
+  const resultado =
+  document.getElementById("resultado");
+
+  if(!("Notification" in window)){
+
+    resultado.innerHTML =
+    "<b>Notification API:</b> NO DISPONIBLE";
+
+    return;
+  }
+
+  const antes = Notification.permission;
+
+  try{
+
+    const despues =
+    await Notification.requestPermission();
+
+    resultado.innerHTML = `
+      <b>RESULTADO</b><br><br>
+
+      Antes: <b>${antes}</b><br>
+      Después: <b>${despues}</b><br>
+      HTTPS/contexto seguro:
+      <b>${window.isSecureContext ? "sí" : "no"}</b>
+    `;
+
+  }catch(error){
+
+    resultado.innerHTML =
+    `ERROR: ${error.name} — ${error.message}`;
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
