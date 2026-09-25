@@ -255,6 +255,25 @@ button{
   font-size:23px;
 }
 
+.student-alerts{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-top:7px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#dbeafe;
+  color:#1d4ed8;
+  font-size:11px;
+  font-weight:800;
+}
+
+.student-alerts.none{
+  background:#dcfce7;
+  color:#166534;
+}
+
+
 .empty-state{
   background:#f8fafc;
   border:1px dashed #cbd5e1;
@@ -1165,6 +1184,26 @@ async function loadStudents(){
   list.innerHTML="";
 
 
+  const {data:unreadRows,error:unreadError}=
+  await db
+  .from("family_notifications")
+  .select("student_id")
+  .eq("family_member_id",currentFamily.id)
+  .eq("leida",false);
+
+  if(unreadError)
+    console.error(unreadError);
+
+  const unreadByStudent={};
+
+  (unreadRows || []).forEach(row=>{
+    if(!row.student_id) return;
+
+    unreadByStudent[row.student_id]=
+      (unreadByStudent[row.student_id] || 0)+1;
+  });
+
+
   data.forEach(row=>{
 
     if(!row.students) return;
@@ -1201,6 +1240,20 @@ async function loadStudents(){
           Parentesco:
           ${escapeHtml(row.parentesco || "Representante")}
         </div>
+
+        ${
+          (unreadByStudent[s.id] || 0) > 0
+          ? `<div class="student-alerts">
+               🔔 ${unreadByStudent[s.id]} ${
+                 unreadByStudent[s.id] === 1
+                 ? "aviso nuevo"
+                 : "avisos nuevos"
+               }
+             </div>`
+          : `<div class="student-alerts none">
+               ✓ Sin avisos nuevos
+             </div>`
+        }
 
       </div>
 
@@ -1255,12 +1308,14 @@ async function openStudent(student){
 // VOLVER
 
 document.getElementById("backButton")
-.addEventListener("click",()=>{
+.addEventListener("click",async()=>{
 
   currentStudent=null;
 
   studentView.classList.add("hidden");
   representativesView.classList.remove("hidden");
+
+  await loadStudents();
 
 });
 
