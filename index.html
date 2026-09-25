@@ -697,10 +697,11 @@ button{
         Asistencia
       </button>
 
-      <button class="tab"
+      <button id="noticesTabButton"
+              class="tab"
               data-tab="notices"
               type="button">
-        Novedades
+        Novedades <span id="unreadNoticesCount"></span>
       </button>
 
       <button id="notificationsTabButton"
@@ -1194,9 +1195,22 @@ async function loadStudents(){
   if(unreadError)
     console.error(unreadError);
 
+  const {data:pendingNotices,error:pendingNoticesError}=
+  await db.rpc("novedades_pendientes_familia");
+
+  if(pendingNoticesError)
+    console.error(pendingNoticesError);
+
   const unreadByStudent={};
 
   (unreadRows || []).forEach(row=>{
+    if(!row.student_id) return;
+
+    unreadByStudent[row.student_id]=
+      (unreadByStudent[row.student_id] || 0)+1;
+  });
+
+  (pendingNotices || []).forEach(row=>{
     if(!row.student_id) return;
 
     unreadByStudent[row.student_id]=
@@ -1302,6 +1316,8 @@ async function openStudent(student){
   activateTab("attendance");
 
   await loadAttendance();
+  await updateUnreadCount();
+  await updateUnreadNoticesCount();
 }
 
 
@@ -1542,6 +1558,60 @@ async function loadAttendance(){
 
 // NOVEDADES
 
+async function getPendingPedagogicalNotices(){
+
+  const {data,error}=
+  await db.rpc("novedades_pendientes_familia");
+
+  if(error){
+    console.error(error);
+    return [];
+  }
+
+  return data || [];
+}
+
+
+async function updateUnreadNoticesCount(){
+
+  const badge=
+  document.getElementById("unreadNoticesCount");
+
+  if(!badge || !currentStudent){
+    if(badge) badge.textContent="";
+    return;
+  }
+
+  const pending=
+  await getPendingPedagogicalNotices();
+
+  const count=
+  pending.filter(
+    row=>row.student_id===currentStudent.id
+  ).length;
+
+  badge.textContent=
+    count > 0 ? `(${count})` : "";
+}
+
+
+async function markPedagogicalNoticeRead(noticeId){
+
+  const {data,error}=
+  await db.rpc(
+    "marcar_novedad_leida",
+    {p_notice_id:noticeId}
+  );
+
+  if(error){
+    console.error(error);
+    return false;
+  }
+
+  return data===true;
+}
+
+
 async function loadNotices(){
 
   const container=
@@ -1601,18 +1671,38 @@ async function loadNotices(){
 
   container.innerHTML="";
 
+  const pending=
+  await getPendingPedagogicalNotices();
+
+  const pendingIds=
+  new Set(
+    pending
+      .filter(row=>row.student_id===currentStudent.id)
+      .map(row=>row.notice_id)
+  );
+
 
   data.forEach(n=>{
 
     const item=document.createElement("div");
 
-    item.className="notice-card";
+    const isNew=
+      pendingIds.has(n.id);
+
+    item.className=
+      `notice-card${isNew ? " notice-new" : ""}`;
 
     item.innerHTML=`
 
       <span class="notice-type">
         ${escapeHtml(formatNoticeType(n.tipo))}
       </span>
+
+      ${
+        isNew
+        ? `<span class="new-badge">Nueva</span>`
+        : ""
+      }
 
       <div class="notice-title">
         ${escapeHtml(n.motivo)}
@@ -1643,9 +1733,38 @@ async function loadNotices(){
       </div>
     `;
 
+    if(isNew){
+
+      item.style.cursor="pointer";
+      item.title="Abrir y marcar como leída";
+
+      item.addEventListener("click",async()=>{
+
+        const ok=
+        await markPedagogicalNoticeRead(n.id);
+
+        if(!ok) return;
+
+        item.classList.remove("notice-new");
+
+        const badge=
+        item.querySelector(".new-badge");
+
+        if(badge)
+          badge.remove();
+
+        item.style.cursor="";
+        item.title="";
+
+        await updateUnreadNoticesCount();
+      });
+    }
+
     container.appendChild(item);
 
   });
+
+  await updateUnreadNoticesCount();
 
 }
 
@@ -1675,11 +1794,17 @@ async function updateUnreadCount(){
     return;
   }
 
+  if(!currentStudent){
+    badge.textContent="";
+    return;
+  }
+
   const {count,error}=
   await db
   .from("family_notifications")
   .select("id",{count:"exact",head:true})
   .eq("family_member_id",currentFamily.id)
+  .eq("student_id",currentStudent.id)
   .eq("leida",false);
 
   if(error){
@@ -1919,6 +2044,12 @@ document.getElementById("logoutButton")
 
   if(unreadCount)
     unreadCount.textContent="";
+
+  const unreadNoticesCount=
+  document.getElementById("unreadNoticesCount");
+
+  if(unreadNoticesCount)
+    unreadNoticesCount.textContent="";
 
   showLogin();
 
