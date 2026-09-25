@@ -766,6 +766,7 @@ const VAPID_PUBLIC_KEY =
 
 let currentFamily = null;
 let currentStudent = null;
+let pendingPushTarget = null;
 
 
 const loginView =
@@ -830,6 +831,23 @@ function formatDate(date){
   if(parts.length!==3) return date;
 
   return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+
+function readPushTarget(){
+  const params=new URLSearchParams(window.location.search);
+  const studentId=params.get("student_id");
+  const tab=params.get("tab");
+  if(studentId && ["attendance","notices","notifications"].includes(tab)){
+    pendingPushTarget={studentId,tab};
+  }
+}
+
+function clearPushTarget(){
+  if(!pendingPushTarget) return;
+  pendingPushTarget=null;
+  const clean=window.location.pathname + window.location.hash;
+  window.history.replaceState({},document.title,clean);
 }
 
 
@@ -1143,6 +1161,22 @@ async function loadStudents(){
 
   list.innerHTML="";
 
+  if(pendingPushTarget){
+    const row=data.find(r=>r.students?.id===pendingPushTarget.studentId);
+    if(row?.students){
+      const s=row.students;
+      const targetTab=pendingPushTarget.tab;
+      clearPushTarget();
+      await openStudent({
+        ...s,
+        parentesco:row.parentesco,
+        course:s.courses
+      },targetTab);
+      return;
+    }
+    clearPushTarget();
+  }
+
 
   data.forEach(row=>{
 
@@ -1207,7 +1241,7 @@ async function loadStudents(){
 
 // ABRIR ESTUDIANTE
 
-async function openStudent(student){
+async function openStudent(student, initialTab="attendance"){
 
   currentStudent=student;
 
@@ -1225,9 +1259,11 @@ async function openStudent(student){
     : "Información del curso no disponible";
 
 
-  activateTab("attendance");
+  activateTab(initialTab);
 
-  await loadAttendance();
+  if(initialTab==="notices") await loadNotices();
+  else if(initialTab==="notifications") await loadNotifications();
+  else await loadAttendance();
 }
 
 
@@ -1691,6 +1727,22 @@ function urlBase64ToUint8Array(base64String){
   const rawData=atob(base64);
   return Uint8Array.from([...rawData].map(c=>c.charCodeAt(0)));
 }
+
+async function savePushSubscription(subscription){
+  if(!currentFamily || !subscription) return false;
+  const json=subscription.toJSON();
+  const {error}=await db.from("family_push_subscriptions").upsert({
+    family_member_id:currentFamily.id,
+    endpoint:json.endpoint,
+    p256dh:json.keys?.p256dh,
+    auth_key:json.keys?.auth,
+    activo:true,
+    updated_at:new Date().toISOString()
+  },{onConflict:"endpoint"});
+  if(error) throw error;
+  return true;
+}
+
 async function setupPushUI(){
   const button=document.getElementById("pushButton"),status=document.getElementById("pushStatus");
   if(!("serviceWorker" in navigator)||!("PushManager" in window)||!("Notification" in window)){
@@ -1701,23 +1753,24 @@ async function setupPushUI(){
     const registration=await navigator.serviceWorker.register("./sw.js");
     const subscription=await registration.pushManager.getSubscription();
     if(subscription&&Notification.permission==="granted"){
+      await savePushSubscription(subscription);
       button.textContent="✓ Notificaciones activadas";button.classList.add("enabled");
       status.textContent="Este dispositivo está preparado para recibir avisos.";
     }else{
       button.textContent="🔔 Activar notificaciones";button.classList.remove("enabled");
       status.textContent="Activa los avisos para recibir faltas, atrasos y novedades.";
     }
-  }catch(error){console.error(error);status.textContent="No fue posible preparar las notificaciones."}
+  }catch(error){console.error(error);status.textContent="No fue posible preparar las notificaciones: "+(error.message||"Error desconocido")}
 }
+
 async function activatePush(){
   const button=document.getElementById("pushButton"),status=document.getElementById("pushStatus");
   if(!currentFamily)return;
   button.disabled=true;status.textContent="Preparando notificaciones…";
   try{
-    const before=Notification.permission;
     const permission=await Notification.requestPermission();
     if(permission!=="granted"){
-      status.textContent=`DIAGNÓSTICO PUSH — antes: ${before} · después: ${permission} · HTTPS: ${window.isSecureContext ? "sí" : "no"} · Service Worker: ${"serviceWorker" in navigator ? "sí" : "no"} · PushManager: ${"PushManager" in window ? "sí" : "no"}.`;
+      status.textContent="El permiso de notificaciones no fue concedido.";
       return;
     }
     const registration=await navigator.serviceWorker.register("./sw.js");
@@ -1729,19 +1782,14 @@ async function activatePush(){
         applicationServerKey:urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
       });
     }
-    const json=subscription.toJSON();
-    const {error}=await db.from("family_push_subscriptions").upsert({
-      family_member_id:currentFamily.id,endpoint:json.endpoint,
-      p256dh:json.keys?.p256dh,auth_key:json.keys?.auth,activo:true,
-      updated_at:new Date().toISOString()
-    },{onConflict:"endpoint"});
-    if(error)throw error;
+    await savePushSubscription(subscription);
     button.textContent="✓ Notificaciones activadas";button.classList.add("enabled");
     status.textContent="Este dispositivo está preparado para recibir avisos.";
   }catch(error){
     console.error(error);status.textContent="No fue posible activar las notificaciones: "+(error.message||"Error desconocido");
   }finally{button.disabled=false}
 }
+
 document.getElementById("pushButton").addEventListener("click",activatePush);
 
 // CERRAR SESIÓN
@@ -1772,6 +1820,8 @@ function showLogin(){
 // RESTAURAR SESIÓN
 
 async function init(){
+
+  readPushTarget();
 
   const {
     data:{session}
