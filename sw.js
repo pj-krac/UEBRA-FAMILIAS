@@ -30,13 +30,18 @@ self.addEventListener("push", event => {
   );
 });
 
+
 self.addEventListener("notificationclick", event => {
   event.notification.close();
 
-  const target = new URL(
-    event.notification.data?.url || "./",
-    self.location.origin
-  ).href;
+  const appBase =
+    new URL("./", self.registration.scope);
+
+  const receivedUrl =
+    event.notification.data?.url || "./";
+
+  const target =
+    new URL(receivedUrl, appBase).href;
 
   event.waitUntil(
     clients
@@ -44,10 +49,16 @@ self.addEventListener("notificationclick", event => {
         type: "window",
         includeUncontrolled: true
       })
-      .then(list => {
+      .then(async list => {
+
         for (const client of list) {
-          if (client.url.startsWith(self.location.origin)) {
-            client.navigate(target);
+
+          if (
+            client.url.startsWith(
+              self.registration.scope
+            )
+          ) {
+            await client.navigate(target);
             return client.focus();
           }
         }
