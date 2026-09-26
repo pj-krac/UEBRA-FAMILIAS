@@ -1,0 +1,25 @@
+{
+  "name": "UEBRA Familias",
+  "short_name": "UEBRA Familias",
+  "description": "Aplicación para representantes de la Unidad Educativa Benjamín Ramírez Arteaga",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#123f73",
+  "icons": [
+    {
+      "src": "NEW%20LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "NEW%20LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
