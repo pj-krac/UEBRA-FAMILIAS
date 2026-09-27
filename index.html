@@ -721,6 +721,13 @@ button{
         Asistencia
       </button>
 
+      <button id="gradesTabButton"
+              class="tab"
+              data-tab="grades"
+              type="button">
+        Calificaciones
+      </button>
+
       <button id="noticesTabButton"
               class="tab"
               data-tab="notices"
@@ -1382,6 +1389,9 @@ document.querySelectorAll(".tab")
     if(tab==="attendance")
       await loadAttendance();
 
+    if(tab==="grades")
+      await loadGrades();
+
     if(tab==="notices")
       await loadNotices();
 
@@ -1408,6 +1418,9 @@ function activateTab(tab){
 
   document.getElementById("attendanceTab")
   .classList.toggle("hidden",tab!=="attendance");
+
+  document.getElementById("gradesTab")
+  .classList.toggle("hidden",tab!=="grades");
 
   document.getElementById("noticesTab")
   .classList.toggle("hidden",tab!=="notices");
