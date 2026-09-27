@@ -1515,11 +1515,22 @@ function renderSubjectDetail(subject,items,projects){
     let projectHtml="";
     if(project){
       if(project.aplica_proyecto){
+        const aporteFormativo = project.promedio_formativo===null || project.promedio_formativo===undefined
+          ? null : Number(project.promedio_formativo) * 0.70;
+        const aporteSumativo = project.nota_sumativa===null || project.nota_sumativa===undefined
+          ? null : Number(project.nota_sumativa) * 0.30;
+
         projectHtml=`<div class="grade-project-block">
-          <div class="grade-trimester-title">Proyecto trimestral (30%)</div>
-          ${detailRow("Aporte de la asignatura",project.nota_aporte)}
-          ${detailRow("Promedio interdisciplinario",project.promedio_proyecto)}
-          ${detailRow("Nota sumativa",project.nota_sumativa,"grade-result-row")}
+          <div class="grade-trimester-title">Evaluación sumativa (30%)</div>
+          ${detailRow("Aporte de la asignatura al Proyecto Trimestral",project.nota_aporte)}
+          ${detailRow("Promedio del Proyecto Trimestral",project.promedio_proyecto)}
+          ${detailRow("Nota de la evaluación sumativa",project.nota_sumativa,"grade-result-row")}
+          <div class="grade-project-block">
+            <div class="grade-trimester-title">Resultado del trimestre</div>
+            ${detailRow("Evaluación formativa (70%)",aporteFormativo)}
+            ${detailRow("Evaluación sumativa (30%)",aporteSumativo)}
+            ${detailRow("Nota final del trimestre",project.nota_trimestre,"grade-result-row")}
+          </div>
         </div>`;
       }else{
         projectHtml=`<div class="grade-project-block">
@@ -1535,7 +1546,7 @@ function renderSubjectDetail(subject,items,projects){
       ${formative}
       ${project ? detailRow("Promedio formativo",project.promedio_formativo,"grade-result-row") : ""}
       ${projectHtml}
-      ${project ? detailRow("Nota del trimestre",project.nota_trimestre,"grade-result-row") : ""}
+      ${project && !project.aplica_proyecto ? detailRow("Nota del trimestre",project.nota_trimestre,"grade-result-row") : ""}
     </div>`;
   }
   return html;
