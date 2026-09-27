@@ -1542,7 +1542,7 @@ function renderSubjectDetail(subject,items,projects){
 
     html+=`<div class="grade-trimester">
       <div class="grade-trimester-title">Trimestre ${trimester}</div>
-      <div class="grade-trimester-title" style="font-size:12px;color:#475569">Evaluación formativa</div>
+      <div class="grade-trimester-title">Evaluación formativa (70%)</div>
       ${formative}
       ${project ? detailRow("Promedio formativo",project.promedio_formativo,"grade-result-row") : ""}
       ${projectHtml}
