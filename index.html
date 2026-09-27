@@ -1574,25 +1574,22 @@ async function loadGrades(){
 
   if(itemsRes.error) console.error(itemsRes.error);
   if(projectRes.error) console.error(projectRes.error);
+  if(specialRes.error) console.error(specialRes.error);
 
   const rows=academicRes.data || [];
   const items=itemsRes.error ? [] : (itemsRes.data || []);
   const projects=projectRes.error ? [] : (projectRes.data || []);
+  const sp=specialRes.error ? null : ((specialRes.data || [])[0] || null);
 
-  if(!rows.length){
-    list.innerHTML=`<div class="empty-state">Todavía no existen calificaciones disponibles para este estudiante.</div>`;
-  }else{
-    list.innerHTML=`<div class="grade-list"></div>`;
-    const container=list.querySelector(".grade-list");
+  const cards=[];
 
-    rows.forEach((r,index)=>{
-      const card=document.createElement("div");
-      card.className="grade-card";
-      const detailId=`grade-detail-${index}`;
-      card.innerHTML=`
+  rows.forEach((r,index)=>{
+    const detailId=`grade-detail-${index}`;
+    cards.push(`
+      <div class="grade-card">
         <div class="grade-card-head">
           <div class="grade-subject">${escapeHtml(r.asignatura || "Asignatura")}</div>
-          <button class="grade-detail-button" type="button" aria-expanded="false" aria-controls="${detailId}">Ver detalle</button>
+          <button class="grade-detail-button" type="button" data-detail-target="${detailId}" aria-expanded="false">Ver detalle</button>
         </div>
         <div class="grade-grid" style="margin-top:11px">
           ${gradeBox("T1",r.trimestre_1)}
@@ -1602,35 +1599,62 @@ async function loadGrades(){
         </div>
         <div id="${detailId}" class="grade-detail hidden">
           ${renderSubjectDetail(r,items,projects)}
-        </div>`;
+        </div>
+      </div>`);
+  });
 
-      const button=card.querySelector(".grade-detail-button");
-      const detail=card.querySelector(".grade-detail");
-      button.addEventListener("click",()=>{
-        const opening=detail.classList.contains("hidden");
-        detail.classList.toggle("hidden",!opening);
-        button.textContent=opening ? "Ocultar detalle" : "Ver detalle";
-        button.setAttribute("aria-expanded",opening ? "true" : "false");
-      });
-      container.appendChild(card);
-    });
+  // Áreas cualitativas/especiales se integran en la misma lista.
+  if(sp && sp.aplica_animacion){
+    cards.push(`<div class="grade-card">
+      <div class="grade-card-head"><div class="grade-subject">📚 Animación a la Lectura</div></div>
+      <div class="special-grid" style="margin-top:11px">
+        ${gradeBox("T1",sp.animacion_t1)}
+        ${gradeBox("T2",sp.animacion_t2)}
+        ${gradeBox("T3",sp.animacion_t3)}
+      </div>
+    </div>`);
   }
 
-  if(specialRes.error){ console.error(specialRes.error); return; }
-  const sp=(specialRes.data || [])[0];
-  if(!sp) return;
-  const cards=[];
-  if(sp.aplica_animacion){
-    cards.push(`<div class="special-card"><div class="special-title">📚 Animación a la Lectura</div><div class="special-grid">${gradeBox("T1",sp.animacion_t1)}${gradeBox("T2",sp.animacion_t2)}${gradeBox("T3",sp.animacion_t3)}</div></div>`);
+  if(sp && sp.aplica_ovp){
+    cards.push(`<div class="grade-card">
+      <div class="grade-card-head"><div class="grade-subject">🧭 Orientación Vocacional y Profesional (OVP)</div></div>
+      <div class="special-grid" style="margin-top:11px">
+        ${gradeBox("T1",sp.ovp_t1)}
+        ${gradeBox("T2",sp.ovp_t2)}
+        ${gradeBox("T3",sp.ovp_t3)}
+      </div>
+    </div>`);
   }
-  if(sp.aplica_ovp){
-    cards.push(`<div class="special-card"><div class="special-title">🧭 Orientación Vocacional y Profesional (OVP)</div><div class="special-grid">${gradeBox("T1",sp.ovp_t1)}${gradeBox("T2",sp.ovp_t2)}${gradeBox("T3",sp.ovp_t3)}</div></div>`);
-  }
-  if(sp.aplica_comportamiento){
+
+  if(sp && sp.aplica_comportamiento){
     const b=(label,value)=>`<div class="grade-box"><span class="grade-box-label">${label}</span><span class="grade-value behavior-value">${escapeHtml(value || "Pendiente")}</span></div>`;
-    cards.push(`<div class="special-card"><div class="special-title">🤝 Comportamiento</div><div class="special-grid">${b("T1",sp.comportamiento_t1)}${b("T2",sp.comportamiento_t2)}${b("T3",sp.comportamiento_t3)}</div></div>`);
+    cards.push(`<div class="grade-card">
+      <div class="grade-card-head"><div class="grade-subject">🤝 Comportamiento</div></div>
+      <div class="special-grid" style="margin-top:11px">
+        ${b("T1",sp.comportamiento_t1)}
+        ${b("T2",sp.comportamiento_t2)}
+        ${b("T3",sp.comportamiento_t3)}
+      </div>
+    </div>`);
   }
-  if(cards.length) special.innerHTML=`<div class="special-section"><h3 class="history-title">Evaluaciones complementarias</h3>${cards.join("")}</div>`;
+
+  if(!cards.length){
+    list.innerHTML=`<div class="empty-state">Todavía no existen asignaturas o evaluaciones disponibles para este estudiante.</div>`;
+    return;
+  }
+
+  list.innerHTML=`<div class="grade-list">${cards.join("")}</div>`;
+
+  list.querySelectorAll(".grade-detail-button").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const detail=document.getElementById(button.dataset.detailTarget);
+      if(!detail) return;
+      const opening=detail.classList.contains("hidden");
+      detail.classList.toggle("hidden",!opening);
+      button.textContent=opening ? "Ocultar detalle" : "Ver detalle";
+      button.setAttribute("aria-expanded",opening ? "true" : "false");
+    });
+  });
 }
 
 
