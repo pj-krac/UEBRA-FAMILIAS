@@ -11,9 +11,9 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="UEBRA Familias">
+<meta name="apple-mobile-web-app-title" content="UEBRA+ Familias">
 
-<title>UEBRA Familias</title>
+<title>UEBRA+ Familias</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -319,7 +319,7 @@ button{
 
 .tabs{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:7px;
   margin:20px 0;
   background:#f1f5f9;
@@ -502,6 +502,22 @@ button{
 }
 
 
+.grade-intro{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:14px;margin-bottom:14px;color:#334155;font-size:13px;line-height:1.45}
+.grade-list{display:grid;gap:12px}
+.grade-card{border:1px solid #dbe4ef;border-radius:15px;padding:15px;background:#fff}
+.grade-subject{font-weight:800;color:#123f73;margin-bottom:11px;line-height:1.3}
+.grade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.grade-box{text-align:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:9px 4px}
+.grade-box-label{display:block;font-size:10px;color:#64748b;font-weight:700;margin-bottom:4px}
+.grade-value{font-size:15px;font-weight:800;color:#0f172a}
+.grade-low{background:#fef2f2;border-color:#fecaca}.grade-low .grade-value{color:#b91c1c}
+.special-section{margin-top:20px;padding-top:16px;border-top:1px solid #e2e8f0}
+.special-card{border:1px solid #dbe4ef;border-radius:15px;padding:15px;margin-top:10px;background:#f8fafc}
+.special-title{font-weight:800;color:#123f73;margin-bottom:10px}
+.special-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.behavior-value{font-size:12px;line-height:1.35}
+
+
 .loading{
   text-align:center;
   color:#64748b;
@@ -548,7 +564,7 @@ button{
          alt="Escudo UEBRA"
          class="institution-logo">
 
-    <h1>UEBRA Familias</h1>
+    <h1>UEBRA<span style="color:#2563eb">+</span> Familias</h1>
 
     <p class="subtitle">
       Unidad Educativa Benjamín Ramírez Arteaga
@@ -605,7 +621,7 @@ button{
          alt="Escudo UEBRA"
          class="institution-logo">
 
-    <h2>UEBRA Familias</h2>
+    <h2>UEBRA<span style="color:#2563eb">+</span> Familias</h2>
 
     <div id="familyName" class="family-name"></div>
     <div id="familyDocument" class="family-document"></div>
@@ -752,6 +768,14 @@ button{
 
     </div>
 
+
+    <!-- CALIFICACIONES -->
+    <div id="gradesTab" class="hidden">
+      <h3 class="history-title">Calificaciones</h3>
+      <div class="grade-intro">Consulta los resultados registrados por los docentes. Cuando una calificación aún no esté disponible se mostrará <strong>Pendiente</strong>.</div>
+      <div id="gradesList"></div>
+      <div id="specialGrades"></div>
+    </div>
 
     <!-- NOVEDADES -->
     <div id="noticesTab" class="hidden">
@@ -1390,6 +1414,70 @@ function activateTab(tab){
 
   document.getElementById("notificationsTab")
   .classList.toggle("hidden",tab!=="notifications");
+}
+
+
+// CALIFICACIONES
+
+function gradeDisplay(value){
+  if(value===null || value===undefined || value==="") return "Pendiente";
+  const n=Number(value);
+  return Number.isFinite(n) ? n.toFixed(2).replace(".",",") : String(value);
+}
+
+function gradeBox(label,value){
+  const n=Number(value);
+  const low=value!==null && value!==undefined && value!=="" && Number.isFinite(n) && n<7;
+  return `<div class="grade-box${low ? " grade-low" : ""}"><span class="grade-box-label">${escapeHtml(label)}</span><span class="grade-value">${escapeHtml(gradeDisplay(value))}</span></div>`;
+}
+
+async function loadGrades(){
+  if(!currentStudent) return;
+  const list=document.getElementById("gradesList");
+  const special=document.getElementById("specialGrades");
+  list.innerHTML=`<div class="loading">Cargando calificaciones...</div>`;
+  special.innerHTML="";
+
+  const [academicRes,specialRes]=await Promise.all([
+    db.rpc("family_student_grades",{p_student_id:currentStudent.id}),
+    db.rpc("family_student_special_grades",{p_student_id:currentStudent.id})
+  ]);
+
+  if(academicRes.error){
+    console.error(academicRes.error);
+    list.innerHTML=`<div class="empty-state">No fue posible consultar las calificaciones.</div>`;
+    return;
+  }
+
+  const rows=academicRes.data || [];
+  if(!rows.length){
+    list.innerHTML=`<div class="empty-state">Todavía no existen calificaciones disponibles para este estudiante.</div>`;
+  }else{
+    list.innerHTML=`<div class="grade-list"></div>`;
+    const container=list.querySelector(".grade-list");
+    rows.forEach(r=>{
+      const card=document.createElement("div");
+      card.className="grade-card";
+      card.innerHTML=`<div class="grade-subject">${escapeHtml(r.asignatura || "Asignatura")}</div><div class="grade-grid">${gradeBox("T1",r.trimestre_1)}${gradeBox("T2",r.trimestre_2)}${gradeBox("T3",r.trimestre_3)}${gradeBox("PAL",r.pal)}</div>`;
+      container.appendChild(card);
+    });
+  }
+
+  if(specialRes.error){ console.error(specialRes.error); return; }
+  const sp=(specialRes.data || [])[0];
+  if(!sp) return;
+  const cards=[];
+  if(sp.aplica_animacion){
+    cards.push(`<div class="special-card"><div class="special-title">📚 Animación a la Lectura</div><div class="special-grid">${gradeBox("T1",sp.animacion_t1)}${gradeBox("T2",sp.animacion_t2)}${gradeBox("T3",sp.animacion_t3)}</div></div>`);
+  }
+  if(sp.aplica_ovp){
+    cards.push(`<div class="special-card"><div class="special-title">🧭 Orientación Vocacional y Profesional (OVP)</div><div class="special-grid">${gradeBox("T1",sp.ovp_t1)}${gradeBox("T2",sp.ovp_t2)}${gradeBox("T3",sp.ovp_t3)}</div></div>`);
+  }
+  if(sp.aplica_comportamiento){
+    const b=(label,value)=>`<div class="grade-box"><span class="grade-box-label">${label}</span><span class="grade-value behavior-value">${escapeHtml(value || "Pendiente")}</span></div>`;
+    cards.push(`<div class="special-card"><div class="special-title">🤝 Comportamiento</div><div class="special-grid">${b("T1",sp.comportamiento_t1)}${b("T2",sp.comportamiento_t2)}${b("T3",sp.comportamiento_t3)}</div></div>`);
+  }
+  if(cards.length) special.innerHTML=`<div class="special-section"><h3 class="history-title">Evaluaciones complementarias</h3>${cards.join("")}</div>`;
 }
 
 
