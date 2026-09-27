@@ -518,6 +518,26 @@ button{
 .behavior-value{font-size:12px;line-height:1.35}
 
 
+
+.grade-card{overflow:hidden}
+.grade-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.grade-card-head .grade-subject{margin-bottom:0}
+.grade-detail-button{background:#e8f2ff;color:#123f73;border:1px solid #c9def5;padding:8px 10px;font-size:12px;border-radius:9px;white-space:nowrap}
+.grade-detail{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0}
+.grade-trimester{border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-top:10px;background:#fbfdff}
+.grade-trimester:first-child{margin-top:0}
+.grade-trimester-title{font-weight:800;color:#123f73;margin-bottom:9px}
+.grade-detail-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #e2e8f0;font-size:12px;line-height:1.35}
+.grade-detail-row:last-child{border-bottom:0}
+.grade-detail-label{color:#475569}
+.grade-detail-value{font-weight:800;color:#0f172a;text-align:right}
+.grade-improvement{margin:6px 0 7px 10px;padding:8px 10px;border-left:3px solid #93c5fd;background:#eff6ff;border-radius:0 9px 9px 0}
+.grade-improvement-title{font-size:11px;font-weight:800;color:#1d4ed8;margin-bottom:4px}
+.grade-formative-list{margin-bottom:8px}
+.grade-result-row{font-weight:800;background:#f8fafc;margin-top:4px;padding-left:7px;padding-right:7px;border-radius:7px}
+.grade-project-block{margin-top:10px;padding-top:9px;border-top:1px solid #dbe4ef}
+.grade-pending{color:#64748b;font-weight:700}
+
 .loading{
   text-align:center;
   color:#64748b;
@@ -1444,6 +1464,83 @@ function gradeBox(label,value){
   return `<div class="grade-box${low ? " grade-low" : ""}"><span class="grade-box-label">${escapeHtml(label)}</span><span class="grade-value">${escapeHtml(gradeDisplay(value))}</span></div>`;
 }
 
+function detailValue(value){
+  return value===null || value===undefined || value==="" ? "Pendiente" : gradeDisplay(value);
+}
+
+function detailRow(label,value,extraClass=""){
+  const pending=value===null || value===undefined || value==="";
+  return `<div class="grade-detail-row ${extraClass}"><span class="grade-detail-label">${escapeHtml(label)}</span><span class="grade-detail-value${pending ? " grade-pending" : ""}">${escapeHtml(detailValue(value))}</span></div>`;
+}
+
+function improvementLabel(value){
+  const v=String(value || "").toUpperCase();
+  if(v==="CON_REFUERZO") return "Mejora con refuerzo";
+  if(v==="DIRECTA") return "Mejora directa";
+  return value || "Mejora de calificación";
+}
+
+function renderSubjectDetail(subject,items,projects){
+  const norm=subject.asignatura_normalizada;
+  const subjectItems=items.filter(x=>x.asignatura_normalizada===norm);
+  const subjectProjects=projects.filter(x=>x.asignatura_normalizada===norm);
+  let html="";
+
+  for(let trimester=1;trimester<=3;trimester++){
+    const tItems=subjectItems.filter(x=>Number(x.trimestre)===trimester);
+    const project=subjectProjects.find(x=>Number(x.trimestre)===trimester);
+    let formative="";
+
+    if(!tItems.length){
+      formative=`<div class="empty-state">Todavía no existen insumos registrados para este trimestre.</div>`;
+    }else{
+      formative=`<div class="grade-formative-list">` + tItems.map(item=>{
+        let improvement="";
+        if(item.modalidad_mejora){
+          improvement=`<div class="grade-improvement">
+            <div class="grade-improvement-title">↳ ${escapeHtml(improvementLabel(item.modalidad_mejora))}</div>
+            ${item.nota_trabajo_refuerzo!==null && item.nota_trabajo_refuerzo!==undefined ? detailRow("Trabajo de refuerzo",item.nota_trabajo_refuerzo) : ""}
+            ${item.nota_evaluacion_mejora!==null && item.nota_evaluacion_mejora!==undefined ? detailRow("Evaluación de mejora",item.nota_evaluacion_mejora) : ""}
+            ${detailRow("Nota resultante del insumo",item.nota_resultante,"grade-result-row")}
+          </div>`;
+        }
+        const label=item.nombre || item.tipo || "Insumo formativo";
+        return `<div>
+          ${detailRow(label,item.nota_original)}
+          ${improvement}
+        </div>`;
+      }).join("") + `</div>`;
+    }
+
+    let projectHtml="";
+    if(project){
+      if(project.aplica_proyecto){
+        projectHtml=`<div class="grade-project-block">
+          <div class="grade-trimester-title">Proyecto trimestral (30%)</div>
+          ${detailRow("Aporte de la asignatura",project.nota_aporte)}
+          ${detailRow("Promedio interdisciplinario",project.promedio_proyecto)}
+          ${detailRow("Nota sumativa",project.nota_sumativa,"grade-result-row")}
+        </div>`;
+      }else{
+        projectHtml=`<div class="grade-project-block">
+          <div class="grade-trimester-title">Cálculo del trimestre</div>
+          <div class="grade-detail-row"><span class="grade-detail-label">Modalidad</span><span class="grade-detail-value">100% insumos propios</span></div>
+        </div>`;
+      }
+    }
+
+    html+=`<div class="grade-trimester">
+      <div class="grade-trimester-title">Trimestre ${trimester}</div>
+      <div class="grade-trimester-title" style="font-size:12px;color:#475569">Evaluación formativa</div>
+      ${formative}
+      ${project ? detailRow("Promedio formativo",project.promedio_formativo,"grade-result-row") : ""}
+      ${projectHtml}
+      ${project ? detailRow("Nota del trimestre",project.nota_trimestre,"grade-result-row") : ""}
+    </div>`;
+  }
+  return html;
+}
+
 async function loadGrades(){
   if(!currentStudent) return;
   const list=document.getElementById("gradesList");
@@ -1451,9 +1548,11 @@ async function loadGrades(){
   list.innerHTML=`<div class="loading">Cargando calificaciones...</div>`;
   special.innerHTML="";
 
-  const [academicRes,specialRes]=await Promise.all([
+  const [academicRes,specialRes,itemsRes,projectRes]=await Promise.all([
     db.rpc("family_student_grades",{p_student_id:currentStudent.id}),
-    db.rpc("family_student_special_grades",{p_student_id:currentStudent.id})
+    db.rpc("family_student_special_grades",{p_student_id:currentStudent.id}),
+    db.rpc("family_student_grade_items",{p_student_id:currentStudent.id}),
+    db.rpc("family_student_project_detail",{p_student_id:currentStudent.id})
   ]);
 
   if(academicRes.error){
@@ -1462,16 +1561,46 @@ async function loadGrades(){
     return;
   }
 
+  if(itemsRes.error) console.error(itemsRes.error);
+  if(projectRes.error) console.error(projectRes.error);
+
   const rows=academicRes.data || [];
+  const items=itemsRes.error ? [] : (itemsRes.data || []);
+  const projects=projectRes.error ? [] : (projectRes.data || []);
+
   if(!rows.length){
     list.innerHTML=`<div class="empty-state">Todavía no existen calificaciones disponibles para este estudiante.</div>`;
   }else{
     list.innerHTML=`<div class="grade-list"></div>`;
     const container=list.querySelector(".grade-list");
-    rows.forEach(r=>{
+
+    rows.forEach((r,index)=>{
       const card=document.createElement("div");
       card.className="grade-card";
-      card.innerHTML=`<div class="grade-subject">${escapeHtml(r.asignatura || "Asignatura")}</div><div class="grade-grid">${gradeBox("T1",r.trimestre_1)}${gradeBox("T2",r.trimestre_2)}${gradeBox("T3",r.trimestre_3)}${gradeBox("PAL",r.pal)}</div>`;
+      const detailId=`grade-detail-${index}`;
+      card.innerHTML=`
+        <div class="grade-card-head">
+          <div class="grade-subject">${escapeHtml(r.asignatura || "Asignatura")}</div>
+          <button class="grade-detail-button" type="button" aria-expanded="false" aria-controls="${detailId}">Ver detalle</button>
+        </div>
+        <div class="grade-grid" style="margin-top:11px">
+          ${gradeBox("T1",r.trimestre_1)}
+          ${gradeBox("T2",r.trimestre_2)}
+          ${gradeBox("T3",r.trimestre_3)}
+          ${gradeBox("PAL",r.pal)}
+        </div>
+        <div id="${detailId}" class="grade-detail hidden">
+          ${renderSubjectDetail(r,items,projects)}
+        </div>`;
+
+      const button=card.querySelector(".grade-detail-button");
+      const detail=card.querySelector(".grade-detail");
+      button.addEventListener("click",()=>{
+        const opening=detail.classList.contains("hidden");
+        detail.classList.toggle("hidden",!opening);
+        button.textContent=opening ? "Ocultar detalle" : "Ver detalle";
+        button.setAttribute("aria-expanded",opening ? "true" : "false");
+      });
       container.appendChild(card);
     });
   }
