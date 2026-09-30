@@ -319,7 +319,7 @@ button{
 
 .tabs{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(5,1fr);
   gap:7px;
   margin:20px 0;
   background:#f1f5f9;
@@ -544,6 +544,14 @@ button{
   padding:25px 10px;
 }
 
+.attention-intro{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:14px;margin-bottom:14px;color:#334155;font-size:13px;line-height:1.45}
+.attention-list{display:grid;gap:12px}
+.attention-card{border:1px solid #e2e8f0;border-radius:14px;padding:15px;background:#fff}
+.attention-teacher{font-weight:800;color:#123f73;font-size:14px;line-height:1.35}
+.attention-subject{margin-top:4px;color:#475569;font-size:13px}
+.attention-times{display:grid;gap:6px;margin-top:11px}
+.attention-time{background:#f8fafc;border-radius:10px;padding:8px 10px;color:#334155;font-size:13px}
+
 @media(max-width:520px){
   .page{
     padding:12px;
@@ -561,6 +569,7 @@ button{
   }
 
   .tabs{
+    grid-template-columns:repeat(2,1fr);
     gap:4px;
   }
 
@@ -762,6 +771,13 @@ button{
         Notificaciones <span id="unreadCount"></span>
       </button>
 
+      <button id="attentionTabButton"
+              class="tab"
+              data-tab="attention"
+              type="button">
+        Atención
+      </button>
+
     </div>
 
 
@@ -825,6 +841,13 @@ button{
 
       <div id="notificationsList"></div>
 
+    </div>
+
+    <!-- ATENCIÓN A FAMILIAS -->
+    <div id="attentionTab" class="hidden">
+      <h3 class="history-title">Atención a familias</h3>
+      <div class="attention-intro">Consulte los horarios establecidos para comunicarse con los docentes de su representado.</div>
+      <div id="attentionList" class="attention-list"></div>
     </div>
 
   </div>
@@ -1418,6 +1441,9 @@ document.querySelectorAll(".tab")
     if(tab==="notifications")
       await loadNotifications();
 
+    if(tab==="attention")
+      await loadAttentionSchedules();
+
   });
 
 });
@@ -1447,8 +1473,77 @@ function activateTab(tab){
 
   document.getElementById("notificationsTab")
   .classList.toggle("hidden",tab!=="notifications");
+
+  document.getElementById("attentionTab")
+  .classList.toggle("hidden",tab!=="attention");
 }
 
+
+
+// ATENCIÓN A FAMILIAS
+
+function attentionDayLabel(value){
+  const labels={
+    LUNES:"Lunes",
+    MARTES:"Martes",
+    MIERCOLES:"Miércoles",
+    JUEVES:"Jueves",
+    VIERNES:"Viernes"
+  };
+  return labels[String(value || "").toUpperCase()] || value || "";
+}
+
+function attentionTime(value){
+  return String(value || "").slice(0,5);
+}
+
+async function loadAttentionSchedules(){
+  if(!currentStudent) return;
+
+  const list=document.getElementById("attentionList");
+  list.innerHTML=`<div class="loading">Cargando horarios de atención...</div>`;
+
+  const {data,error}=await db.rpc("family_student_attention_schedules",{
+    p_student_id:currentStudent.id
+  });
+
+  if(error){
+    console.error(error);
+    list.innerHTML=`<div class="empty-state">No fue posible consultar los horarios de atención.</div>`;
+    return;
+  }
+
+  const rows=data || [];
+  if(!rows.length){
+    list.innerHTML=`<div class="empty-state">No hay horarios de atención registrados para los docentes de este estudiante.</div>`;
+    return;
+  }
+
+  const groups=new Map();
+  for(const row of rows){
+    const key=`${row.teacher_id || ""}::${row.asignatura || ""}`;
+    if(!groups.has(key)){
+      groups.set(key,{
+        docente:row.docente || "Docente",
+        asignatura:row.asignatura || "Asignatura",
+        horarios:[]
+      });
+    }
+    groups.get(key).horarios.push(row);
+  }
+
+  list.innerHTML=[...groups.values()].map(group=>`
+    <div class="attention-card">
+      <div class="attention-teacher">${escapeHtml(group.docente)}</div>
+      <div class="attention-subject">${escapeHtml(group.asignatura)}</div>
+      <div class="attention-times">
+        ${group.horarios.map(row=>`
+          <div class="attention-time">🗓 ${escapeHtml(attentionDayLabel(row.dia))} · ${escapeHtml(attentionTime(row.hora_inicio))}–${escapeHtml(attentionTime(row.hora_fin))}</div>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+}
 
 // CALIFICACIONES
 
