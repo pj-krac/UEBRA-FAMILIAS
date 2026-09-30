@@ -1072,6 +1072,16 @@ async function loadFamily(){
 
   currentFamily=data;
 
+  // Registrar de forma segura el primer y último acceso del representante.
+  // La RPC identifica al usuario mediante auth.uid(); no recibe IDs desde el navegador.
+  const {error:accessError}=
+  await db.rpc("registrar_acceso_familia");
+
+  if(accessError){
+    // El registro de actividad no debe bloquear el acceso a Familias.
+    console.error("No fue posible registrar el acceso familiar:",accessError);
+  }
+
   document.getElementById("familyName")
   .textContent=data.nombres;
 
