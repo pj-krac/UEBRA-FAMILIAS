@@ -878,7 +878,15 @@ const SUPABASE_KEY =
 
 const db = window.supabase.createClient(
   SUPABASE_URL,
-  SUPABASE_KEY
+  SUPABASE_KEY,
+  {
+    auth: {
+      storageKey: "uebra-familias-auth",
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    }
+  }
 );
 
 const VAPID_PUBLIC_KEY =
