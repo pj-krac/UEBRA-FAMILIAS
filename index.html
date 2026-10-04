@@ -577,6 +577,13 @@ button{
     font-size:12px;
   }
 }
+
+/* ACTUALIZACIÓN DE DATOS */
+.data-update-intro{background:#f8fafc;border:1px solid #dbe4ef;border-radius:14px;padding:14px;margin-bottom:16px;color:#475569;line-height:1.45;}
+.data-update-status{display:inline-block;padding:5px 10px;border-radius:999px;background:#e2e8f0;font-size:12px;font-weight:700;margin-bottom:12px;}
+.data-update-status.BORRADOR{background:#fef3c7;color:#92400e}.data-update-status.ENVIADO{background:#dbeafe;color:#1e40af}.data-update-status.OBSERVADO{background:#fee2e2;color:#991b1b}.data-update-status.REVISADO{background:#dcfce7;color:#166534}
+.data-update-section{border:1px solid #e2e8f0;border-radius:14px;padding:14px;margin:12px 0;background:#fff}.data-update-section h4{margin:0 0 12px;color:#163f6d}.data-update-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.data-update-field label{display:block;font-size:12px;font-weight:700;color:#475569;margin-bottom:5px}.data-update-field input,.data-update-field select,.data-update-field textarea{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:9px;padding:10px;font:inherit;background:#fff}.data-update-field textarea{min-height:72px;resize:vertical}.data-update-field.full{grid-column:1/-1}.data-update-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.data-update-observation{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;border-radius:12px;padding:12px;margin:10px 0}.data-update-closed{padding:18px;text-align:center;background:#f8fafc;border-radius:12px;color:#64748b}.readonly-note{font-size:11px;color:#64748b;margin-top:4px}@media(max-width:700px){.data-update-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 
@@ -778,6 +785,13 @@ button{
         Atención
       </button>
 
+      <button id="dataUpdateTabButton"
+              class="tab"
+              data-tab="dataUpdate"
+              type="button">
+        Actualización de datos
+      </button>
+
     </div>
 
 
@@ -848,6 +862,12 @@ button{
       <h3 class="history-title">Atención a familias</h3>
       <div class="attention-intro">Consulte los horarios establecidos para comunicarse con los docentes de su representado.</div>
       <div id="attentionList" class="attention-list"></div>
+    </div>
+
+    <!-- ACTUALIZACIÓN DE DATOS -->
+    <div id="dataUpdateTab" class="hidden">
+      <h3 class="history-title">Actualización de datos</h3>
+      <div id="dataUpdateContent"><div class="loading">Comprobando cronograma...</div></div>
     </div>
 
   </div>
@@ -1462,6 +1482,9 @@ document.querySelectorAll(".tab")
     if(tab==="attention")
       await loadAttentionSchedules();
 
+    if(tab==="dataUpdate")
+      await loadFamilyDataUpdate();
+
   });
 
 });
@@ -1494,9 +1517,128 @@ function activateTab(tab){
 
   document.getElementById("attentionTab")
   .classList.toggle("hidden",tab!=="attention");
+
+  document.getElementById("dataUpdateTab")
+  .classList.toggle("hidden",tab!=="dataUpdate");
 }
 
 
+
+
+// ACTUALIZACIÓN DE DATOS DE FAMILIAS
+let currentDataUpdate=null;
+let currentDataPrefill=null;
+
+function duGet(obj,path,fallback=""){
+  return path.split(".").reduce((v,k)=>v && v[k]!==undefined ? v[k] : undefined,obj) ?? fallback;
+}
+function duField(label,path,type="text",opts={}){
+  const val=duGet(currentDataUpdate?.datos||{},path,opts.value||"");
+  const ro=opts.readonly?"readonly":"";
+  const cls=opts.full?" full":"";
+  return `<div class="data-update-field${cls}"><label>${escapeHtml(label)}</label><input data-du-path="${escapeHtml(path)}" type="${type}" value="${escapeHtml(val)}" ${ro}>${opts.note?`<div class="readonly-note">${escapeHtml(opts.note)}</div>`:""}</div>`;
+}
+function duSelect(label,path,values){
+  const val=String(duGet(currentDataUpdate?.datos||{},path,""));
+  return `<div class="data-update-field"><label>${escapeHtml(label)}</label><select data-du-path="${escapeHtml(path)}"><option value="">Seleccione...</option>${values.map(v=>`<option value="${escapeHtml(v)}" ${v===val?"selected":""}>${escapeHtml(v)}</option>`).join("")}</select></div>`;
+}
+function duSetPath(obj,path,value){
+  const parts=path.split("."); let cur=obj;
+  parts.forEach((k,i)=>{ if(i===parts.length-1) cur[k]=value; else { if(!cur[k]||typeof cur[k]!=="object") cur[k]={}; cur=cur[k]; }});
+}
+function collectDataUpdate(){
+  const data=JSON.parse(JSON.stringify(currentDataUpdate?.datos||{}));
+  document.querySelectorAll("#dataUpdateContent [data-du-path]").forEach(el=>duSetPath(data,el.dataset.duPath,el.value.trim()));
+  return data;
+}
+function duReadOnlyField(label,value){
+  return `<div class="data-update-field"><label>${escapeHtml(label)}</label><input value="${escapeHtml(value||"")}" readonly><div class="readonly-note">Dato registrado actualmente en UEBRA+</div></div>`;
+}
+
+async function loadFamilyDataUpdate(){
+  if(!currentStudent) return;
+  const box=document.getElementById("dataUpdateContent");
+  box.innerHTML=`<div class="loading">Comprobando cronograma...</div>`;
+  const {data:periods,error:periodError}=await db.from("family_data_update_periods").select("id,nombre,anio_lectivo,fecha_inicio,fecha_fin").eq("activo",true).order("fecha_inicio",{ascending:false}).limit(1);
+  if(periodError || !periods?.length){
+    box.innerHTML=`<div class="data-update-closed"><strong>Actualización no habilitada</strong><br>Actualmente no existe un cronograma abierto para actualizar datos.</div>`;
+    return;
+  }
+  const {data:prefill,error:prefillError}=await db.rpc("family_data_update_prefill",{p_student_id:currentStudent.id});
+  if(prefillError){ box.innerHTML=`<div class="data-update-closed">${escapeHtml(prefillError.message||"No fue posible abrir la actualización.")}</div>`; return; }
+  currentDataPrefill=prefill;
+  const {data:rows,error}=await db.rpc("family_data_update_open",{p_student_id:currentStudent.id});
+  if(error || !rows?.length){ box.innerHTML=`<div class="data-update-closed">${escapeHtml(error?.message||"No fue posible iniciar la ficha.")}</div>`; return; }
+  currentDataUpdate=rows[0];
+  renderFamilyDataUpdate();
+}
+
+function renderFamilyDataUpdate(){
+  const box=document.getElementById("dataUpdateContent");
+  const u=currentDataUpdate, p=currentDataPrefill||{};
+  const locked=u.estado==="ENVIADO" || u.estado==="REVISADO";
+  const obs=u.estado==="OBSERVADO" && u.observacion_revision ? `<div class="data-update-observation"><strong>Observación de Administración:</strong><br>${escapeHtml(u.observacion_revision)}</div>`:"";
+  box.innerHTML=`
+    <div class="data-update-intro"><strong>${escapeHtml(u.period_name||"Actualización de datos")}</strong><br>Año lectivo ${escapeHtml(u.anio_lectivo||"")}. Complete la información con datos actuales y verídicos. Puede guardar un borrador antes de enviarla.</div>
+    <span class="data-update-status ${escapeHtml(u.estado)}">${escapeHtml(u.estado)}</span>${obs}
+    <div class="data-update-section"><h4>Estudiante</h4><div class="data-update-grid">
+      ${duReadOnlyField("Apellidos y nombres",duGet(p,"estudiante.nombre"))}
+      ${duReadOnlyField("Cédula",duGet(p,"estudiante.cedula"))}
+      ${duReadOnlyField("Curso",duGet(p,"curso.nombre"))}
+      ${duReadOnlyField("Jornada",duGet(p,"curso.jornada"))}
+      ${duSelect("¿Repite el año?","estudiante.repite_anio",["NO","SI"])}
+      ${duSelect("¿Cuenta con informe UDAI?","estudiante.informe_udai",["NO","SI"])}
+    </div></div>
+    <div class="data-update-section"><h4>Nacimiento y salud</h4><div class="data-update-grid">
+      ${duField("Fecha de nacimiento","nacimiento.fecha","date")}
+      ${duField("País de nacimiento","nacimiento.pais")}
+      ${duField("Provincia de nacimiento","nacimiento.provincia")}
+      ${duField("Cantón de nacimiento","nacimiento.canton")}
+      ${duField("Tipo de sangre","salud.tipo_sangre")}
+      ${duField("Alergias / condición relevante","salud.alergia","text",{full:true})}
+    </div></div>
+    <div class="data-update-section"><h4>Domicilio</h4><div class="data-update-grid">
+      ${duField("Provincia","domicilio.provincia")}${duField("Cantón","domicilio.canton")}${duField("Parroquia","domicilio.parroquia")}
+      ${duField("Dirección domiciliaria","domicilio.direccion","text",{full:true})}${duField("Referencia","domicilio.referencia","text",{full:true})}
+    </div></div>
+    <div class="data-update-section"><h4>Representante</h4><div class="data-update-grid">
+      ${duReadOnlyField("Nombres",duGet(p,"representante.nombres"))}${duReadOnlyField("Documento",duGet(p,"representante.documento"))}
+      ${duReadOnlyField("Parentesco",duGet(p,"representante.parentesco"))}${duField("Profesión / ocupación","representante.profesion")}
+      ${duField("Celular","representante.celular","tel",{value:duGet(p,"representante.celular")})}${duField("Correo electrónico","representante.email","email",{value:duGet(p,"representante.email")})}
+      ${duField("Teléfono domicilio","representante.telefono_domicilio","tel")}${duField("Teléfono trabajo","representante.telefono_trabajo","tel")}
+      ${duField("Teléfono de emergencia","representante.telefono_emergencia","tel")}
+    </div></div>
+    <div class="data-update-section"><h4>Madre</h4><div class="data-update-grid">
+      ${duField("Apellidos y nombres","madre.nombres")}${duField("Cédula / documento","madre.cedula")}${duField("Fecha de nacimiento","madre.fecha_nacimiento","date")}
+      ${duField("País de nacimiento","madre.pais")}${duField("Ciudad","madre.ciudad")}${duField("Celular","madre.celular","tel")}${duField("Domicilio","madre.domicilio","text",{full:true})}
+    </div></div>
+    <div class="data-update-section"><h4>Padre</h4><div class="data-update-grid">
+      ${duField("Apellidos y nombres","padre.nombres")}${duField("Cédula / documento","padre.cedula")}${duField("Fecha de nacimiento","padre.fecha_nacimiento","date")}
+      ${duField("País de nacimiento","padre.pais")}${duField("Ciudad","padre.ciudad")}${duField("Celular","padre.celular","tel")}${duField("Domicilio","padre.domicilio","text",{full:true})}
+    </div></div>
+    ${locked?`<div class="data-update-closed"><strong>Ficha ${escapeHtml(u.estado.toLowerCase())}.</strong><br>${u.estado==="ENVIADO"?"Administración realizará la revisión correspondiente.":"La actualización ha sido revisada por Administración."}</div>`:`<div class="data-update-actions"><button id="saveDataUpdateButton" class="secondary" type="button">Guardar borrador</button><button id="submitDataUpdateButton" class="primary" type="button">Enviar actualización</button></div>`}
+  `;
+  if(locked){ box.querySelectorAll("input,select,textarea").forEach(el=>el.disabled=true); return; }
+  document.getElementById("saveDataUpdateButton")?.addEventListener("click",saveFamilyDataUpdate);
+  document.getElementById("submitDataUpdateButton")?.addEventListener("click",submitFamilyDataUpdate);
+}
+
+async function saveFamilyDataUpdate(){
+  const btn=document.getElementById("saveDataUpdateButton"); if(btn) btn.disabled=true;
+  const datos=collectDataUpdate();
+  const {data,error}=await db.rpc("family_data_update_save",{p_update_id:currentDataUpdate.update_id,p_datos:datos});
+  if(btn) btn.disabled=false;
+  if(error){ alert(error.message||"No fue posible guardar el borrador."); return; }
+  currentDataUpdate.datos=datos; currentDataUpdate.estado="BORRADOR"; alert(data?.mensaje||"Borrador guardado correctamente."); renderFamilyDataUpdate();
+}
+
+async function submitFamilyDataUpdate(){
+  if(!confirm("¿Desea enviar la actualización? Después del envío no podrá modificarla salvo que Administración la devuelva con una observación.")) return;
+  const datos=collectDataUpdate();
+  const {data,error}=await db.rpc("family_data_update_submit",{p_update_id:currentDataUpdate.update_id,p_datos:datos});
+  if(error){ alert(error.message||"No fue posible enviar la actualización."); return; }
+  currentDataUpdate.datos=datos; currentDataUpdate.estado="ENVIADO"; currentDataUpdate.fecha_envio=new Date().toISOString(); alert(data?.mensaje||"Actualización enviada correctamente."); renderFamilyDataUpdate();
+}
 
 // ATENCIÓN A FAMILIAS
 
