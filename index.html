@@ -2960,10 +2960,11 @@ async function loadInstitutionalCalendar(){
  const from=new Date().toLocaleDateString('en-CA',{timeZone:'America/Guayaquil'});
  const end=new Date(from+'T12:00:00Z');end.setUTCDate(end.getUTCDate()+365);const to=end.toISOString().slice(0,10);
  if(!from||!to||from>to){host.textContent='Seleccione un rango de fechas válido.';return}
- try{const {data,error}=await db.rpc('family_student_school_calendar',{p_student_id:studentId,p_from:from,p_to:to});
+ try{let {data,error}=await db.rpc('family_student_agenda',{p_student_id:studentId,p_from:from,p_to:to});
+ if(error&&['PGRST202','42883'].includes(error.code)){const legacy=await db.rpc('family_student_school_calendar',{p_student_id:studentId,p_from:from,p_to:to});error=legacy.error;data=(legacy.data||[]).map(x=>({...x,tipo:'FECHA_SIN_CLASE',titulo:x.motivo,sin_clases:true}));}
  if(request!==familyCalendarRequest||currentStudent?.id!==studentId)return;
  if(error){host.textContent='El calendario no está disponible. La institución debe habilitar el acceso autorizado para familias.';return}
- const rows=[...(data||[])].sort((a,b)=>String(a.fecha).localeCompare(String(b.fecha)));host.innerHTML=rows.length?rows.map(x=>`<article class="calendar-family-event"><h3>${escapeHtml(formatDate(x.fecha))}</h3><p>${escapeHtml(x.motivo||'Fecha institucional')}</p><small>${escapeHtml(x.jornada||'Toda la institución')}</small></article>`).join(''):'<div class="empty-state">No hay próximas fechas institucionales publicadas.</div>';
+ const rows=[...(data||[])].sort((a,b)=>String(a.fecha).localeCompare(String(b.fecha)));host.innerHTML=rows.length?rows.map(x=>`<article class="calendar-family-event"><h3>${escapeHtml(formatDate(x.fecha))}</h3><p><b>${escapeHtml(({FERIADO:'Feriado',PRUEBA:'Prueba',LECCION:'Lección',PROYECTO:'Entrega de proyecto',REUNION:'Reunión',ACTIVIDAD:'Actividad',FECHA_SIN_CLASE:'Fecha sin clase'})[x.tipo]||'Actividad')}</b></p><p>${escapeHtml(x.titulo||x.motivo||'Fecha institucional')}</p>${x.asignatura?'<p>Asignatura: '+escapeHtml(x.asignatura)+'</p>':''}${x.observacion?'<p style="white-space:pre-wrap">'+escapeHtml(x.observacion)+'</p>':''}<p><b>${x.sin_clases?'No hay clases ni asistencia.':'Clases normales.'}</b></p><small>${escapeHtml(x.curso||x.jornada||'Toda la institución')}</small></article>`).join(''):'<div class="empty-state">No hay próximas fechas institucionales publicadas.</div>';
  }catch(e){if(request===familyCalendarRequest&&currentStudent?.id===studentId)host.textContent='No fue posible cargar el calendario. Intente nuevamente.'}
 }
 const calendarPanel=document.createElement('section');calendarPanel.id='calendarTab';calendarPanel.className='hidden';
