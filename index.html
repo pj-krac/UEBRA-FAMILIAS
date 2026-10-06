@@ -585,7 +585,7 @@ button{
 .data-update-section{border:1px solid #e2e8f0;border-radius:14px;padding:14px;margin:12px 0;background:#fff}.data-update-section h4{margin:0 0 12px;color:#163f6d}.data-update-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.data-update-field label{display:block;font-size:12px;font-weight:700;color:#475569;margin-bottom:5px}.data-update-field input,.data-update-field select,.data-update-field textarea{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:9px;padding:10px;font:inherit;background:#fff}.data-update-field textarea{min-height:72px;resize:vertical}.data-update-field.full{grid-column:1/-1}.data-update-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.data-update-observation{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;border-radius:12px;padding:12px;margin:10px 0}.data-update-closed{padding:18px;text-align:center;background:#f8fafc;border-radius:12px;color:#64748b}.readonly-note{font-size:11px;color:#64748b;margin-top:4px}@media(max-width:700px){.data-update-grid{grid-template-columns:1fr}}
 
 </style>
-</head>
+<style>.calendar-family-filters{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.calendar-family-filters label{display:grid;gap:6px}.calendar-family-filters input{font:inherit;padding:10px;max-width:100%}.calendar-family-event{padding:14px;border:1px solid #dce5ef;border-radius:12px;margin:12px 0}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #2876c7;outline-offset:3px}#calendarTab{scroll-margin-top:16px}@media(max-width:600px){.calendar-family-filters label{flex:1 1 100%}}</style></head>
 
 <body>
 
@@ -749,7 +749,7 @@ button{
     </div>
 
 
-    <div class="tabs">
+    <div class="tabs"><button type="button" class="tab" data-tab="calendar">📅 Calendario institucional</button>
 
       <button class="tab active"
               data-tab="attendance"
@@ -1467,6 +1467,8 @@ document.querySelectorAll(".tab")
 
     activateTab(tab);
 
+    if(tab==="calendar") await loadInstitutionalCalendar();
+
     if(tab==="attendance")
       await loadAttendance();
 
@@ -1491,6 +1493,8 @@ document.querySelectorAll(".tab")
 
 
 function activateTab(tab){
+ document.getElementById("calendarTab").classList.toggle("hidden",tab!=="calendar");
+ requestAnimationFrame(()=>{const panel=document.getElementById(tab+"Tab");if(panel){panel.tabIndex=-1;panel.focus({preventScroll:true});panel.scrollIntoView({block:"start",behavior:"instant"})}});
 
   document.querySelectorAll(".tab")
   .forEach(b=>{
@@ -2947,5 +2951,23 @@ init();
 
 </script>
 
-</body>
+<script>
+let familyCalendarRequest=0;
+async function loadInstitutionalCalendar(){
+ const host=document.getElementById('calendarList'),studentId=currentStudent?.id,request=++familyCalendarRequest;
+ if(!studentId){host.textContent='Seleccione un representado.';return}
+ host.textContent='Cargando calendario…';
+ const from=document.getElementById('calendarFrom').value,to=document.getElementById('calendarTo').value;
+ if(!from||!to||from>to){host.textContent='Seleccione un rango de fechas válido.';return}
+ try{const {data,error}=await db.rpc('family_student_school_calendar',{p_student_id:studentId,p_from:from,p_to:to});
+ if(request!==familyCalendarRequest||currentStudent?.id!==studentId)return;
+ if(error){host.textContent='El calendario no está disponible. La institución debe habilitar el acceso autorizado para familias.';return}
+ const rows=data||[];host.innerHTML=rows.length?rows.map(x=>`<article class="calendar-family-event"><h3>${escapeHtml(formatDate(x.fecha))}</h3><p>${escapeHtml(x.motivo||'Fecha institucional')}</p><small>${escapeHtml(x.jornada||'Toda la institución')}</small></article>`).join(''):'<div class="empty-state">No hay fechas institucionales publicadas para este período.</div>';
+ }catch(e){if(request===familyCalendarRequest&&currentStudent?.id===studentId)host.textContent='No fue posible cargar el calendario. Intente nuevamente.'}
+}
+const calendarPanel=document.createElement('section');calendarPanel.id='calendarTab';calendarPanel.className='hidden';
+const calendarYear=new Date().toLocaleDateString('en-CA',{timeZone:'America/Guayaquil'}).slice(0,4);
+calendarPanel.innerHTML=`<h2>Calendario institucional</h2><p>Fechas sin clase publicadas para la jornada de este representado.</p><div class="calendar-family-filters"><label>Desde<input id="calendarFrom" type="date" value="${calendarYear}-01-01"></label><label>Hasta<input id="calendarTo" type="date" value="${calendarYear}-12-31"></label><button id="calendarRefresh" type="button">Consultar</button></div><div id="calendarList" role="status" aria-live="polite"></div>`;
+document.getElementById('studentView').appendChild(calendarPanel);document.getElementById('calendarRefresh').onclick=loadInstitutionalCalendar;
+</script></body>
 </html>
