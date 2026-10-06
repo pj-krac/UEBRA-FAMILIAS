@@ -2957,17 +2957,17 @@ async function loadInstitutionalCalendar(){
  const host=document.getElementById('calendarList'),studentId=currentStudent?.id,request=++familyCalendarRequest;
  if(!studentId){host.textContent='Seleccione un representado.';return}
  host.textContent='Cargando calendario…';
- const from=document.getElementById('calendarFrom').value,to=document.getElementById('calendarTo').value;
+ const from=new Date().toLocaleDateString('en-CA',{timeZone:'America/Guayaquil'});
+ const end=new Date(from+'T12:00:00Z');end.setUTCDate(end.getUTCDate()+365);const to=end.toISOString().slice(0,10);
  if(!from||!to||from>to){host.textContent='Seleccione un rango de fechas válido.';return}
  try{const {data,error}=await db.rpc('family_student_school_calendar',{p_student_id:studentId,p_from:from,p_to:to});
  if(request!==familyCalendarRequest||currentStudent?.id!==studentId)return;
  if(error){host.textContent='El calendario no está disponible. La institución debe habilitar el acceso autorizado para familias.';return}
- const rows=data||[];host.innerHTML=rows.length?rows.map(x=>`<article class="calendar-family-event"><h3>${escapeHtml(formatDate(x.fecha))}</h3><p>${escapeHtml(x.motivo||'Fecha institucional')}</p><small>${escapeHtml(x.jornada||'Toda la institución')}</small></article>`).join(''):'<div class="empty-state">No hay fechas institucionales publicadas para este período.</div>';
+ const rows=[...(data||[])].sort((a,b)=>String(a.fecha).localeCompare(String(b.fecha)));host.innerHTML=rows.length?rows.map(x=>`<article class="calendar-family-event"><h3>${escapeHtml(formatDate(x.fecha))}</h3><p>${escapeHtml(x.motivo||'Fecha institucional')}</p><small>${escapeHtml(x.jornada||'Toda la institución')}</small></article>`).join(''):'<div class="empty-state">No hay próximas fechas institucionales publicadas.</div>';
  }catch(e){if(request===familyCalendarRequest&&currentStudent?.id===studentId)host.textContent='No fue posible cargar el calendario. Intente nuevamente.'}
 }
 const calendarPanel=document.createElement('section');calendarPanel.id='calendarTab';calendarPanel.className='hidden';
-const calendarYear=new Date().toLocaleDateString('en-CA',{timeZone:'America/Guayaquil'}).slice(0,4);
-calendarPanel.innerHTML=`<h2>Calendario institucional</h2><p>Fechas sin clase publicadas para la jornada de este representado.</p><div class="calendar-family-filters"><label>Desde<input id="calendarFrom" type="date" value="${calendarYear}-01-01"></label><label>Hasta<input id="calendarTo" type="date" value="${calendarYear}-12-31"></label><button id="calendarRefresh" type="button">Consultar</button></div><div id="calendarList" role="status" aria-live="polite"></div>`;
-document.getElementById('studentView').appendChild(calendarPanel);document.getElementById('calendarRefresh').onclick=loadInstitutionalCalendar;
+calendarPanel.innerHTML=`<h2>Calendario institucional</h2><p>Próximas fechas institucionales para la jornada de este representado.</p><div id="calendarList" role="status" aria-live="polite"></div>`;
+document.getElementById('studentView').appendChild(calendarPanel);
 </script></body>
 </html>
