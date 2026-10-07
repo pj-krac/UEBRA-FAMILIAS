@@ -1,0 +1,5 @@
+Ubicación corregida: Proyectos sumativos ya no aparece en Administrar.
+Docente: Calificaciones → materia → trimestre → Mi proyecto de evaluación sumativa.
+Administrador: Calificaciones → Revisar proyectos del curso.
+Los permisos y las fórmulas de las entregas anteriores se conservan. Este ajuste de ubicación no necesita SQL adicional.
+Publicar todo este ZIP; en particular index.html, proyectos-flexibles.js, eleccion-proyecto-docente.js y sw.js. Recargar después de publicar.
