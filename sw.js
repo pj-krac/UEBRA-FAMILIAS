@@ -1,69 +1,56 @@
-self.addEventListener("push", event => {
-  let data = {};
+const CACHE_PREFIX = 'uebra-plus-';
+const CACHE = `${CACHE_PREFIX}v13-solo-modalidad`;
 
-  try {
-    data = event.data ? event.data.json() : {};
-  } catch (e) {
-    data = {
-      title: "UEBRA Familias",
-      body: event.data
-        ? event.data.text()
-        : "Tiene una nueva notificación."
-    };
-  }
+const ASSETS = [
+  './',
+  './index.html',
+  './config.js',
+  './proyectos-flexibles.js',
+  './proyectos-flexibles-modalidad-v4.js',
+  './eleccion-proyecto-docente.js',
+  './eleccion-proyecto-docente-retiro-v2.js',
+  './eleccion-proyecto-docente-sin-nombre-v3.js',
+  './eleccion-proyecto-docente-modalidad-v4.js',
+  './manifest.webmanifest',
+  './logo-uebra.png',
+  './icon-192.png',
+  './icon-512.png'
+];
 
-  const title = data.title || "UEBRA Familias";
-
-  const options = {
-    body: data.body || "Tiene una nueva notificación.",
-    icon: "NEW%20LOGO.png",
-    badge: "NEW%20LOGO.png",
-    data: {
-      url: data.url || "./"
-    },
-    tag: data.tag || "uebra-familias",
-    renotify: true
-  };
-
-  event.waitUntil(
-    self.registration.showNotification(title, options)
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(ASSETS))
   );
 });
 
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(ks =>
+      Promise.all(
+        ks
+          .filter(k => k.startsWith(CACHE_PREFIX) && k !== CACHE)
+          .map(k => caches.delete(k))
+      )
+    )
+  );
+});
 
-self.addEventListener("notificationclick", event => {
-  event.notification.close();
+self.addEventListener('fetch', e => {
+  if (e.request.method !== 'GET') return;
+ const url=new URL(e.request.url);
+ if(url.origin!==self.location.origin||url.search||!ASSETS.some(a=>new URL(a,self.location.href).pathname===url.pathname))return;
 
-  const appBase =
-    new URL("./", self.registration.scope);
-
-  const receivedUrl =
-    event.notification.data?.url || "./";
-
-  const target =
-    new URL(receivedUrl, appBase).href;
-
-  event.waitUntil(
-    clients
-      .matchAll({
-        type: "window",
-        includeUncontrolled: true
+  e.respondWith(
+    fetch(e.request)
+      .then(r => {
+        if(!r.ok)return r;
+ const copia = r.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copia));
+        return r;
       })
-      .then(async list => {
-
-        for (const client of list) {
-
-          if (
-            client.url.startsWith(
-              self.registration.scope
-            )
-          ) {
-            await client.navigate(target);
-            return client.focus();
-          }
-        }
-
-        return clients.openWindow(target);
-      })
+      .catch(() =>
+        caches.match(e.request)
+          .then(r => r || caches.match('./index.html'))
+      )
   );
 });

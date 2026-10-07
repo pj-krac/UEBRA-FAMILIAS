@@ -1,26 +1,28 @@
 {
-  "id": "https://pj-krac.github.io/UEBRA-FAMILIAS/",
-  "name": "UEBRA Familias",
-  "short_name": "UEBRA Familias",
-  "description": "Aplicación para representantes de la Unidad Educativa Benjamín Ramírez Arteaga",
-  "start_url": "/UEBRA-FAMILIAS/",
-  "scope": "/UEBRA-FAMILIAS/",
+  "id": "https://pj-krac.github.io/UEBRA-PLUS/",
+  "name": "UEBRA+ - Plataforma Integral de Gestión Educativa",
+  "short_name": "UEBRA+",
+  "start_url": "/UEBRA-PLUS/",
+  "scope": "/UEBRA-PLUS/",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#ffffff",
-  "theme_color": "#123f73",
+  "background_color": "#f4f6f9",
+  "theme_color": "#173f6b",
   "icons": [
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
       "src": "./icon-512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "maskable"
     }
   ]
 }

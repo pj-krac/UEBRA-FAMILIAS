@@ -1,0 +1,6659 @@
+[
+  {
+    "key": "INICIAL I_M",
+    "curso": "INICIAL I",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0152617379",
+        "cedula": "0152617379",
+        "nombre": "APUGLLON CUJILEMA CRISTIAN SMITH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152537627",
+        "cedula": "0152537627",
+        "nombre": "BERMUDEZ COYAGO AYNARA LISSETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152560942",
+        "cedula": "0152560942",
+        "nombre": "BRAVO LLUILEMA RUTH ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651216558",
+        "cedula": "0651216558",
+        "nombre": "CHIMBO GUALLI ANYELI LLURY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152635454",
+        "cedula": "0152635454",
+        "nombre": "DURAN CRIOLLO HEIDY RUBI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0966292310",
+        "cedula": "0966292310",
+        "nombre": "ESPINOZA VELEPUCHA AITANA ISABELLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152636130",
+        "cedula": "0152636130",
+        "nombre": "GUAMAN ASACATA DYLAN JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152557138",
+        "cedula": "0152557138",
+        "nombre": "JUNTAMAY VILLA LINDA ZENAIDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152568697",
+        "cedula": "0152568697",
+        "nombre": "LANDI GUZMAN MICAELA SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152539532",
+        "cedula": "0152539532",
+        "nombre": "LEMA AZACATA AYLEEN SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152638987",
+        "cedula": "0152638987",
+        "nombre": "LLUILEMA BRAVO GLORIA SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152538369",
+        "cedula": "0152538369",
+        "nombre": "MAYAGUARI MOROCHO MIA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152546586",
+        "cedula": "0152546586",
+        "nombre": "MEDINA CABRERA PABLO EZEQUIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152606117",
+        "cedula": "0152606117",
+        "nombre": "MOROCHO CARCHI GAEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152600607",
+        "cedula": "0152600607",
+        "nombre": "MOROCHO UYAGUARI ERICK GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152633699",
+        "cedula": "0152633699",
+        "nombre": "PADILLA COCHA MATHEUS ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350708830",
+        "cedula": "0350708830",
+        "nombre": "PEREZ NIEVES NOAH ZABDIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152572285",
+        "cedula": "0152572285",
+        "nombre": "PEREZ PEÑAFIEL SOFIJA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152623526",
+        "cedula": "0152623526",
+        "nombre": "PILCO CHIMBOLEMA GENESIS MAITE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152549135",
+        "cedula": "0152549135",
+        "nombre": "QUIZHPI GUAMAN ALAN BENJAMIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152618914",
+        "cedula": "0152618914",
+        "nombre": "SILVA CUERO ELIAS ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152580320",
+        "cedula": "0152580320",
+        "nombre": "SUQUI HIDALGO ASHLY SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1354040907",
+        "cedula": "1354040907",
+        "nombre": "VINCES ALARCON ITZEL SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651186496",
+        "cedula": "0651186496",
+        "nombre": "YUCAILLA SISLEMA LIAM YADIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1354033597",
+        "cedula": "1354033597",
+        "nombre": "ZAMBRANO ARTEAGA LIAN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "INICIAL II_M",
+    "curso": "INICIAL II",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0752095828",
+        "cedula": "0752095828",
+        "nombre": "ALVAREZ GUILLIN MAYKEL ALEXIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152475596",
+        "cedula": "0152475596",
+        "nombre": "ANDRADE MEDINA JOSE ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152411203",
+        "cedula": "0152411203",
+        "nombre": "ARROYO ANGULO EMA JULIETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152459798",
+        "cedula": "0152459798",
+        "nombre": "BERMUDEZ SANMARTIN ANGELA ISABELLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152458725",
+        "cedula": "0152458725",
+        "nombre": "CHOCHO UYAGUARI MARIA DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152464541",
+        "cedula": "0152464541",
+        "nombre": "CUERO MOROCHO USMELIA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152419842",
+        "cedula": "0152419842",
+        "nombre": "GUAMAN NIVICELA DAVID ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152512042",
+        "cedula": "0152512042",
+        "nombre": "GUANUCHI BRAVO DEYSI YASU",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152420964",
+        "cedula": "0152420964",
+        "nombre": "LLIVICURA PACHAR BRYAN LEANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152502696",
+        "cedula": "0152502696",
+        "nombre": "MACAS ORELLANA MIA CRISTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152465175",
+        "cedula": "0152465175",
+        "nombre": "MALDONADO CRESPO NATALIA GUADALUPE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651123820",
+        "cedula": "0651123820",
+        "nombre": "MOROCHO ACAN CESAR JHEREMY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152419107",
+        "cedula": "0152419107",
+        "nombre": "MOROCHO ARMIJOS JOHAN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152475307",
+        "cedula": "0152475307",
+        "nombre": "MUÑOZ LUCERO SANTIAGO JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152418117",
+        "cedula": "0152418117",
+        "nombre": "NIVICELA AYABACA ANGEL DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152501862",
+        "cedula": "0152501862",
+        "nombre": "OCHOA GARCIA MAYTE ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152505103",
+        "cedula": "0152505103",
+        "nombre": "PINDO FERNANDEZ JUNIOR MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152471603",
+        "cedula": "0152471603",
+        "nombre": "PINTADO ZUMBA THIAGO MOISES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152424776",
+        "cedula": "0152424776",
+        "nombre": "ROLDAN GUARACA MAILY ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152485801",
+        "cedula": "0152485801",
+        "nombre": "SANTILLAN SIBRI DANNA ISABELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152479879",
+        "cedula": "0152479879",
+        "nombre": "SORACIPA TUAREZ SAMARA MEILYN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651148587",
+        "cedula": "0651148587",
+        "nombre": "TOCACHI TENEMAZA JHEISON STIVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152497160",
+        "cedula": "0152497160",
+        "nombre": "TOCTO QUITO ASHLEY MICAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152619292",
+        "cedula": "0152619292",
+        "nombre": "ZHAGUI ZHIÑIN OLGER MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152485181",
+        "cedula": "0152485181",
+        "nombre": "ZUMBA ILLESCAS DAMARIS YAMILETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "INICIAL II_V",
+    "curso": "INICIAL II",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0152533345",
+        "cedula": "0152533345",
+        "nombre": "AGUILAR FERNANDEZ ANDERZON JAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152428157",
+        "cedula": "0152428157",
+        "nombre": "AVILA BERMEO YASMIN ARACELY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152424461",
+        "cedula": "0152424461",
+        "nombre": "BOCON GARCIA JORDY JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152526885",
+        "cedula": "0152526885",
+        "nombre": "BRAVO BRITO DIEGO ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152416079",
+        "cedula": "0152416079",
+        "nombre": "CABRERA ARMIJOS DANIEL ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152507075",
+        "cedula": "0152507075",
+        "nombre": "CARRASCO GUAMBAÑA ARLETH VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2150742183",
+        "cedula": "2150742183",
+        "nombre": "CAZAÑAS SOTO ISAAC EMILIANO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152516159",
+        "cedula": "0152516159",
+        "nombre": "CHAFLA GUASHPA BRITANNY NOEMI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152515664",
+        "cedula": "0152515664",
+        "nombre": "CHIMBO MOROCHO ALAN NICOLAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1761385291",
+        "cedula": "1761385291",
+        "nombre": "CHIMBOLEMA GUARACA AMBAR ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0966002818",
+        "cedula": "0966002818",
+        "nombre": "CUZME BANCHON MATEO SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450761901",
+        "cedula": "1450761901",
+        "nombre": "GAONA TSEREMP NAZLI ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152529780",
+        "cedula": "0152529780",
+        "nombre": "JIMENES CHIMBOLEMA NAZLY ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152471496",
+        "cedula": "0152471496",
+        "nombre": "MACAS MOROCHO JOSTIN GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152474482",
+        "cedula": "0152474482",
+        "nombre": "MEDINA ARMIJOS EMILY SALOME",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152492500",
+        "cedula": "0152492500",
+        "nombre": "NIEVES NAULA DYLAN ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0752163725",
+        "cedula": "0752163725",
+        "nombre": "PALMA SAENZ KEYLER ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152621736",
+        "cedula": "0152621736",
+        "nombre": "POLANCO UZCATEGUI LUIS SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651094310",
+        "cedula": "0651094310",
+        "nombre": "PUCULPALA PUCUNA CALEB JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651116030",
+        "cedula": "0651116030",
+        "nombre": "PUCULPALA TENESACA SAMY MAYERLY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152446217",
+        "cedula": "0152446217",
+        "nombre": "SUQUI PINTADO CRISTOFER DAMIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651160673",
+        "cedula": "0651160673",
+        "nombre": "TENE LEMACHE JAZMIN DAMARIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0551339179",
+        "cedula": "0551339179",
+        "nombre": "TIGASI UGSHA ZOE ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152488029",
+        "cedula": "0152488029",
+        "nombre": "USHCA SINALUISA ANTHONY EZEQUIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1354002741",
+        "cedula": "1354002741",
+        "nombre": "VILLAFUERTE VALENCIA LIARAN ISAAC",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "PRIMERO EGB_M",
+    "curso": "PRIMERO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0152283560",
+        "cedula": "0152283560",
+        "nombre": "AYAVACA MOROCHO AARON HOMAR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152323747",
+        "cedula": "0152323747",
+        "nombre": "BRAVO MOROCHO LINDA SARAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152295549",
+        "cedula": "0152295549",
+        "nombre": "BUSTAMANTE GONSALEZ PAULA DANIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152398467",
+        "cedula": "0152398467",
+        "nombre": "CARTUCHE LOZANO JOAN AMAURY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152370078",
+        "cedula": "0152370078",
+        "nombre": "COFRE LOGRO EIDAN MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152342275",
+        "cedula": "0152342275",
+        "nombre": "GATIA ZHININ LESLY DAYANARA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151571005",
+        "cedula": "1151571005",
+        "nombre": "GUALAN PUCHAICELA MILAN MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152373247",
+        "cedula": "0152373247",
+        "nombre": "HUAMAN CRUZ LUCIA ROSETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152296851",
+        "cedula": "0152296851",
+        "nombre": "JIMBO LEON DERECK FERNANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152309563",
+        "cedula": "0152309563",
+        "nombre": "LALVAY CRIOLLO ANAHI LIZETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151553045",
+        "cedula": "1151553045",
+        "nombre": "LEON SIGCHO THIAGO MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152368874",
+        "cedula": "0152368874",
+        "nombre": "LOJA QUITO CAMILA DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152330163",
+        "cedula": "0152330163",
+        "nombre": "LUNA VELECELA THIAGO ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152376372",
+        "cedula": "0152376372",
+        "nombre": "MACAS ORELLANA ZOE RENATA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152307450",
+        "cedula": "0152307450",
+        "nombre": "MATUTE PERALTA AMALIA MIKAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152210720",
+        "cedula": "0152210720",
+        "nombre": "MENDIETA MENDIETA ANDREW SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152360269",
+        "cedula": "0152360269",
+        "nombre": "MERCHAN MOROCHO DYLAN GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152281119",
+        "cedula": "0152281119",
+        "nombre": "MOROCHO GUAMANTARIO BRYAN NICOLAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1252660301",
+        "cedula": "1252660301",
+        "nombre": "MOROCHO SANMARTIN LARAYHIM FABIANNA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152323051",
+        "cedula": "0152323051",
+        "nombre": "ORTEGA SUCONOTA ALEX MARCELO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0933071334",
+        "cedula": "0933071334",
+        "nombre": "PINEDA BLANCO ALESKA ALINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152325833",
+        "cedula": "0152325833",
+        "nombre": "PIZARRO QUITO CRISTOFER DYLAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152378741",
+        "cedula": "0152378741",
+        "nombre": "QUEZADA PANDIGUANA MIA CAMILA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152342598",
+        "cedula": "0152342598",
+        "nombre": "QUISHPE CHILIQUINGA JHOSSELYN VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0752037572",
+        "cedula": "0752037572",
+        "nombre": "REASCO ACOSTA JEYNER JAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751971078",
+        "cedula": "0751971078",
+        "nombre": "ROMERO PILLCO ROYER LIAM",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152426045",
+        "cedula": "0152426045",
+        "nombre": "RUIZ CALDERON SANTIAGO DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009130874",
+        "cedula": "E009130874",
+        "nombre": "SALAZAR YNOJOSA SAMANTHA DAVIELIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152283198",
+        "cedula": "0152283198",
+        "nombre": "SANGURIMA VILLA PAULA SILVANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751979543",
+        "cedula": "0751979543",
+        "nombre": "SANMARTIN PEREZ ANNIE DANAE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0964696611",
+        "cedula": "0964696611",
+        "nombre": "SOLIS ACOSTA ROBERTO JOSE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152337697",
+        "cedula": "0152337697",
+        "nombre": "TENECELA ZHINGRI GENESIS SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152407706",
+        "cedula": "0152407706",
+        "nombre": "TUGLEMA CHILIQUINGA ALEXIS DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1013376947",
+        "cedula": "1013376947",
+        "nombre": "VILLALOBOS AGUIRRE MAILY JULIANNYS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152368494",
+        "cedula": "0152368494",
+        "nombre": "WISUM CHIMBO THIAGO GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "PRIMERO EGB_V",
+    "curso": "PRIMERO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "1151574959",
+        "cedula": "1151574959",
+        "nombre": "AVILA PELAIZ YULEIDY SAMANTHA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350656666",
+        "cedula": "0350656666",
+        "nombre": "CALLE MARTINEZ BYRON EFRAIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0250562345",
+        "cedula": "0250562345",
+        "nombre": "CEPEDA BAYAS DEILYTH YOSENID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152363958",
+        "cedula": "0152363958",
+        "nombre": "CEPEDA VAQUILEMA DAYANA ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1353672221",
+        "cedula": "1353672221",
+        "nombre": "CEVALLOS AVEIGA DIEGO CALEB",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651087652",
+        "cedula": "0651087652",
+        "nombre": "CHIMBO GUALLI ARIEL STEVE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152345518",
+        "cedula": "0152345518",
+        "nombre": "CONDO DAQUILEMA KEYLA ISABEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152321642",
+        "cedula": "0152321642",
+        "nombre": "DEL PEZO NIEVES KIMBERLY VIVIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0965761331",
+        "cedula": "0965761331",
+        "nombre": "DOMINGUEZ GOMEZ JEREMIAS ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152323176",
+        "cedula": "0152323176",
+        "nombre": "DURAN CRIOLLO JANERIS XIMENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0965320385",
+        "cedula": "0965320385",
+        "nombre": "ESTRADA ESPINOZA KEIDY LAIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0965309388",
+        "cedula": "0965309388",
+        "nombre": "GASPAR CABALLERO JETRO DONPIAR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152371951",
+        "cedula": "0152371951",
+        "nombre": "GUALAN VAQUILEMA PAULA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0965198062",
+        "cedula": "0965198062",
+        "nombre": "GUAMAN VAQUILEMA KRISTEN JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152331823",
+        "cedula": "0152331823",
+        "nombre": "LAZ MEJIA CRISTOPHER GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152323762",
+        "cedula": "0152323762",
+        "nombre": "LEMA CEPEDA BELEN SARAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651054975",
+        "cedula": "0651054975",
+        "nombre": "LEMA GUAMAN MERCY ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152341210",
+        "cedula": "0152341210",
+        "nombre": "LEMA GUANULEMA EMILY MAYLETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152302501",
+        "cedula": "0152302501",
+        "nombre": "LUCERO MUÑOZ DEREK STALIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152338026",
+        "cedula": "0152338026",
+        "nombre": "MEDINA CHACHA CAMILA MAITE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1101394683",
+        "cedula": "1101394683",
+        "nombre": "MORALES CHIRINOS NEILIMAR JASIBE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963706882",
+        "cedula": "0963706882",
+        "nombre": "MORALES HERRERA ALANAH ANGELINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152371134",
+        "cedula": "0152371134",
+        "nombre": "NARANJO POMAVILLA SOFIA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651041956",
+        "cedula": "0651041956",
+        "nombre": "QUINALUIZA SHUILEMA JHON MANUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009106319",
+        "cedula": "E009106319",
+        "nombre": "SUAREZ GUILLEN EDGAR SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152317442",
+        "cedula": "0152317442",
+        "nombre": "TACURI SAETEROS HELEN ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152370938",
+        "cedula": "0152370938",
+        "nombre": "TENEMAZA GARCIA ERIKA ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0551241474",
+        "cedula": "0551241474",
+        "nombre": "UGSHA SANGUCHO EDDY SNAYDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152374872",
+        "cedula": "0152374872",
+        "nombre": "VAZQUEZ CAGUA LUIS DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1760633048",
+        "cedula": "1760633048",
+        "nombre": "VEGA TIGASI DENNIS GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152345005",
+        "cedula": "0152345005",
+        "nombre": "WACHAPA SHIMBIUCTA NEYLER DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651089609",
+        "cedula": "0651089609",
+        "nombre": "YAMASCA YASACA DAYSI JHAMILETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152408175",
+        "cedula": "0152408175",
+        "nombre": "YUNGA PULLA CIELO ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851888214",
+        "cedula": "0851888214",
+        "nombre": "ZAMBRANO ZAMBRANO ASLYN ANELEY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851839126",
+        "cedula": "0851839126",
+        "nombre": "ZAMBRANO ZAMBRANO KEYLER SAMIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SEGUNDO EGB_M",
+    "curso": "SEGUNDO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "1450659147",
+        "cedula": "1450659147",
+        "nombre": "ATAMAINT PINCHU ZOE ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350607487",
+        "cedula": "0350607487",
+        "nombre": "CAJECA LOJA EDDY GERARDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152252185",
+        "cedula": "0152252185",
+        "nombre": "CEPEDA CEPEDA PAULA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009112885",
+        "cedula": "E009112885",
+        "nombre": "CHÁVEZ NOGUERA ERICK JOSÉ",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1353498700",
+        "cedula": "1353498700",
+        "nombre": "COBEÑA TUMBACO VICTORIA ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152195947",
+        "cedula": "0152195947",
+        "nombre": "CUENCA MUÑOZ ELIANA SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152248944",
+        "cedula": "0152248944",
+        "nombre": "DUQUE CULCAY JOSSELIN ADRIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1759999731",
+        "cedula": "1759999731",
+        "nombre": "ESCOBAR COLLAGUAZO ARLETH ODALYS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152264958",
+        "cedula": "0152264958",
+        "nombre": "FERNANDEZ ORTEGA HENRY JHOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152172748",
+        "cedula": "0152172748",
+        "nombre": "FERNANDEZ TENESACA CHRISTOFER XAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2250575129",
+        "cedula": "2250575129",
+        "nombre": "GONZAGA ORTIZ NIARA DANEYI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009108083",
+        "cedula": "E009108083",
+        "nombre": "GRACIA PEREZ DANNA SOPHIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009113943",
+        "cedula": "E009113943",
+        "nombre": "HURTADO MARTINEZ RHAILY SALOME",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651026296",
+        "cedula": "0651026296",
+        "nombre": "INGA GUACHO WILLIAM DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152197059",
+        "cedula": "0152197059",
+        "nombre": "JARAMA YANQUE MIGUEL ANGEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152256541",
+        "cedula": "0152256541",
+        "nombre": "LEON QUITUISACA BELEN ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152210027",
+        "cedula": "0152210027",
+        "nombre": "MAIGUA ZAMORA BRENDA PAOLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152154720",
+        "cedula": "0152154720",
+        "nombre": "MALDONADO CRESPO VICTOR JARED",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152250460",
+        "cedula": "0152250460",
+        "nombre": "MALO CASTRO AYLIN ZAMIRHA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450648454",
+        "cedula": "1450648454",
+        "nombre": "MONTERO PACHO GISLENY ELAYNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152212478",
+        "cedula": "0152212478",
+        "nombre": "ORELLANA CALLE DYLAN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1760064533",
+        "cedula": "1760064533",
+        "nombre": "ORELLANA CHELA SOFIA PATRICIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152171294",
+        "cedula": "0152171294",
+        "nombre": "ORTEGA MOROCHO DAMARIS LUCIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152263315",
+        "cedula": "0152263315",
+        "nombre": "ORTIZ ARROYO DARIEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152263679",
+        "cedula": "0152263679",
+        "nombre": "PACHO NAULA ISMAEL SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008730591",
+        "cedula": "E008730591",
+        "nombre": "PATIÑO DIAZ FABIANNY LUCIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152132825",
+        "cedula": "0152132825",
+        "nombre": "PILAMUNGA PUGLLA KATHERINE ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152275012",
+        "cedula": "0152275012",
+        "nombre": "PINGUIL CASTILLO LORELEI VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006996621",
+        "cedula": "E006996621",
+        "nombre": "QUINTANA QUINTANA MARIA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152278008",
+        "cedula": "0152278008",
+        "nombre": "QUIZHPI GUAMAN GAEL MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152199881",
+        "cedula": "0152199881",
+        "nombre": "RAMIREZ RODRIGUEZ ESNAIDER DARIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152229563",
+        "cedula": "0152229563",
+        "nombre": "RAMOS SISALIMA JUNIOR SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152204749",
+        "cedula": "0152204749",
+        "nombre": "SOSA LIAS LIAM MADDOX",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650992464",
+        "cedula": "0650992464",
+        "nombre": "YUMISACA CHIMBOLEMA DYLAN EZEQUIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152261194",
+        "cedula": "0152261194",
+        "nombre": "YUQUILEMA QUITUIZACA THIAGO GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SEGUNDO EGB_V",
+    "curso": "SEGUNDO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0152234860",
+        "cedula": "0152234860",
+        "nombre": "AGUILAR PATIÑO SAMARA GEOMAYRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151518220",
+        "cedula": "1151518220",
+        "nombre": "ANDRADE MACAS ERICK ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "152729000",
+        "cedula": "152729000",
+        "nombre": "BETANCOURT NAVAS ANA MILENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651062143",
+        "cedula": "0651062143",
+        "nombre": "BOCON GARCIA DANNA JHAMYLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152232658",
+        "cedula": "0152232658",
+        "nombre": "BUENO VILLA ALEJANDRO EMIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1760170496",
+        "cedula": "1760170496",
+        "nombre": "CAJO CHIMBORAZO AYLED VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751949256",
+        "cedula": "0751949256",
+        "nombre": "CALAPAQUI MACAS AIDA BELEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152214847",
+        "cedula": "0152214847",
+        "nombre": "CARRION JIMENEZ IAN VALENTIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650988058",
+        "cedula": "0650988058",
+        "nombre": "CEPEDA VAQUILEMA DANIELA SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1353289885",
+        "cedula": "1353289885",
+        "nombre": "CHERE RODRIGUEZ JANELA MAYLEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152156246",
+        "cedula": "0152156246",
+        "nombre": "CUENCA ZHIGUE JADIEL KADET",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651021719",
+        "cedula": "0651021719",
+        "nombre": "CUÑAS PAGUAY DYLAN ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1062340699",
+        "cedula": "1062340699",
+        "nombre": "FERNANDEZ ARISTIGUETA ANYELINA FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006917729",
+        "cedula": "E006917729",
+        "nombre": "GRATEROL DIAZ KARLA SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152513701",
+        "cedula": "0152513701",
+        "nombre": "MACAS MACAS GABRIELA DANIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1051197414",
+        "cedula": "1051197414",
+        "nombre": "MATANGO MACAS ANGIE TATIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350616181",
+        "cedula": "0350616181",
+        "nombre": "MENDIETA MACAS ALAN GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152231023",
+        "cedula": "0152231023",
+        "nombre": "MOROCHO QUINDE KAREN JHANEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009178883",
+        "cedula": "E009178883",
+        "nombre": "OÑATE PIRELA JHOANNY DANIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152205050",
+        "cedula": "0152205050",
+        "nombre": "PALTAN TENESACA ALEXANDRA SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152172862",
+        "cedula": "0152172862",
+        "nombre": "PAVIQUE GUEVARA VALENTINA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152761128",
+        "cedula": "0152761128",
+        "nombre": "PULLA CHILLOGALLI JOSELY YAMILETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152181525",
+        "cedula": "0152181525",
+        "nombre": "QUIZHPI TENECELA YURLEYTH ROMINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350617965",
+        "cedula": "0350617965",
+        "nombre": "RIVERA CAMPOVERDE FERNANDA MAYTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152192605",
+        "cedula": "0152192605",
+        "nombre": "RUEDA CHUCHUCA JUNIOR DARELL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1470-2019",
+        "cedula": "1470-2019",
+        "nombre": "SALAZAR FRANCO SEBASTIAN JHOSNIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152256186",
+        "cedula": "0152256186",
+        "nombre": "SANCHEZ MEDINA JESUS ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650991094",
+        "cedula": "0650991094",
+        "nombre": "TENEMAZA GARCIA CRISTOFER STIVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152180659",
+        "cedula": "0152180659",
+        "nombre": "TOAQUIZA TOAQUIZA KATERIN ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350604211",
+        "cedula": "0350604211",
+        "nombre": "ULLOA MARQUEZ IAN ENRIQUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1252403272",
+        "cedula": "1252403272",
+        "nombre": "VELOZ LARA JEREMIA ZAID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152863403",
+        "cedula": "0152863403",
+        "nombre": "VILLA TENESACA LORENA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1760065175",
+        "cedula": "1760065175",
+        "nombre": "YAMASCA ARELLANO ADRIANA MARISOL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1760144491",
+        "cedula": "1760144491",
+        "nombre": "YAMASCA YASACA LIZETH ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0651023558",
+        "cedula": "0651023558",
+        "nombre": "YASACA DAQUILEMA LISSETH ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "TERCERO EGB_M",
+    "curso": "TERCERO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0152151692",
+        "cedula": "0152151692",
+        "nombre": "AILLA ATUPAÑA JUAN ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152123097",
+        "cedula": "0152123097",
+        "nombre": "ALVAREZ CUJI CALEB ABISAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851600627",
+        "cedula": "0851600627",
+        "nombre": "ARIAS MERA SARAI KATHALEYA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152117792",
+        "cedula": "0152117792",
+        "nombre": "AYAVACA SIGUENCIA LUIS MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450620495",
+        "cedula": "1450620495",
+        "nombre": "BERMEO VELE KELLY MELISSA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152145579",
+        "cedula": "0152145579",
+        "nombre": "BUENO CULCAY ALONDRA SOPHIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152005518",
+        "cedula": "0152005518",
+        "nombre": "CAMPOVERDE CAJAMARCA DANNY FABIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152004966",
+        "cedula": "0152004966",
+        "nombre": "CARCHI LALVAY LUCAS YANDEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152067831",
+        "cedula": "0152067831",
+        "nombre": "CARDENAS GUAMAN RONALD SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152135570",
+        "cedula": "0152135570",
+        "nombre": "CARRANZA SINALUISA MADISSON RAQUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152000741",
+        "cedula": "0152000741",
+        "nombre": "CARUAJULCA MONTENEGRO ANGIE ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152093050",
+        "cedula": "0152093050",
+        "nombre": "CHIMBOLEMA VIÑAN ISAAC MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963561154",
+        "cedula": "0963561154",
+        "nombre": "CONTRERAS JIMENEZ MATHIAS JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152116943",
+        "cedula": "0152116943",
+        "nombre": "ESCALERAS URGILES ARLETTE SARAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152118931",
+        "cedula": "0152118931",
+        "nombre": "ESTELA ROJAS YAMELITH KARELI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963473293",
+        "cedula": "0963473293",
+        "nombre": "GUALOTO PARRA EMMA AYLIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1759759739",
+        "cedula": "1759759739",
+        "nombre": "GUAYAQUIL ARCOS DOMENICA STEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152011722",
+        "cedula": "0152011722",
+        "nombre": "GUIÑANSACA PEREZ LISSETH MARIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152163085",
+        "cedula": "0152163085",
+        "nombre": "HURTADO MOLINA SOFIA CHARLOTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152139341",
+        "cedula": "0152139341",
+        "nombre": "LOPEZ MORILLO DANNA VALENTINE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152051090",
+        "cedula": "0152051090",
+        "nombre": "MOROCHO CHAVEZ MELISSA SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152132296",
+        "cedula": "0152132296",
+        "nombre": "MOROCHO GUANUCHE AMBAR SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151991890",
+        "cedula": "0151991890",
+        "nombre": "NAULA GUAMAN MATEO DYLAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152120531",
+        "cedula": "0152120531",
+        "nombre": "OCHOA GARCIA SHESLY YOLIMA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152037057",
+        "cedula": "0152037057",
+        "nombre": "PIZARRO QUITO ERICK JHAMIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152130647",
+        "cedula": "0152130647",
+        "nombre": "POMA GUALAN PABLO ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152041166",
+        "cedula": "0152041166",
+        "nombre": "QUINDE SUCONOTA KATHERINE ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152094579",
+        "cedula": "0152094579",
+        "nombre": "QUITO GONZALEZ TAYRON JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152019469",
+        "cedula": "0152019469",
+        "nombre": "SALVATIERRA ARIAS SAMANTHA RAFAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152134334",
+        "cedula": "0152134334",
+        "nombre": "SIGUENCIA JIMENEZ YULISA MONSERRATH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151999018",
+        "cedula": "0151999018",
+        "nombre": "URGILES VALLADARES DAYANA YAMILETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152007373",
+        "cedula": "0152007373",
+        "nombre": "UYAGUARI SUQUI JORDY JADIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006939324",
+        "cedula": "E006939324",
+        "nombre": "YNOJOSA PARRA BRIANYELIS NAHOMIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152071155",
+        "cedula": "0152071155",
+        "nombre": "ZUMBA SANCHEZ ASHLEY DOMENICA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "TERCERO EGB_V",
+    "curso": "TERCERO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0152140539",
+        "cedula": "0152140539",
+        "nombre": "AUCAY NAULAGUARI KATHERINE NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151500608",
+        "cedula": "1151500608",
+        "nombre": "AVILA PELAIZ OLIVER DAMIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152068847",
+        "cedula": "0152068847",
+        "nombre": "BUÑAY CAIZAGUANO ANGELO DJORKAEFF",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1352900102",
+        "cedula": "1352900102",
+        "nombre": "CEVALLOS AVEIGA MIA BELEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152065603",
+        "cedula": "0152065603",
+        "nombre": "CORO MORA OSTIN ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650937279",
+        "cedula": "0650937279",
+        "nombre": "DAQUILEMA CHAFLA BRAYAN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152114450",
+        "cedula": "0152114450",
+        "nombre": "DUTAN RODRIGUEZ JANA ITAMAR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963732839",
+        "cedula": "0963732839",
+        "nombre": "FERNANDEZ SALTOS FERNANDA MARTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963732847",
+        "cedula": "0963732847",
+        "nombre": "FERNANDEZ SALTOS FIORELA MARTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152056156",
+        "cedula": "0152056156",
+        "nombre": "GUTIERREZ GUZMAN ALAN JAHIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2130",
+        "cedula": "2130",
+        "nombre": "HURTADO MARTINEZ BRYTHANY MADELEYN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152001012",
+        "cedula": "0152001012",
+        "nombre": "LEMA TADAY JAMILETH SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152067898",
+        "cedula": "0152067898",
+        "nombre": "LUCERO PULLA KEYLA SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963179486",
+        "cedula": "0963179486",
+        "nombre": "MACHUCA BURGOS ABDIEL EMIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006912104",
+        "cedula": "E006912104",
+        "nombre": "MONTENEGRO COTRINA KAREN VALERIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151907599",
+        "cedula": "0151907599",
+        "nombre": "MORA MORA MAYCOL JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152073862",
+        "cedula": "0152073862",
+        "nombre": "NAMCELA GUANOQUIZA DAVID ALONSO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152123527",
+        "cedula": "0152123527",
+        "nombre": "NARANJO POMAVILLA BENJAMIN MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152081253",
+        "cedula": "0152081253",
+        "nombre": "NAULA AGUILAR VANESSA PAULETTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152116281",
+        "cedula": "0152116281",
+        "nombre": "QUINDE AUCAPIÑA BRIANNA YURIBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962807764",
+        "cedula": "0962807764",
+        "nombre": "QUINTERO ESTACIO DINSI CHAYSA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152071866",
+        "cedula": "0152071866",
+        "nombre": "REYES JIMENEZ LAYONEL GERMAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152072948",
+        "cedula": "0152072948",
+        "nombre": "RIVERA CEVALLOS PABLO EMILIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151908969",
+        "cedula": "0151908969",
+        "nombre": "SAMANIEGO GANAN KIMBERLY ARIANNA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006915769",
+        "cedula": "E006915769",
+        "nombre": "SUAREZ ORTEGA YOIDER ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152025979",
+        "cedula": "0152025979",
+        "nombre": "TORREALBA APONTE CAMILA SARAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751705922",
+        "cedula": "0751705922",
+        "nombre": "VILLA CASTILLO JORDANNA MELINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350537098",
+        "cedula": "0350537098",
+        "nombre": "VILLALTA CAÑAR ENMA ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152015715",
+        "cedula": "0152015715",
+        "nombre": "ZHUNIO ZHINDON ADRIANA CAROLINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152011342",
+        "cedula": "0152011342",
+        "nombre": "ZUMBA SANMARTIN NATHALY ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "CUARTO EGB_M",
+    "curso": "CUARTO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0151983186",
+        "cedula": "0151983186",
+        "nombre": "ACUÑA QUISHPI GIXANE ESTIBALY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151321344",
+        "cedula": "1151321344",
+        "nombre": "AVILA PELAIZ RUSBEL ESNEYDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751566647",
+        "cedula": "0751566647",
+        "nombre": "BALCAZAR CAMACHO SCARLETH NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151992716",
+        "cedula": "0151992716",
+        "nombre": "BUSTAMANTE GONSALEZ FRANCISCO JOSE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151819976",
+        "cedula": "0151819976",
+        "nombre": "CARRANZA SINALUISA SEBASTIAN ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151988532",
+        "cedula": "0151988532",
+        "nombre": "CHILLOGALLI SIGUENCIA EDISSON GABRIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151828753",
+        "cedula": "0151828753",
+        "nombre": "CHILLOGALLI ZHAGUI ALEXIS MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151981958",
+        "cedula": "0151981958",
+        "nombre": "CHIMBO GUALLPA LUCAS ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151841079",
+        "cedula": "0151841079",
+        "nombre": "CHUQUIMARCA SAQUIPAY KATHERINE VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851483974",
+        "cedula": "0851483974",
+        "nombre": "COBEÑA TUMBACO GRETTEL AILEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151935061",
+        "cedula": "0151935061",
+        "nombre": "COCHANCELA VELE DAMARIS GISSEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151981826",
+        "cedula": "0151981826",
+        "nombre": "FAJARDO AREVALO AMELIA PAULETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151933900",
+        "cedula": "0151933900",
+        "nombre": "GUAMAN ASACATA LESLY YARELIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650847833",
+        "cedula": "0650847833",
+        "nombre": "GUAMAN PADILLA ERIK JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151913928",
+        "cedula": "0151913928",
+        "nombre": "GUAPINAULA MARIN SOFIA MARTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751556630",
+        "cedula": "0751556630",
+        "nombre": "GUERRERO ANGULO LITSSY SELENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151934643",
+        "cedula": "0151934643",
+        "nombre": "HERRERA CHUCHUCA ALEX VALENTIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151903812",
+        "cedula": "0151903812",
+        "nombre": "JIMENEZ ORELLANA DYLAN EMMANUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650846991",
+        "cedula": "0650846991",
+        "nombre": "JUNTAMAY VILLA MAYERLY JAMILET",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152013579",
+        "cedula": "0152013579",
+        "nombre": "LUDEÑA VALDEZ FERNANDO ALONSO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151887643",
+        "cedula": "0151887643",
+        "nombre": "MAIGUA ZAMORA KARELISS BETZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151899796",
+        "cedula": "0151899796",
+        "nombre": "MENDEZ BARBECHO ABIGAIL CRISTAL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962579850",
+        "cedula": "0962579850",
+        "nombre": "MORAN ZAMBRANO CRISTHIAN MAXIMILIANO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151833506",
+        "cedula": "0151833506",
+        "nombre": "MOROCHO DUTA CINDY ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151942463",
+        "cedula": "0151942463",
+        "nombre": "MUÑOZ LARA ALEXANDER XAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151975588",
+        "cedula": "0151975588",
+        "nombre": "NAULA SANGURIMA JEIMY LIZBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151932688",
+        "cedula": "0151932688",
+        "nombre": "OCAMPOS NAMCELA SAMANTHA YARELI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1050800984",
+        "cedula": "1050800984",
+        "nombre": "PEREZ PEÑAFIEL VALENTINA GABRIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650763022",
+        "cedula": "0650763022",
+        "nombre": "PILCO YASACA JHON JEREMIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E003544133",
+        "cedula": "E003544133",
+        "nombre": "PINEDA BLANCO SABINA JULIETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151921038",
+        "cedula": "0151921038",
+        "nombre": "SERRANO PANGOL ROLANDO EZEQUIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151834637",
+        "cedula": "0151834637",
+        "nombre": "TENESACA CHUÑIR DYLAN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0551027188",
+        "cedula": "0551027188",
+        "nombre": "TOAQUIZA GAVILANES DILAN JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350529293",
+        "cedula": "0350529293",
+        "nombre": "YUCAILLA YUQUILEMA JOSUE ISAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008730592",
+        "cedula": "E008730592",
+        "nombre": "ZABALA DIAZ ASHLY SARAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "CUARTO EGB_V",
+    "curso": "CUARTO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "1151303870",
+        "cedula": "1151303870",
+        "nombre": "ANDRADE MACAS YAZMIN JIMENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151906054",
+        "cedula": "0151906054",
+        "nombre": "BERMEO LALA VANESA MARIBEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151695921",
+        "cedula": "0151695921",
+        "nombre": "CABRERA MOROCHO ROSA YOLIZA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151835741",
+        "cedula": "0151835741",
+        "nombre": "CAJILEMA ORTIZ GENESIS MICHELLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151919099",
+        "cedula": "0151919099",
+        "nombre": "CALLE CHILLOGALLO CRISTINA ISABELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152054730",
+        "cedula": "0152054730",
+        "nombre": "CEPEDA CEPEDA SISA ESTHER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962045506",
+        "cedula": "0962045506",
+        "nombre": "CEPEDA DAQUILEMA JESUS ADRIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0963062260",
+        "cedula": "0963062260",
+        "nombre": "CORDERO CHAZI ARIANA NATALI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151986726",
+        "cedula": "0151986726",
+        "nombre": "DELEG YUXI LIAM ADRIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151920279",
+        "cedula": "0151920279",
+        "nombre": "DOMINGUEZ GOMEZ ANESKA AZAHARA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1251951115",
+        "cedula": "1251951115",
+        "nombre": "FONSECA MURILLO XAVIERA FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151317813",
+        "cedula": "1151317813",
+        "nombre": "GONZALEZ CABRERA JHEYDEN SNEYDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151905130",
+        "cedula": "0151905130",
+        "nombre": "GUALAN LABANDA EVELYN SAMANTHA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650783525",
+        "cedula": "0650783525",
+        "nombre": "LEMA ORTIZ SAULO JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151789195",
+        "cedula": "0151789195",
+        "nombre": "LUCERO GUAMANTARIO ANDRES DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151927373",
+        "cedula": "0151927373",
+        "nombre": "MEDINA TENECOTA MAYCOL JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006976765",
+        "cedula": "E006976765",
+        "nombre": "MORENO PINO YUBIANNYS WALESKA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350508610",
+        "cedula": "0350508610",
+        "nombre": "MOROCHO MENDIETA JOSE MIGUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E010112518",
+        "cedula": "E010112518",
+        "nombre": "NELO CORDERO MARIAN DE LOS ANGELES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450523475",
+        "cedula": "1450523475",
+        "nombre": "ORELLANA ORELLANA ANTHONY ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151917499",
+        "cedula": "0151917499",
+        "nombre": "PADILLA MENA DANIEL ANDERSON",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151922192",
+        "cedula": "0151922192",
+        "nombre": "PANAMA NIEVEZ ADRIAN MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962309407",
+        "cedula": "0962309407",
+        "nombre": "PASTORIZA VALLECILLA KENDRA NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1759046897",
+        "cedula": "1759046897",
+        "nombre": "PATIN CAIBE SEBASTIAN MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151947751",
+        "cedula": "0151947751",
+        "nombre": "PAVIQUE GUEVARA VALERIA CAROLINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851550947",
+        "cedula": "0851550947",
+        "nombre": "PINZA PACHO SHEYLA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009178404",
+        "cedula": "E009178404",
+        "nombre": "POLANCO UZCATEGUI LUIS ALBERTO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009177891",
+        "cedula": "E009177891",
+        "nombre": "ROA MOLINA JORWILLMAR ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151896917",
+        "cedula": "0151896917",
+        "nombre": "RODRIGUEZ GUAZHA AMELIA SARAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1759037847",
+        "cedula": "1759037847",
+        "nombre": "ROMERO TERRAZAS GEOVANNY ISAIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006892568",
+        "cedula": "E006892568",
+        "nombre": "SALAS CADENAS MIQUEAS ISAAC",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1758846537",
+        "cedula": "1758846537",
+        "nombre": "TINGO CHIMBORAZO ARIANA NOEMI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751549130",
+        "cedula": "0751549130",
+        "nombre": "VILLA CASTILLO LEONARDO XAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1352748246",
+        "cedula": "1352748246",
+        "nombre": "ZAMBRANO PUCHA GREGORIO ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "QUINTO EGB_M",
+    "curso": "QUINTO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "1757604184",
+        "cedula": "1757604184",
+        "nombre": "ANGARA VEGA ZOE RAQUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151785953",
+        "cedula": "0151785953",
+        "nombre": "BEJEGUEN CULCAY ALEX MAXIMILIANO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151791878",
+        "cedula": "0151791878",
+        "nombre": "BERREZUETA CHUVA ANTONELLA ISABELLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151727518",
+        "cedula": "0151727518",
+        "nombre": "BRAVO BRITO EDISSON ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0961381217",
+        "cedula": "0961381217",
+        "nombre": "CETRE QUIMIS EMELY JORDANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350486825",
+        "cedula": "0350486825",
+        "nombre": "CHIMBO ALLAICO CRISTEL ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962114492",
+        "cedula": "0962114492",
+        "nombre": "CORREA FAJARDO LEONEL SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151747581",
+        "cedula": "0151747581",
+        "nombre": "FAJARDO AREVALO ABEL EDUARDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151736220",
+        "cedula": "0151736220",
+        "nombre": "GONZALEZ MONTAÑO MARIA EMILIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151663358",
+        "cedula": "0151663358",
+        "nombre": "GUALLICHICO LOJA DANNA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151684578",
+        "cedula": "0151684578",
+        "nombre": "GUAMAN LUNA ALAN JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151696457",
+        "cedula": "0151696457",
+        "nombre": "GUANUQUIZA NAULA WILSON DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151665833",
+        "cedula": "0151665833",
+        "nombre": "GUIÑANSACA PEREZ JESSY ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151813466",
+        "cedula": "0151813466",
+        "nombre": "LEMACHE GUACHO JHOEL JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151782844",
+        "cedula": "0151782844",
+        "nombre": "LEON QUITUISACA JORGE ALEXIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009123803",
+        "cedula": "E009123803",
+        "nombre": "LEÓN DELGADO ALEUZENEV MIGUELINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2351395989",
+        "cedula": "2351395989",
+        "nombre": "MACIAS CEVALLOS JEREMIAS JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151683778",
+        "cedula": "0151683778",
+        "nombre": "MALDONADO CRESPO CHRISTIAN LEONARDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151775525",
+        "cedula": "0151775525",
+        "nombre": "MOROCHO CHAVEZ LIA CHARLOTH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151780384",
+        "cedula": "0151780384",
+        "nombre": "NAULA FERNANDEZ ANDERSON FRANCISCO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151757317",
+        "cedula": "0151757317",
+        "nombre": "OROSCO GUIÑANSACA MIA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151595204",
+        "cedula": "0151595204",
+        "nombre": "PACHITO GARCIA AIMAR JASSON",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151806692",
+        "cedula": "0151806692",
+        "nombre": "PADILLA PAGUAY LUIS ELIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151781234",
+        "cedula": "0151781234",
+        "nombre": "PILLACELA CHILLOGALLI ESTEFANIA JOSELIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151663515",
+        "cedula": "0151663515",
+        "nombre": "QUITO TEPAN ANGELICA FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151782893",
+        "cedula": "0151782893",
+        "nombre": "SALVATIERRA ARIAS AMELIA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151712650",
+        "cedula": "0151712650",
+        "nombre": "SAQUIPAY DUCHITANGA ARIEL SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151685435",
+        "cedula": "0151685435",
+        "nombre": "TERREROS LOOR DYLAN DAMIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151661592",
+        "cedula": "0151661592",
+        "nombre": "UYAGUARI CRIOLLO ANDERSON JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1050589934",
+        "cedula": "1050589934",
+        "nombre": "VASQUEZ CANDO SAMIA SAYURI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151681327",
+        "cedula": "0151681327",
+        "nombre": "VELASQUEZ CAMBI KEYLA RAFAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151680527",
+        "cedula": "0151680527",
+        "nombre": "YUNGA ALVAREZ GENESIS MARCELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1050713807",
+        "cedula": "1050713807",
+        "nombre": "YUQUILEMA BALLA KIMBERLY JAZMIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151758521",
+        "cedula": "0151758521",
+        "nombre": "YUQUILEMA QUITUIZACA STEPHANY CAMILA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152396537",
+        "cedula": "0152396537",
+        "nombre": "ZHAGUI ZHIÑIN RONALD DANILO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "QUINTO EGB_V",
+    "curso": "QUINTO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0151633153",
+        "cedula": "0151633153",
+        "nombre": "AGUILAR ANDRADE DAYANA MARVELLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2351420035",
+        "cedula": "2351420035",
+        "nombre": "ALDAZ MOSQUERA JOEL ZAMIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650763550",
+        "cedula": "0650763550",
+        "nombre": "BRAVO TIPAN DAISY YAZMEEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751480054",
+        "cedula": "0751480054",
+        "nombre": "CABEZAS RIVAS JOSHUA DARYL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0961651957",
+        "cedula": "0961651957",
+        "nombre": "CEDEÑO MUENTES JERSON RAFAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151741626",
+        "cedula": "0151741626",
+        "nombre": "CEPEDA VAQUILEMA ESTHER ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151629235",
+        "cedula": "0151629235",
+        "nombre": "CORO MORA NATASHA MELISSA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1757998834",
+        "cedula": "1757998834",
+        "nombre": "CURICHUMBI YUQUILEMA ANGEL DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151779311",
+        "cedula": "0151779311",
+        "nombre": "DUTAN RODRIGUEZ ZABDI ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "171670594",
+        "cedula": "171670594",
+        "nombre": "ESCALONA FUNES NASHLA JAZMIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009141047",
+        "cedula": "E009141047",
+        "nombre": "FERNANDEZ ARISTIGUETA ANNY VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962319224",
+        "cedula": "0962319224",
+        "nombre": "GASPAR CABALLERO AUDIS ARON",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751430737",
+        "cedula": "0751430737",
+        "nombre": "GONZALEZ OCHOA AMY YULIETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151637048",
+        "cedula": "0151637048",
+        "nombre": "GUALAN LABANDA EDISON LEONEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151794831",
+        "cedula": "0151794831",
+        "nombre": "GUAMAN MACAS JHON ISAIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2351509233",
+        "cedula": "2351509233",
+        "nombre": "HURTADO CHAVEZ ANALIA MAITE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151712379",
+        "cedula": "0151712379",
+        "nombre": "LALVAY MOROCHO JASTIN ALEXIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151658168",
+        "cedula": "0151658168",
+        "nombre": "LARA JOUTEAUX ADRIEL EMANUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151667748",
+        "cedula": "0151667748",
+        "nombre": "LEMA TADAY GENESIS JULEYSI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0961226586",
+        "cedula": "0961226586",
+        "nombre": "LLAMUCA VELIZ ASHLEY NARCISA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151583341",
+        "cedula": "0151583341",
+        "nombre": "MACIAS GARCIA ELIAN JEREMIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650769334",
+        "cedula": "0650769334",
+        "nombre": "MARCATOMA INGA NAGELY ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0960176949",
+        "cedula": "0960176949",
+        "nombre": "MAYOLO ESTACIO BRIANNA MAYERLI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "90605317",
+        "cedula": "90605317",
+        "nombre": "MIO LLAMOCTANTA NESTOR ISAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009109333",
+        "cedula": "E009109333",
+        "nombre": "MOLINA MARQUEZ JHONAR JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650774177",
+        "cedula": "0650774177",
+        "nombre": "NAULA SHUILEMA LIZBETH MARISOL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151797891",
+        "cedula": "0151797891",
+        "nombre": "PLUA CHACHA CARLA ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009178420",
+        "cedula": "E009178420",
+        "nombre": "POLANCO UZCATEGUI LUIS ARCANGEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151780681",
+        "cedula": "0151780681",
+        "nombre": "PULLA CHILLOGALLI BRYAN LEONARDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851353151",
+        "cedula": "0851353151",
+        "nombre": "QUIÑONEZ VALENCIA SOPHIA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151714813",
+        "cedula": "0151714813",
+        "nombre": "REYES JIMENEZ DORIAN DE JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006892704",
+        "cedula": "E006892704",
+        "nombre": "SALAS CADENAS ASTRID SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151790599",
+        "cedula": "0151790599",
+        "nombre": "SUQUI PINTADO ERIKA PAMELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "155819021",
+        "cedula": "155819021",
+        "nombre": "VERA SEQUERA HARLEY MIGUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151699857",
+        "cedula": "0151699857",
+        "nombre": "ZHUNIO ZHINDON ROSALIA MICAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SEXTO EGB_M",
+    "curso": "SEXTO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0151573961",
+        "cedula": "0151573961",
+        "nombre": "ALVAREZ CORONEL BRIANNA ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151517588",
+        "cedula": "0151517588",
+        "nombre": "ARMIJOS ARIAS MAYKEL ELIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151557972",
+        "cedula": "0151557972",
+        "nombre": "ARTEAGA NARVAEZ TABATA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851225953",
+        "cedula": "0851225953",
+        "nombre": "BARBOZA BARRIOS THIAGO SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008703569",
+        "cedula": "E008703569",
+        "nombre": "BRICEÑO FINOL VICENTE SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006893791",
+        "cedula": "E006893791",
+        "nombre": "CADENAS CARMONA ASHLEY SUSEJ",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650720808",
+        "cedula": "0650720808",
+        "nombre": "CARCHI CUENCA EMILY JAZLIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151650116",
+        "cedula": "0151650116",
+        "nombre": "COCHA CRIOLLO LIZBETH ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "55866929",
+        "cedula": "55866929",
+        "nombre": "CORREA FAJARDO NOELIA REGINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151590882",
+        "cedula": "0151590882",
+        "nombre": "CRUZ GUAMBAÑA ARIEL NICOLAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008664617",
+        "cedula": "E008664617",
+        "nombre": "DORIA GRANADOS FREIDYMAR ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151643772",
+        "cedula": "0151643772",
+        "nombre": "ELIZALDE GARCIA ANNIE ARETTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151604162",
+        "cedula": "0151604162",
+        "nombre": "GONZALEZ PINEDA JOSUE ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151499233",
+        "cedula": "0151499233",
+        "nombre": "GONZALEZ YANQUI ARACELY FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151644127",
+        "cedula": "0151644127",
+        "nombre": "GUAMAN NIVICELA ALEXA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151606068",
+        "cedula": "0151606068",
+        "nombre": "GUERRERO RUILOVA DOMINIC ESTEBAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151544608",
+        "cedula": "0151544608",
+        "nombre": "LALVAY CRIOLLO MAYCOL JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151575503",
+        "cedula": "0151575503",
+        "nombre": "LEON JIMENEZ LISSETH DAMARIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151567393",
+        "cedula": "0151567393",
+        "nombre": "LOJANO LOJANO MATIAS ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650707839",
+        "cedula": "0650707839",
+        "nombre": "MACAS PAGUAY JHOJAN DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151639986",
+        "cedula": "0151639986",
+        "nombre": "MARQUEZ ZHININ TATIANA GUADALUPE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650727456",
+        "cedula": "0650727456",
+        "nombre": "PACO CUENCA FERNANDA ISABELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151511128",
+        "cedula": "0151511128",
+        "nombre": "PALADINES GONZALEZ NEYSER ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151580925",
+        "cedula": "0151580925",
+        "nombre": "PEÑA RAMON DARIUS ADRIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "365-02",
+        "cedula": "365-02",
+        "nombre": "PIÑA ACOSTA WILIMAR ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0960694123",
+        "cedula": "0960694123",
+        "nombre": "SANCHEZ TUMBACO ALLAN MATHEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151496247",
+        "cedula": "0151496247",
+        "nombre": "SEGARRA AJILA DYLAN MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151659463",
+        "cedula": "0151659463",
+        "nombre": "SIGUENCIA JIMENEZ JOEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152382560",
+        "cedula": "0152382560",
+        "nombre": "SIGUENCIA JIMENEZ JOSTIN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151605862",
+        "cedula": "0151605862",
+        "nombre": "TACURI UREÑA LESLY BRIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550856140",
+        "cedula": "0550856140",
+        "nombre": "UGSHA PILLO MELANY BRIGITH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151530391",
+        "cedula": "0151530391",
+        "nombre": "UREÑA MOLINA DYLAN JADIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151626074",
+        "cedula": "0151626074",
+        "nombre": "UYAGUARI SUQUI SNEYDER ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151619012",
+        "cedula": "0151619012",
+        "nombre": "YANQUI ROSILLO DAVID SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151657541",
+        "cedula": "0151657541",
+        "nombre": "YLLATOPA ENCALADA MATIAS ESTIVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SEXTO EGB_V",
+    "curso": "SEXTO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "151131976",
+        "cedula": "151131976",
+        "nombre": "ALVAREZ FERNANDEZ ELVIS DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851125369",
+        "cedula": "0851125369",
+        "nombre": "ANGULO CORTEZ YUSANI YARIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "37576158",
+        "cedula": "37576158",
+        "nombre": "ASCANIO CHIRINOS NELSY PAOLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151560539",
+        "cedula": "0151560539",
+        "nombre": "BALAREZO SACA CRISTOFER JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "851220590",
+        "cedula": "851220590",
+        "nombre": "BERNAL GONZALEZ RANDY JADYER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009133206",
+        "cedula": "E009133206",
+        "nombre": "CHÁVEZ NOGUERA CRISTIAN SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151582434",
+        "cedula": "0151582434",
+        "nombre": "DAQUILEMA COCHA ANGELICA MARIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E010112617",
+        "cedula": "E010112617",
+        "nombre": "EGURROLA NELO STEVEN DE JESÚS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008673350",
+        "cedula": "E008673350",
+        "nombre": "FERNANDEZ PERNIA KENER JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151620382",
+        "cedula": "0151620382",
+        "nombre": "GANAN SUQUITANA KATHIEL YARIBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151510047",
+        "cedula": "0151510047",
+        "nombre": "GARCIA CHUCHUCA CATALINA JAMILETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1757336571",
+        "cedula": "1757336571",
+        "nombre": "LEMA MOROCHO ERIKA MARLENE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151631140",
+        "cedula": "0151631140",
+        "nombre": "LEMA NAULA CHRISTIAN JHOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151646932",
+        "cedula": "0151646932",
+        "nombre": "LEMA YUCAILLA LUIS MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151548336",
+        "cedula": "0151548336",
+        "nombre": "LEON ZHICAY EDISON JOAO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151798279",
+        "cedula": "0151798279",
+        "nombre": "LITUMA PABLO GAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0961362621",
+        "cedula": "0961362621",
+        "nombre": "LLAMUCA VELIZ ETHAN JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151556578",
+        "cedula": "0151556578",
+        "nombre": "LLUMIQUINGA AYAVACA ANAHI DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E004768471",
+        "cedula": "E004768471",
+        "nombre": "LUCENA MONCADA ARANTXA JUXNEÍDY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0960141570",
+        "cedula": "0960141570",
+        "nombre": "MACIAS COBOS ARELYS CHARLOTTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1757257934",
+        "cedula": "1757257934",
+        "nombre": "MIRANDA ALMACHI GABRIELA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151628955",
+        "cedula": "0151628955",
+        "nombre": "MONTALEZA NAULA PAULA FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "131903427",
+        "cedula": "131903427",
+        "nombre": "ORELLANA GUILLEN JEREMY JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151500634",
+        "cedula": "0151500634",
+        "nombre": "PADILLA MENA ANGELA SOLANGE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0851237487",
+        "cedula": "0851237487",
+        "nombre": "PINZA PACHO THIAGO DALEXANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151621760",
+        "cedula": "0151621760",
+        "nombre": "POMAVILLA BARRERA ALISSON PATRICIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151588175",
+        "cedula": "0151588175",
+        "nombre": "REASCO GARCIA YURANY ASLHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009177890",
+        "cedula": "E009177890",
+        "nombre": "ROA MOLINA WILLIANSYELIZ NAHOMMI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "16572723",
+        "cedula": "16572723",
+        "nombre": "SALAZAR PINO IAM XABIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151483039",
+        "cedula": "0151483039",
+        "nombre": "TENESACA MUÑOZ SEBASTIÁN JADIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550865190",
+        "cedula": "0550865190",
+        "nombre": "TOAQUIZA GAVILANES SERGIO DAMIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151539319",
+        "cedula": "0151539319",
+        "nombre": "VELASCO CAJILEMA GABRIEL SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1352226862",
+        "cedula": "1352226862",
+        "nombre": "VELEZ VALENCIA MIA SCARLET",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650677800",
+        "cedula": "0650677800",
+        "nombre": "YASACA DAQUILEMA SARA ROCIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "5280653",
+        "cedula": "5280653",
+        "nombre": "YNOJOSA PARRA BRIANA MIA NOHEMIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SÉPTIMO EGB_M",
+    "curso": "SÉPTIMO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0151330412",
+        "cedula": "0151330412",
+        "nombre": "ALTAMIRANO NAULA JUAN ESTEBAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151431293",
+        "cedula": "0151431293",
+        "nombre": "AMENDAÑO GUARQUILA BRITTANY LIZETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151364031",
+        "cedula": "0151364031",
+        "nombre": "BACULIMA TINOCO NOELIA ARIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151403490",
+        "cedula": "0151403490",
+        "nombre": "BARROS LOJANO PEDRO ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151429370",
+        "cedula": "0151429370",
+        "nombre": "BUENO ZUMBA ROMEL SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151435674",
+        "cedula": "0151435674",
+        "nombre": "CARANGUI SARMIENTO MAYKEL SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0959988239",
+        "cedula": "0959988239",
+        "nombre": "CORREA FAJARDO MATEO BENJAMIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151420080",
+        "cedula": "0151420080",
+        "nombre": "DAMIAN CRIOLLO LISSETH ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151317492",
+        "cedula": "0151317492",
+        "nombre": "ENRIQUEZ VELASQUEZ VERONICA ESTEFANY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151366648",
+        "cedula": "0151366648",
+        "nombre": "FAJARDO QUITUIZACA DAMARYS AHINY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151087655",
+        "cedula": "1151087655",
+        "nombre": "GONZALEZ VILLA YOEL MAXIMILIANO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151422383",
+        "cedula": "0151422383",
+        "nombre": "GUAMAN LUNA GRACE ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151484813",
+        "cedula": "0151484813",
+        "nombre": "GUAMAN QUITUIZACA MARLY ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151662418",
+        "cedula": "0151662418",
+        "nombre": "INGA CHILLOGALLI ANGELA DENISSE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151342987",
+        "cedula": "0151342987",
+        "nombre": "LEON JIMENEZ KATHERINE ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151099155",
+        "cedula": "1151099155",
+        "nombre": "LOZANO PUCHAICELA JOSTIN DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151308673",
+        "cedula": "0151308673",
+        "nombre": "MENDOZA LARA DAMARIS MICHELLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151440955",
+        "cedula": "0151440955",
+        "nombre": "MORALES GUAMAN SAMAEL GABRIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151382793",
+        "cedula": "0151382793",
+        "nombre": "NAULA GUAMAN MERLYN ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1756659742",
+        "cedula": "1756659742",
+        "nombre": "NAZARENO LAZ DOMINIC ISAAC",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "CFR20191785295",
+        "cedula": "CFR20191785295",
+        "nombre": "ORTA APONTE JOSE SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606427318",
+        "cedula": "0606427318",
+        "nombre": "PULLAY PADILLA CARMEN ROCIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151372760",
+        "cedula": "0151372760",
+        "nombre": "REASCO GARCIA MILAN FRICSON",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751087164",
+        "cedula": "0751087164",
+        "nombre": "ROMERO PILLCO MAYKEL ISRAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151320306",
+        "cedula": "0151320306",
+        "nombre": "SANMARTIN LOJA EVANS GABRIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151271772",
+        "cedula": "0151271772",
+        "nombre": "SANTIN CORONEL ALEXANDER DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550930085",
+        "cedula": "0550930085",
+        "nombre": "TOAQUIZA TIGASI TANIA MAYTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650616063",
+        "cedula": "0650616063",
+        "nombre": "TUGLEMA ASACATA ELIZABETH ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151418688",
+        "cedula": "0151418688",
+        "nombre": "UYAGUARI PACHAR DILAN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151476157",
+        "cedula": "0151476157",
+        "nombre": "VELE CRIOLLO JHORDY ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1251571830",
+        "cedula": "1251571830",
+        "nombre": "VERA MENDEZ LILIAN MAITE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151364833",
+        "cedula": "0151364833",
+        "nombre": "YLLATOPA ENCALADA KEVIN ISRAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1851190452",
+        "cedula": "1851190452",
+        "nombre": "YUCAILLA YUQUILEMA JESUS MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151406386",
+        "cedula": "0151406386",
+        "nombre": "YUNGA LALVAY DALILA MAYTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0962899977",
+        "cedula": "0962899977",
+        "nombre": "ZAMBRANO CABRERA MAYKEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151425139",
+        "cedula": "0151425139",
+        "nombre": "ZHAGUI ZHIÑIN CISNE SAMANTA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151341526",
+        "cedula": "0151341526",
+        "nombre": "ZHIÑIN FERNANDEZ KEVIN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SÉPTIMO EGB_V",
+    "curso": "SÉPTIMO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0150652642",
+        "cedula": "0150652642",
+        "nombre": "ALVAREZ FERNANDEZ LUIS ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450389026",
+        "cedula": "1450389026",
+        "nombre": "ANANGA CUNAMBI ESTEISY KATRINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009175929",
+        "cedula": "E009175929",
+        "nombre": "BAEZ RODRIGUEZ SOPHIA VALERIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751164906",
+        "cedula": "0751164906",
+        "nombre": "BRAVO JARAMILLO VICTORIA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606417202",
+        "cedula": "0606417202",
+        "nombre": "CEPEDA DAQUILEMA DARWIN MISSAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008734636",
+        "cedula": "E008734636",
+        "nombre": "CHACON GUEDEZ YOSSIMAR JETSAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151423936",
+        "cedula": "0151423936",
+        "nombre": "COELLO LUCERO EMILY AISLINN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650588734",
+        "cedula": "0650588734",
+        "nombre": "CORO TADAY JOEL STIVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1757126246",
+        "cedula": "1757126246",
+        "nombre": "DELEG YUXI KEYLA ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0960061422",
+        "cedula": "0960061422",
+        "nombre": "DIAZ GOEZ MAGDIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151458163",
+        "cedula": "0151458163",
+        "nombre": "FARFAN ETSA AMY SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009141048",
+        "cedula": "E009141048",
+        "nombre": "FERNANDEZ ARISTIGUETA ARAN JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009106806",
+        "cedula": "E009106806",
+        "nombre": "GARCIA MENDOZA JESUS GERARDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151398211",
+        "cedula": "0151398211",
+        "nombre": "GUALAN LABANDA JOSTIN ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1756526677",
+        "cedula": "1756526677",
+        "nombre": "LEMA TADAY JUNIOR STALIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006998923",
+        "cedula": "E006998923",
+        "nombre": "LOZADA OJEDA JUAN CARLOS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151460029",
+        "cedula": "0151460029",
+        "nombre": "MAITA BUENO CARLOS SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151389236",
+        "cedula": "0151389236",
+        "nombre": "MAITA TENECOTA ALEXIS DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1251558621",
+        "cedula": "1251558621",
+        "nombre": "MEDINA MURILLO KENIA JASSLADY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151660131",
+        "cedula": "0151660131",
+        "nombre": "MENDEZ BARBECHO GISELLE AMBAR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151342102",
+        "cedula": "0151342102",
+        "nombre": "MISACANGO CHACHA CARLOS DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150880391",
+        "cedula": "0150880391",
+        "nombre": "MOGROVEJO CALLE SEGUNDO BENJAMIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151466737",
+        "cedula": "0151466737",
+        "nombre": "MONTALEZA NAULA BRITHANY LISETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0959807389",
+        "cedula": "0959807389",
+        "nombre": "PALMA ECHEVERRIA KARLA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151356649",
+        "cedula": "0151356649",
+        "nombre": "PATIÑO GUAPINAULA EMILIA GABRIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151492139",
+        "cedula": "0151492139",
+        "nombre": "QUITUISACA GUANOQUIZA JHORDY ALEXIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2450975640",
+        "cedula": "2450975640",
+        "nombre": "QUIÑONEZ VALENCIA YAMILY GABRIELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151373321",
+        "cedula": "0151373321",
+        "nombre": "RIVERA CEVALLOS JHOMAIRA DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151277712",
+        "cedula": "0151277712",
+        "nombre": "RUEDA CHUCHUCA HAMILTON NOE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151387735",
+        "cedula": "0151387735",
+        "nombre": "SAQUIPAY SANGURIMA MAYTE JACKELINE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151378726",
+        "cedula": "0151378726",
+        "nombre": "UGUÑA VELE LISBETH ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009178262",
+        "cedula": "E009178262",
+        "nombre": "VASQUEZ CANDO SUMAK YARI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350399150",
+        "cedula": "0350399150",
+        "nombre": "WACHAPA ROLDAN JHEFERSON YANDEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008705875",
+        "cedula": "E008705875",
+        "nombre": "YENDIS VERAMENDI ASHLY SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "OCTAVO EGB_M",
+    "curso": "OCTAVO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0150985059",
+        "cedula": "0150985059",
+        "nombre": "ANCHUNDIA CABRERA DILAN STHYK",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450364466",
+        "cedula": "1450364466",
+        "nombre": "ATAMAINT PINCHU KENIA VALERIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1151042726",
+        "cedula": "1151042726",
+        "nombre": "AVILA PELAIZ DILAN ESTIVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150965812",
+        "cedula": "0150965812",
+        "nombre": "CAJECA LOJA AMBAR DOMENICA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151122298",
+        "cedula": "0151122298",
+        "nombre": "CARRION AGUIRRE AARON TOMAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "V36066390",
+        "cedula": "V36066390",
+        "nombre": "CASTILLO RODRIGUEZ LUIS ADRIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151045242",
+        "cedula": "0151045242",
+        "nombre": "CASTRO MOROCHO THAYZ ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0957246499",
+        "cedula": "0957246499",
+        "nombre": "CETRE QUIMIS AMY ELINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150818391",
+        "cedula": "0150818391",
+        "nombre": "CHAPA YUQUI RONALD MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151033024",
+        "cedula": "0151033024",
+        "nombre": "CHIMBO ALLAICO ANGELICA BRIGHITE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151231354",
+        "cedula": "0151231354",
+        "nombre": "CHOCHO UYAGUARI CRISTOFER ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151005311",
+        "cedula": "0151005311",
+        "nombre": "CHUQUI LALVAY JOFFRE DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151196086",
+        "cedula": "0151196086",
+        "nombre": "COCHA CRIOLLO DAYSI ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151048832",
+        "cedula": "0151048832",
+        "nombre": "DAMIAN CRIOLLO PABLO FRANCISCO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650542525",
+        "cedula": "0650542525",
+        "nombre": "GUACHO NAULA LIZETH MAYTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750698847",
+        "cedula": "0750698847",
+        "nombre": "GUERRERO ANGULO FRICSON MATHIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "158808334",
+        "cedula": "158808334",
+        "nombre": "GUTIERREZ LISBOA OCTAVIO ENRIQUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150544815",
+        "cedula": "0150544815",
+        "nombre": "INGA CHILLOGALLI KERLY NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151354636",
+        "cedula": "0151354636",
+        "nombre": "JIMENEZ GONZALEZ DOSTIN NICOLAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151157252",
+        "cedula": "0151157252",
+        "nombre": "LAZO GUACHICHULLCA KIMBERLY CAMILA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151269552",
+        "cedula": "0151269552",
+        "nombre": "LEMA AREVALO AMELIA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151315330",
+        "cedula": "0151315330",
+        "nombre": "MOROCHO GUAMANTARIO DOMENICA ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151166543",
+        "cedula": "0151166543",
+        "nombre": "NAULA SANGURIMA JHON PATRICIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151345402",
+        "cedula": "0151345402",
+        "nombre": "PACHO NAULA DULCE ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1251203475",
+        "cedula": "1251203475",
+        "nombre": "PEREZ PEÑAFIEL JOSE ANTONIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151136595",
+        "cedula": "0151136595",
+        "nombre": "QUEZADA SANMARTIN JHON MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150912582",
+        "cedula": "0150912582",
+        "nombre": "QUISPE RUMAY GRACE ANABEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151071776",
+        "cedula": "0151071776",
+        "nombre": "RUILOVA GUAZHAMBO ALISON MONSERRATH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E002864428",
+        "cedula": "E002864428",
+        "nombre": "RUIZ CALDERON DANIEL ABRAHAM",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151404662",
+        "cedula": "0151404662",
+        "nombre": "SALVATIERRA ARIAS JUAN FERNANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151042496",
+        "cedula": "0151042496",
+        "nombre": "SERRANO PANGOL DANIEL ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151305109",
+        "cedula": "0151305109",
+        "nombre": "TAPIA CHACA SELENE LIBERTAD",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550744163",
+        "cedula": "0550744163",
+        "nombre": "UGSHA SANGUCHO JUSTIN DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0959175779",
+        "cedula": "0959175779",
+        "nombre": "VALLADARES FEIJOO KIMBERLY AZUCENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0958519357",
+        "cedula": "0958519357",
+        "nombre": "VERDUGA MACIAS ALEJANDRA RAFAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "OCTAVO EGB_V",
+    "curso": "OCTAVO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0151230752",
+        "cedula": "0151230752",
+        "nombre": "ABRIL ALVAREZ ARIANA ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150906865",
+        "cedula": "0150906865",
+        "nombre": "ARELLANO TOBAR KAROL LISBET",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150966364",
+        "cedula": "0150966364",
+        "nombre": "AYORA CHABLA DOMINICK JAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0751066770",
+        "cedula": "0751066770",
+        "nombre": "BENITEZ CARRASCO JOAO ALESSANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150539179",
+        "cedula": "0150539179",
+        "nombre": "BOYA ARBOLEDA JANDRY JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151359551",
+        "cedula": "0151359551",
+        "nombre": "CABRERA MOROCHO ERICK MAURICIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009209506",
+        "cedula": "E009209506",
+        "nombre": "CALDERON FERNANDEZ VALERY MICHELLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650407778",
+        "cedula": "0650407778",
+        "nombre": "DAQUILEMA MARCATOMA DEYSI NAYELI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "171670510",
+        "cedula": "171670510",
+        "nombre": "ESCALONA FUNES JOVIEL ARAMIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151564929",
+        "cedula": "0151564929",
+        "nombre": "ESPINOZA GARCIA ROMINA REBECA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008673349",
+        "cedula": "E008673349",
+        "nombre": "FERNANDEZ PERNIA HEMILY YUBEKSY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0942696816",
+        "cedula": "0942696816",
+        "nombre": "FRANCO BURGOS MAILEN ANDERLI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "35180249",
+        "cedula": "35180249",
+        "nombre": "GARCIA MENDOZA ARIANNIS YOHANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152903225",
+        "cedula": "0152903225",
+        "nombre": "GIRALDO VELASCO LAURA CAMILA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009171116",
+        "cedula": "E009171116",
+        "nombre": "HERNANDEZ NOGUERA EMANUEL ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2351165432",
+        "cedula": "2351165432",
+        "nombre": "HURTADO CHAVEZ DAMARIS ARIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151213006",
+        "cedula": "0151213006",
+        "nombre": "IMAICELA SANCHEZ ANTHONY MAURICIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1754763744",
+        "cedula": "1754763744",
+        "nombre": "LEMA MOROCHO RENZO ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151343472",
+        "cedula": "0151343472",
+        "nombre": "MUÑOZ LUCERO CESAR ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107745176",
+        "cedula": "0107745176",
+        "nombre": "OCHOA LOJA YAMILETH BRIGITTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151191020",
+        "cedula": "0151191020",
+        "nombre": "PROAÑO YANES GEICOL ADRIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151204567",
+        "cedula": "0151204567",
+        "nombre": "QUITUISACA GUANOQUIZA MIRIAM JOHANNA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151322385",
+        "cedula": "0151322385",
+        "nombre": "QUIZHPI VELE JUAN PABLO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151043932",
+        "cedula": "0151043932",
+        "nombre": "REASCO CUERO KENDRA DOMINIQUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E003878649",
+        "cedula": "E003878649",
+        "nombre": "RIVAS NAVA ADRIANA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009168976",
+        "cedula": "E009168976",
+        "nombre": "RODRIGUEZ APONTE EMELIZ  ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E003533175",
+        "cedula": "E003533175",
+        "nombre": "ROJAS GUERRERO ALFONSO JONEHYBER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "12100823",
+        "cedula": "12100823",
+        "nombre": "SALAZAR PINO ARIAGNA STEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E004677718",
+        "cedula": "E004677718",
+        "nombre": "SANCHEZ ALVAREZ SANTIAGO DE JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150855849",
+        "cedula": "0150855849",
+        "nombre": "SAQUIPAY SANGURIMA KIMVERLI DAYANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "089819603",
+        "cedula": "089819603",
+        "nombre": "SEIJAS CAMERO LUIS ALBERTO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150832590",
+        "cedula": "0150832590",
+        "nombre": "TENELANDA MOROCHO KATHERINE PAULINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1050479391",
+        "cedula": "1050479391",
+        "nombre": "ULCUANGO MALDONADO EIMY NAOMI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550130280",
+        "cedula": "0550130280",
+        "nombre": "VEGA TIGASI GENESIS ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151923182",
+        "cedula": "0151923182",
+        "nombre": "YUNGA GUAMANRIGRA DAVID ISRAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "NOVENO EGB_M",
+    "curso": "NOVENO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "1106141193",
+        "cedula": "1106141193",
+        "nombre": "AGREDA ANDRADE DARWIN HECTOR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151197258",
+        "cedula": "0151197258",
+        "nombre": "AGREDA ANDRADE ROCIO MARISOL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150777621",
+        "cedula": "0150777621",
+        "nombre": "ALVAREZ ORDOÑEZ JUNIOR JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150814168",
+        "cedula": "0150814168",
+        "nombre": "ARTEAGA NARVAEZ DOMENICA MONSERRATH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150528404",
+        "cedula": "0150528404",
+        "nombre": "ARTEAGA OSORIO SERGIO ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150702439",
+        "cedula": "0150702439",
+        "nombre": "AYAVACA VUELE HENRRY NICOLAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0850357443",
+        "cedula": "0850357443",
+        "nombre": "BARBOZA BARRIOS NEBRASCA AYELEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150604213",
+        "cedula": "0150604213",
+        "nombre": "BRAVO MACANCELA KENDRA ODALYS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "117024088",
+        "cedula": "117024088",
+        "nombre": "CADENILLAS CRUZ CRISTIAN JHAIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009176040",
+        "cedula": "E009176040",
+        "nombre": "CANDO ESPINOSA GRECE DALILA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150646933",
+        "cedula": "0150646933",
+        "nombre": "CARRASCO RUILOVA MAYENSI VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150546174",
+        "cedula": "0150546174",
+        "nombre": "CORDERO PESANTEZ RUTH VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606385334",
+        "cedula": "0606385334",
+        "nombre": "DAQUILEMA GUACHO EDWIN OSWALDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150812998",
+        "cedula": "0150812998",
+        "nombre": "ENDERICA CARPIO ABIGAIL MONSERRAT",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150551745",
+        "cedula": "0150551745",
+        "nombre": "GALLEGOS ANGULO ANTONY ELIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150818078",
+        "cedula": "0150818078",
+        "nombre": "GARCES UREÑA BRITANY LISBET",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150915916",
+        "cedula": "0150915916",
+        "nombre": "GUALAN PUCHAICELA NASLY PAMELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107745309",
+        "cedula": "0107745309",
+        "nombre": "GUAMAN GUAMBAÑA MATEO JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150619658",
+        "cedula": "0150619658",
+        "nombre": "GUANOQUIZA MONTAÑO MELANY SAMANTHA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107744799",
+        "cedula": "0107744799",
+        "nombre": "GUANUCHI ERRAEZ ALAN ALEXIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150781540",
+        "cedula": "0150781540",
+        "nombre": "GUAPINAULA MARIN DYLAN MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150898708",
+        "cedula": "0150898708",
+        "nombre": "LALBAY LALVAY LISBETH VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150655348",
+        "cedula": "0150655348",
+        "nombre": "LAZO GUACHICHULLCA BRYAN JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150650737",
+        "cedula": "0150650737",
+        "nombre": "LEMA PUGO ABIGAIL JULIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152327656",
+        "cedula": "0152327656",
+        "nombre": "LINARES ZAMBRANO DIEGO ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150537694",
+        "cedula": "0150537694",
+        "nombre": "MATUTE PERALTA VALERIA RENATA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150780930",
+        "cedula": "0150780930",
+        "nombre": "MEDINA LOJANO JEZEBELTH CAMILA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150782902",
+        "cedula": "0150782902",
+        "nombre": "MOROCHO MOROCHO DANNY GABRIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107747321",
+        "cedula": "0107747321",
+        "nombre": "ORTEGA AGUILAR YHERSON DAMIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107693251",
+        "cedula": "0107693251",
+        "nombre": "ORTEGA FERNANDEZ LINA ROCIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606355188",
+        "cedula": "0606355188",
+        "nombre": "PADILLA INGA JESSICA EVELYN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150628246",
+        "cedula": "0150628246",
+        "nombre": "PADILLA PAGUAY YAEL NAOMI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151529971",
+        "cedula": "0151529971",
+        "nombre": "PULLA CHILLOGALLI EVELYN DAYANNA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107730178",
+        "cedula": "0107730178",
+        "nombre": "QUINDE SUQUILANDA JUAN PABLO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150557486",
+        "cedula": "0150557486",
+        "nombre": "SALVATIERRA ARIAS ANGEL FABRICIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107745390",
+        "cedula": "0107745390",
+        "nombre": "SIGUA AYORA ANTHONY ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150534212",
+        "cedula": "0150534212",
+        "nombre": "SUCULANDA HERAS THIAGO RONALDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550719967",
+        "cedula": "0550719967",
+        "nombre": "TOAQUIZA CHUSIN KEVIN ANTHONY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0250194180",
+        "cedula": "0250194180",
+        "nombre": "TOAQUIZA TIGASI SARA ÑUSTA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150914976",
+        "cedula": "0150914976",
+        "nombre": "UYAGUARI CRIOLLO JODY ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150808640",
+        "cedula": "0150808640",
+        "nombre": "UYAGUARI PACHAR ANGIE LIZBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150792414",
+        "cedula": "0150792414",
+        "nombre": "VIZHÑAY TENESACA GABRIEL ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107738247",
+        "cedula": "0107738247",
+        "nombre": "ZUMBA SANCHEZ DANIELA ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "NOVENO EGB_V",
+    "curso": "NOVENO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "159353974",
+        "cedula": "159353974",
+        "nombre": "AGUILERA ROJAS YARACONI FELIPE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1752622454",
+        "cedula": "1752622454",
+        "nombre": "ALMACHI CAIZATIPAN ANGEL ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450389000",
+        "cedula": "1450389000",
+        "nombre": "ANANGA CUNAMBI GRACE JULEISY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107734980",
+        "cedula": "0107734980",
+        "nombre": "ARPI MOGROVEJO KEYLA DOMENICA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150617066",
+        "cedula": "0150617066",
+        "nombre": "AVILA ARRIAGA ANTHONY DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606387090",
+        "cedula": "0606387090",
+        "nombre": "CACUANGO CEPEDA YESENIA ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150459378",
+        "cedula": "0150459378",
+        "nombre": "CARRILLO CABELLO DAFNE KARIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150258390",
+        "cedula": "0150258390",
+        "nombre": "CHERREZ QUINDE ALEXIS GABRIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150785426",
+        "cedula": "0150785426",
+        "nombre": "COELLO LUCERO JOEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1150927687",
+        "cedula": "1150927687",
+        "nombre": "CONTENTO GUALAN KATHERINE YARITZA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150553881",
+        "cedula": "0150553881",
+        "nombre": "CORO TADAY JENNIFFER ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151236973",
+        "cedula": "0151236973",
+        "nombre": "CRIOLLO GUIRACOCHA DAMIAN ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151236957",
+        "cedula": "0151236957",
+        "nombre": "CRIOLLO GUIRACOCHA KATHERINE ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750635013",
+        "cedula": "0750635013",
+        "nombre": "DELGADO GARCIA SAID DIDIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0960686947",
+        "cedula": "0960686947",
+        "nombre": "DIAZ GOEZ UZZIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150486397",
+        "cedula": "0150486397",
+        "nombre": "ESPINOZA GARCIA CESAR EMANUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008673348",
+        "cedula": "E008673348",
+        "nombre": "FERNANDEZ PERNIA JHON KELVIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151510039",
+        "cedula": "0151510039",
+        "nombre": "GARCIA CHUCHUCA JULIANA ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151354594",
+        "cedula": "0151354594",
+        "nombre": "GARCIA CHUCHUCA MIA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006994340",
+        "cedula": "E006994340",
+        "nombre": "GARCIA LOZADA JESUS FERNANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0303083786",
+        "cedula": "0303083786",
+        "nombre": "GUAMAN MACAS BRYAN EDISON",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606416907",
+        "cedula": "0606416907",
+        "nombre": "GUAMAN QUIZHPE ANTONY JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150210649",
+        "cedula": "0150210649",
+        "nombre": "GUAMAN ZAMBRANO ANGHY MICAELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150806594",
+        "cedula": "0150806594",
+        "nombre": "GUARANGO MERCHAN VIVIANA MARICELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008686011",
+        "cedula": "E008686011",
+        "nombre": "HERRERA MORENO VICTORIA BEATRIZ",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151427143",
+        "cedula": "0151427143",
+        "nombre": "HIDALGO GOMEZCOELLO JOSTIN BLADIMIR",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151427150",
+        "cedula": "0151427150",
+        "nombre": "HIDALGO GOMEZCOELLO KATHERINE ALEJANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150696235",
+        "cedula": "0150696235",
+        "nombre": "JARAMILLO GUANUCHI JUAN FERNANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150669653",
+        "cedula": "0150669653",
+        "nombre": "LEON ZHICAY BRITHANY NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107738163",
+        "cedula": "0107738163",
+        "nombre": "MACAS OCHOA HEIDI ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150820512",
+        "cedula": "0150820512",
+        "nombre": "MAITA TENECOTA CESAR LUIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1317389995",
+        "cedula": "1317389995",
+        "nombre": "MARTINEZ SUAREZ KIARA DAMARIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107895989",
+        "cedula": "0107895989",
+        "nombre": "MOGROVEJO CALLE ELENA DEL ROSARIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0954588570",
+        "cedula": "0954588570",
+        "nombre": "MOLINA BAQUE ISIS LILIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150228856",
+        "cedula": "0150228856",
+        "nombre": "MUÑOZ GONZALEZ JUSTIN ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151298858",
+        "cedula": "0151298858",
+        "nombre": "RAMOS VINUEZA MELANY GISELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750390650",
+        "cedula": "0750390650",
+        "nombre": "RODRIGUEZ GONZALEZ AYLIN DANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008728371",
+        "cedula": "E008728371",
+        "nombre": "URDANETA VILLALOBOS YENNIFER BEATRIZ",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "DÉCIMO EGB_M",
+    "curso": "DÉCIMO EGB",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "1150118139",
+        "cedula": "1150118139",
+        "nombre": "ANDRADE MEDINA JENNY YOMAYRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606478188",
+        "cedula": "0606478188",
+        "nombre": "ATUPAÑA YUQUILEMA JOEL ISRAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150279362",
+        "cedula": "0150279362",
+        "nombre": "AYAVACA VUELE JOHN ERICK",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150457000",
+        "cedula": "0150457000",
+        "nombre": "BARBECHO CAJAMARCA DIANA CATALEYA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151158524",
+        "cedula": "0151158524",
+        "nombre": "BUENO MENDIETA JACQUELINE ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0303043608",
+        "cedula": "0303043608",
+        "nombre": "BUSCAN GUALAN JENNIFER ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151033123",
+        "cedula": "0151033123",
+        "nombre": "CARCHE SANCHEZ SAMANTHA SOLEDAD",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150343507",
+        "cedula": "0150343507",
+        "nombre": "CHICA GARCIA MATHIAS ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150803336",
+        "cedula": "0150803336",
+        "nombre": "CHOCHO UYAGUARI DANNA NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0504486614",
+        "cedula": "0504486614",
+        "nombre": "COFRE LOGRO GENESIS LIZBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150420651",
+        "cedula": "0150420651",
+        "nombre": "CORO TADAY JORDY ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150411171",
+        "cedula": "0150411171",
+        "nombre": "DAVILA GARCIA DESTING BRIGITHE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107693269",
+        "cedula": "0107693269",
+        "nombre": "FERNANDEZ ORTEGA MARLON ISRAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1317026324",
+        "cedula": "1317026324",
+        "nombre": "FERNANDEZ SALTOS THIAGO MARTIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1106124181",
+        "cedula": "1106124181",
+        "nombre": "GONZALEZ VILLA EVA MAYBET",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150158996",
+        "cedula": "0150158996",
+        "nombre": "GUACHICHULLCA UREÑA JUSTIN JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E004706694",
+        "cedula": "E004706694",
+        "nombre": "HERNANDEZ NOGUERA CARLA JOSILIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107777203",
+        "cedula": "0107777203",
+        "nombre": "INGA CHILLOGALLI KATHERINE DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150933026",
+        "cedula": "0150933026",
+        "nombre": "LALVAY LALVAY EVELYN ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150925774",
+        "cedula": "0150925774",
+        "nombre": "LARA VASQUEZ TANIA ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606337194",
+        "cedula": "0606337194",
+        "nombre": "LEMA CUJI MICHAEL STEVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150202208",
+        "cedula": "0150202208",
+        "nombre": "LEMA NAULA WILSON DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750103780",
+        "cedula": "0750103780",
+        "nombre": "LOVATO JARAMILLO FRANCISCO BENJAMIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150232031",
+        "cedula": "0150232031",
+        "nombre": "MATAILO TIRADO JUSTIN PAUL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150401974",
+        "cedula": "0150401974",
+        "nombre": "MENDIETA AGUILAR DEIVER LEONEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150504991",
+        "cedula": "0150504991",
+        "nombre": "NAULA LALVAY MATIAS SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150459196",
+        "cedula": "0150459196",
+        "nombre": "OCHOA NARVAEZ EMILEO ESTEBAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150273217",
+        "cedula": "0150273217",
+        "nombre": "ORTIZ FAREZ ALEX VINICIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150470045",
+        "cedula": "0150470045",
+        "nombre": "PACHO NAULA PABLO ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107821530",
+        "cedula": "0107821530",
+        "nombre": "PUNIN TENEMEA ANALY YESSLEY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150314177",
+        "cedula": "0150314177",
+        "nombre": "QUITO AYALA MAX ANDREI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150504132",
+        "cedula": "0150504132",
+        "nombre": "QUIZHPI TACURI JHOEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E002864429",
+        "cedula": "E002864429",
+        "nombre": "RUIZ CALDERON LEYNIKER JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151085594",
+        "cedula": "0151085594",
+        "nombre": "SANCHEZ GUIÑANZACA JUAN CARLOS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151048030",
+        "cedula": "0151048030",
+        "nombre": "SANCHEZ LOJA KEVIN ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150416261",
+        "cedula": "0150416261",
+        "nombre": "SANTIN CORONEL KEVIN MATEO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150610459",
+        "cedula": "0150610459",
+        "nombre": "SUQUI MALLA ANDREW JOSUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0504504432",
+        "cedula": "0504504432",
+        "nombre": "TOAQUIZA CHUSIN JORDI ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150068211",
+        "cedula": "0150068211",
+        "nombre": "VERDUGO AYABACA JUAN DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150478188",
+        "cedula": "0150478188",
+        "nombre": "VERDUGO AYABACA MARIA GUADALUPE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107969826",
+        "cedula": "0107969826",
+        "nombre": "ZHIÑIN FERNANDEZ PAMELA ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150350379",
+        "cedula": "0150350379",
+        "nombre": "ZUMBA ILLESCAS VERONICA SAMANTHA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150453587",
+        "cedula": "0150453587",
+        "nombre": "ZUMBA ZHUMI MILENA ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "DÉCIMO EGB_V",
+    "curso": "DÉCIMO EGB",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0150296309",
+        "cedula": "0150296309",
+        "nombre": "ARIAS PINDO GENESIS ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1106148032",
+        "cedula": "1106148032",
+        "nombre": "AVILA PELAIZ KEVIN STALIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150432946",
+        "cedula": "0150432946",
+        "nombre": "BAUTISTA LLAMOCTANTA KIARA VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "34224984",
+        "cedula": "34224984",
+        "nombre": "BELISARIO HERNANDEZ SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750428369",
+        "cedula": "0750428369",
+        "nombre": "BENITEZ CARRASCO EVAN ENRIQUE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009177882",
+        "cedula": "E009177882",
+        "nombre": "CARRASCO MOLINA JORNEYDIZ DE LOS ANGELES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150274611",
+        "cedula": "0150274611",
+        "nombre": "CHAPA MARCA VICTOR FABRICIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151343449",
+        "cedula": "0151343449",
+        "nombre": "CORO MORA ANTHONY MARCELO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150364339",
+        "cedula": "0150364339",
+        "nombre": "CORREA CHACHA DARINA VIVIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150101426",
+        "cedula": "0150101426",
+        "nombre": "FARFAN ETSA ARIEL SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152903217",
+        "cedula": "0152903217",
+        "nombre": "GIRALDO VELASCO BREINER ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0931761233",
+        "cedula": "0931761233",
+        "nombre": "GONZALEZ BANCHON JAVIER MARCELO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150783488",
+        "cedula": "0150783488",
+        "nombre": "GUZMAN MALDONADO LUIS EDUARDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151730439",
+        "cedula": "0151730439",
+        "nombre": "MACAS OCHOA ERICK BRYAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151055613",
+        "cedula": "0151055613",
+        "nombre": "MAYAGUARI CRIOLLO DAYSI ISABEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750346512",
+        "cedula": "0750346512",
+        "nombre": "MENDOZA PILOSO ELIAN ISAAC",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150188118",
+        "cedula": "0150188118",
+        "nombre": "PALTA BRAVO ANGEL GEOVANNY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0942492265",
+        "cedula": "0942492265",
+        "nombre": "PASTORIZA VALLECILLA MARCOS SNEIJDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E009136993",
+        "cedula": "E009136993",
+        "nombre": "PLAZA VIZCAINO AISLISH ANTONELLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150857670",
+        "cedula": "0150857670",
+        "nombre": "QUITUISACA PINTADO ANA CRISTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E010116539",
+        "cedula": "E010116539",
+        "nombre": "RAMIREZ SALAZAR MARTIN JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E003533176",
+        "cedula": "E003533176",
+        "nombre": "ROJAS GUERRERO ALBRIANNY ROSALIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1756382238",
+        "cedula": "1756382238",
+        "nombre": "ROMERO TERRAZAS ERICA MARIVEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606375418",
+        "cedula": "0606375418",
+        "nombre": "ROQUE ROQUE ANTONY JAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107743494",
+        "cedula": "0107743494",
+        "nombre": "SAGBAY MOROCHO CARLOS ALFREDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "002863170",
+        "cedula": "002863170",
+        "nombre": "SALAZAR CASTELLANO ABRAHAM DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150386720",
+        "cedula": "0150386720",
+        "nombre": "SANCHEZ ORDOÑEZ THALIA NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0942834136",
+        "cedula": "0942834136",
+        "nombre": "SOTO CORREA ALBERTO MATIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150437069",
+        "cedula": "0150437069",
+        "nombre": "TENELANDA MOROCHO DANIEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0850328162",
+        "cedula": "0850328162",
+        "nombre": "TOBAR SOLORZANO DIDIER DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150836450",
+        "cedula": "0150836450",
+        "nombre": "UVIDIA CASTILLO LESLE TATIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0958990707",
+        "cedula": "0958990707",
+        "nombre": "VELEZ CHAVEZ PATRICIO DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1317633715",
+        "cedula": "1317633715",
+        "nombre": "VELEZ VALENCIA ANGIE ANTONELA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1106187410",
+        "cedula": "1106187410",
+        "nombre": "VERA AVILA LUCAS STALIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "197688953",
+        "cedula": "197688953",
+        "nombre": "ZERPA HERRERA CARLOS DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "PRIMERO BGU_M",
+    "curso": "PRIMERO BGU",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0150993186",
+        "cedula": "0150993186",
+        "nombre": "AGUIRRE OCHOA VERONICA PAULINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650399223",
+        "cedula": "0650399223",
+        "nombre": "ALVAREZ CUJI MELANI ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150962793",
+        "cedula": "0150962793",
+        "nombre": "AYABACA LOJA JENNIFER LORENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150007169",
+        "cedula": "0150007169",
+        "nombre": "BERREZUETA CHUVA DAFNE MARISOL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606541415",
+        "cedula": "0606541415",
+        "nombre": "BRAVO INGA ERIKA JOHANNA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107682676",
+        "cedula": "0107682676",
+        "nombre": "CARCHI LALVAY TAIWAN FERNANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151032315",
+        "cedula": "0151032315",
+        "nombre": "CHACHA CHUCHUCA EVELYN DE JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151151271",
+        "cedula": "0151151271",
+        "nombre": "CHAVES MATUTE JOSE ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150116234",
+        "cedula": "0150116234",
+        "nombre": "CHIMBO ALLAICO BRITTANY DENNISSE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0850966763",
+        "cedula": "0850966763",
+        "nombre": "CORREA QUIÑONEZ KRISTHEL SHANAYRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150197671",
+        "cedula": "0150197671",
+        "nombre": "DEKER ORDOÑEZ KERLY ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "76104412",
+        "cedula": "76104412",
+        "nombre": "DIAZ GOEZ BETBIRAI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0750006736",
+        "cedula": "0750006736",
+        "nombre": "ESCOBAR CRIOLLO JUSTIN BRAYNER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151182078",
+        "cedula": "0151182078",
+        "nombre": "GONZALEZ YANQUI MONICA ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150154110",
+        "cedula": "0150154110",
+        "nombre": "GUAMAN TARQUI CRISTIAN MARCELO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150050987",
+        "cedula": "0150050987",
+        "nombre": "LABANDA ESPINOZA RONALD PAUL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0152327631",
+        "cedula": "0152327631",
+        "nombre": "LINARES ZAMBRANO SOFIA ISABEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450264450",
+        "cedula": "1450264450",
+        "nombre": "LOJANO VELE MELANY FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1350153084",
+        "cedula": "1350153084",
+        "nombre": "MARTINEZ SUAREZ JOSE ADRIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107828170",
+        "cedula": "0107828170",
+        "nombre": "NIVICELA MOROCHO KARLA XIMENA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150152460",
+        "cedula": "0150152460",
+        "nombre": "ORDOÑEZ GUACHO DANTE JESUS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150189256",
+        "cedula": "0150189256",
+        "nombre": "ORDOÑEZ GUAMAN NAYELI ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650468911",
+        "cedula": "0650468911",
+        "nombre": "PADILLA INGA EIMY DAYANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1750803023",
+        "cedula": "1750803023",
+        "nombre": "PAZMIÑO ALVARADO CAMILA NATHALY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107678799",
+        "cedula": "0107678799",
+        "nombre": "PINOS ZHISPON JORDAN DAMIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150286664",
+        "cedula": "0150286664",
+        "nombre": "PUGO CHUCHUCA CARLOS RAUL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150255388",
+        "cedula": "0150255388",
+        "nombre": "RAMOS VALLADARES JOSTIN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606384295",
+        "cedula": "0606384295",
+        "nombre": "ROLDAN GUARACA CRISTHIAN GEOVANNY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107684185",
+        "cedula": "0107684185",
+        "nombre": "SALINAS PACHAR JOSELINE ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151123544",
+        "cedula": "0151123544",
+        "nombre": "SANMARTIN GARCIA KARLA LIZBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150045763",
+        "cedula": "0150045763",
+        "nombre": "TRELLES RAMIREZ MELANIE BRISHIT",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606257640",
+        "cedula": "0606257640",
+        "nombre": "UZHCA YUPA ANGEL DANIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "548900267",
+        "cedula": "548900267",
+        "nombre": "VASQUEZ CANDO JERRIMY DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0955350772",
+        "cedula": "0955350772",
+        "nombre": "YEPEZ PLUA NIURKA VICTORIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150123693",
+        "cedula": "0150123693",
+        "nombre": "YUNGA ALVAREZ JUAN DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150074896",
+        "cedula": "0150074896",
+        "nombre": "ZHINGRI GORDILLO SANTIAGO ALEJANDRO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "PRIMERO BGU_V",
+    "curso": "PRIMERO BGU",
+    "jornada": "VESPERTINA",
+    "students": [
+      {
+        "id": "0150438877",
+        "cedula": "0150438877",
+        "nombre": "AUCAY NAULAGUARI JOHANA ALEXANDRA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150182277",
+        "cedula": "0150182277",
+        "nombre": "AVILA ARRIAGA JUAN ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1150512554",
+        "cedula": "1150512554",
+        "nombre": "CABRERA ARMIJOS MARIA BELEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150435543",
+        "cedula": "0150435543",
+        "nombre": "CAMPOVERDE CORREA CARLOS LUIS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150170611",
+        "cedula": "0150170611",
+        "nombre": "CARPIO MACAS ANGELICA AYME",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151329489",
+        "cedula": "0151329489",
+        "nombre": "CEPEDA CEPEDA LIZBETH ANAHI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0707214714",
+        "cedula": "0707214714",
+        "nombre": "CHIQUITO BANCHON DARWIN KEVIN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606283687",
+        "cedula": "0606283687",
+        "nombre": "DAQUILEMA MARCATOMA JESSICA TATIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1150002523",
+        "cedula": "1150002523",
+        "nombre": "GUALAN LABANDA ALEJANDRO IVAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E004768454",
+        "cedula": "E004768454",
+        "nombre": "LUCENA MONCADA ANDRY JUBRAZKA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151377256",
+        "cedula": "0151377256",
+        "nombre": "MACAS OCHOA LESLIE NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151097623",
+        "cedula": "0151097623",
+        "nombre": "MAITA TENECOTA YOLI ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107901001",
+        "cedula": "0107901001",
+        "nombre": "MARTINEZ GUZMAN MATEO WILSON",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1950020311",
+        "cedula": "1950020311",
+        "nombre": "MENDIETA SAGBAICELA MAIKEL JORDAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0953144730",
+        "cedula": "0953144730",
+        "nombre": "MOLINA BAQUE CINDY PAOLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1042859390",
+        "cedula": "1042859390",
+        "nombre": "MOSQUERA HERNANDEZ SILEINE VALENTINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E006968983",
+        "cedula": "E006968983",
+        "nombre": "PEREZ CADENAS OSMER ENMANUEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1106214495",
+        "cedula": "1106214495",
+        "nombre": "PULLA CABRERA YURI THALIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151274602",
+        "cedula": "0151274602",
+        "nombre": "QUITUIZACA LOJANO CHRISTIAN JOEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150479111",
+        "cedula": "0150479111",
+        "nombre": "QUIZHPI VELE ANTHONY JAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "34128463",
+        "cedula": "34128463",
+        "nombre": "SANTAELLA ALVAREZ LEONARDO RODRIGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151236817",
+        "cedula": "0151236817",
+        "nombre": "TENESACA MORENO FAUSTO REMIGIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150201887",
+        "cedula": "0150201887",
+        "nombre": "TEPAN MARIN DAYANA DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150884740",
+        "cedula": "0150884740",
+        "nombre": "TOAQUIZA TOAQUIZA JOEL ESTEBAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150955557",
+        "cedula": "0150955557",
+        "nombre": "UGUÑA VELE RUTH ABIGAIL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150387041",
+        "cedula": "0150387041",
+        "nombre": "UVIDIA CASTILLO LADY JANINE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151005774",
+        "cedula": "0151005774",
+        "nombre": "VERA DOMINGUEZ MIKEL ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "SEGUNDO BGU_M",
+    "curso": "SEGUNDO BGU",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "0151126448",
+        "cedula": "0151126448",
+        "nombre": "AGREDA ANDRADE MAURICIO FERNANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150014652",
+        "cedula": "0150014652",
+        "nombre": "AGUILAR ANDRADE VALERIA VERONICA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151074929",
+        "cedula": "0151074929",
+        "nombre": "ANDINO BLANDIN ARIANNA MAITE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606257335",
+        "cedula": "0606257335",
+        "nombre": "AUQUI PADILLA NATALY SILVANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1150768008",
+        "cedula": "1150768008",
+        "nombre": "AVILA PELAIZ YOSSELIN LIZBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "E008685986",
+        "cedula": "E008685986",
+        "nombre": "BAEZ VASQUEZ EIDIBEL BEATRIZ",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "183737737",
+        "cedula": "183737737",
+        "nombre": "BRICEÑO FINOL SUSANA PAOLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "33794709",
+        "cedula": "33794709",
+        "nombre": "CADENAS CARMONA CRISTAL NADESKA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0850700956",
+        "cedula": "0850700956",
+        "nombre": "CAMPAZ RONQUILLO ROY ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150492163",
+        "cedula": "0150492163",
+        "nombre": "CARRION AGUIRRE RAMSSES GONZALO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606469450",
+        "cedula": "0606469450",
+        "nombre": "CEPEDA CEPEDA JOSELYN ELIZABETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150796233",
+        "cedula": "0150796233",
+        "nombre": "CHOCHO UYAGUARI JOHN ALBER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550689905",
+        "cedula": "0550689905",
+        "nombre": "COCHA COCHA WILLIAM SANTIAGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150990406",
+        "cedula": "0150990406",
+        "nombre": "CORAISACA BACUILIMA SANTIAGO ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650524986",
+        "cedula": "0650524986",
+        "nombre": "DAQUILEMA GUACHO FREDY DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107793820",
+        "cedula": "0107793820",
+        "nombre": "GUAMAN PLACENCIA CARLOS ARMANDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107648255",
+        "cedula": "0107648255",
+        "nombre": "GUAMAN SARMIENTO JOSTIN EUGENIO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1729693729",
+        "cedula": "1729693729",
+        "nombre": "GUAZHAMBO AUQUILLA JONATHAN ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150706562",
+        "cedula": "0150706562",
+        "nombre": "GUTAMA PUIN JENNIFER ANALIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150925824",
+        "cedula": "0150925824",
+        "nombre": "LARA VASQUEZ MAYLI LUCERO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "34252491",
+        "cedula": "34252491",
+        "nombre": "MALDONADO BONZA KARLA YORLEIDY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151666278",
+        "cedula": "0151666278",
+        "nombre": "MENDEZ BARBECHO SUSEJ ESMERALDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150977197",
+        "cedula": "0150977197",
+        "nombre": "MENDIETA SANGURIMA MICHAEL ABRAHAM",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150012318",
+        "cedula": "0150012318",
+        "nombre": "MENDOZA LARA RICKY SOLAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151025939",
+        "cedula": "0151025939",
+        "nombre": "MOGROVEJO PAUTE EDISON ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1043453066",
+        "cedula": "1043453066",
+        "nombre": "MOSQUERA HERNANDEZ VALERY PAOLA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150862126",
+        "cedula": "0150862126",
+        "nombre": "ORTIZ DEIDAN FABIANA SALOME",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450271414",
+        "cedula": "1450271414",
+        "nombre": "PARDO GUAMAN JHORDANA MARIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151084639",
+        "cedula": "0151084639",
+        "nombre": "SACTA GUIÑANSACA MARIA DEL CISNE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1316636339",
+        "cedula": "1316636339",
+        "nombre": "SALTOS LOOR ORLY XAVIER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "34213578",
+        "cedula": "34213578",
+        "nombre": "SEIJAS CAMERO ISAIAS ALBERTO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151185683",
+        "cedula": "0151185683",
+        "nombre": "TORRES CAÑAR JOFFRE ELIAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150729069",
+        "cedula": "0150729069",
+        "nombre": "VELASCO BRITO KATHERINE NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1351300056",
+        "cedula": "1351300056",
+        "nombre": "VELEZ VALENCIA KATHERINE STEPHANIE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "2150276869",
+        "cedula": "2150276869",
+        "nombre": "YANSAPANTA LOOR ANDERSON ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "key": "TERCERO BGU_M",
+    "curso": "TERCERO BGU",
+    "jornada": "MATUTINA",
+    "students": [
+      {
+        "id": "AT822285",
+        "cedula": "AT822285",
+        "nombre": "ACUÑA ESPITIA SOFIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107553554",
+        "cedula": "0107553554",
+        "nombre": "ARGUDO TARQUI ERICK DAVID",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150095842",
+        "cedula": "0150095842",
+        "nombre": "CARRILLO GRANDA ROBERT ARIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150546166",
+        "cedula": "0150546166",
+        "nombre": "CORDERO PESANTEZ MARIA EMILIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1752851442",
+        "cedula": "1752851442",
+        "nombre": "CURICHUMBI YUQUILEMA YURI VANESSA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107529737",
+        "cedula": "0107529737",
+        "nombre": "GOMEZ QUITO JENNIFER NICOLE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150495968",
+        "cedula": "0150495968",
+        "nombre": "GONZALEZ PINEDA EMILY DOMENICA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606160638",
+        "cedula": "0606160638",
+        "nombre": "GUACHO NAULA JHONATHAN ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606171098",
+        "cedula": "0606171098",
+        "nombre": "INGA GUACHO INES BEATRIZ",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1105961526",
+        "cedula": "1105961526",
+        "nombre": "KONTONG PARDO ANGELINE MARIVEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150009587",
+        "cedula": "0150009587",
+        "nombre": "LARA SILVA JEFFERSON DIEGO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1450199631",
+        "cedula": "1450199631",
+        "nombre": "LOJANO VELE EVELIN MAYTE",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151228996",
+        "cedula": "0151228996",
+        "nombre": "MOROCHO PALTA CARMEN ISABEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1143238318",
+        "cedula": "1143238318",
+        "nombre": "MOSQUERA HERNANDEZ MICHELLE ANDREA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150861367",
+        "cedula": "0150861367",
+        "nombre": "MUÑOZ GONZALEZ GENESIS NOEMI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107934440",
+        "cedula": "0107934440",
+        "nombre": "NIVICELA AGUILAR MARILYN ESTEFANIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150967446",
+        "cedula": "0150967446",
+        "nombre": "ORDOÑEZ GUACHO BORIS NICOLAS",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0151010014",
+        "cedula": "0151010014",
+        "nombre": "ORDOÑEZ SUQUI DAYSI JANNETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150038792",
+        "cedula": "0150038792",
+        "nombre": "OROSCO GUIÑANSACA CRISTOPHER ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0706711355",
+        "cedula": "0706711355",
+        "nombre": "ORTIZ ROMERO EVELIN ARIANA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0550570618",
+        "cedula": "0550570618",
+        "nombre": "PALLO LLUMITASIG JASU LISBETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150884682",
+        "cedula": "0150884682",
+        "nombre": "PAQUI VILLA MICHAEL STEVEN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "1105795106",
+        "cedula": "1105795106",
+        "nombre": "PATIÑO VILLA CAMILA ARACELY",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107314262",
+        "cedula": "0107314262",
+        "nombre": "PEÑALOZA ROMAN MICHAEL ANDRES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150286706",
+        "cedula": "0150286706",
+        "nombre": "PUGO CHUCHUCA MATIAS ALFREDO",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150974061",
+        "cedula": "0150974061",
+        "nombre": "QUILLE LOJANO ANDREA CAROLINA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150142107",
+        "cedula": "0150142107",
+        "nombre": "QUINDE SUCONOTA KEVIN SEBASTIAN",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0650513393",
+        "cedula": "0650513393",
+        "nombre": "QUIZHPI GUAMAN MONICA LETICIA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0302812987",
+        "cedula": "0302812987",
+        "nombre": "REBILLA CELA ROGER ISMAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0706820438",
+        "cedula": "0706820438",
+        "nombre": "ROMERO GONZALEZ YARIK JALIEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107845026",
+        "cedula": "0107845026",
+        "nombre": "RUEDA CHUCHUCA JOFFRE ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150350270",
+        "cedula": "0150350270",
+        "nombre": "SALINAS PACHAR ANTHONY ALEXANDER",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0606031540",
+        "cedula": "0606031540",
+        "nombre": "TENE DAQUILEMA NELLY JANETH",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0150101897",
+        "cedula": "0150101897",
+        "nombre": "TOLEDO UYAGUARI ANAHI FERNANDA",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0107843989",
+        "cedula": "0107843989",
+        "nombre": "TORRES GUACHICHULLCA ESTEFANIA MERCEDES",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0303021505",
+        "cedula": "0303021505",
+        "nombre": "VALLADARES FEIJOO RUBI MARIBEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "602145331",
+        "cedula": "602145331",
+        "nombre": "VASQUEZ NUÑEZ MARILIT MIREYLI",
+        "sexo": "",
+        "estado": "ACTIVO"
+      },
+      {
+        "id": "0350257952",
+        "cedula": "0350257952",
+        "nombre": "VILLALTA CAÑAR DIXON RAFAEL",
+        "sexo": "",
+        "estado": "ACTIVO"
+      }
+    ]
+  }
+]
