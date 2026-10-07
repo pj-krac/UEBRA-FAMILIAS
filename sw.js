@@ -1,16 +1,14 @@
 const CACHE_PREFIX = 'uebra-plus-';
-const CACHE = `${CACHE_PREFIX}v13-solo-modalidad`;
+const CACHE = `${CACHE_PREFIX}v12-proyecto-sin-nombre`;
 
 const ASSETS = [
   './',
   './index.html',
   './config.js',
   './proyectos-flexibles.js',
-  './proyectos-flexibles-modalidad-v4.js',
   './eleccion-proyecto-docente.js',
   './eleccion-proyecto-docente-retiro-v2.js',
   './eleccion-proyecto-docente-sin-nombre-v3.js',
-  './eleccion-proyecto-docente-modalidad-v4.js',
   './manifest.webmanifest',
   './logo-uebra.png',
   './icon-192.png',
