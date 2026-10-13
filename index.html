@@ -1,0 +1,2974 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123f73">
+
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="UEBRA+ Familias">
+
+<title>UEBRA+ Familias</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#0c315d 0%,#174f88 55%,#2c73aa 100%);
+  color:#1e293b;
+}
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.card{
+  width:100%;
+  max-width:620px;
+  background:#fff;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 22px 60px rgba(0,0,0,.22);
+}
+
+.hidden{display:none!important;}
+
+.brand{text-align:center;margin-bottom:26px;}
+
+.institution-logo{
+  display:block;
+  width:150px;
+  height:auto;
+  max-height:150px;
+  object-fit:contain;
+  margin:0 auto 10px;
+}
+
+h1,h2,h3{color:#123f73;}
+
+h1{font-size:27px;margin-bottom:5px;}
+
+.subtitle{
+  color:#64748b;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.field{margin-bottom:17px;}
+
+label{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+input{
+  width:100%;
+  padding:14px 15px;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
+}
+
+input:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+
+button{
+  border:0;
+  border-radius:12px;
+  padding:14px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.full{width:100%;}
+
+.primary{
+  background:#123f73;
+  color:white;
+}
+
+.primary:hover{background:#0c315d;}
+
+.primary:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.secondary{
+  width:100%;
+  background:#e8eef6;
+  color:#123f73;
+  margin-top:18px;
+}
+.push-button{width:100%;margin-top:14px;background:#e8f2ff;color:#123f73;border:1px solid #c9def5}
+.push-button.enabled{background:#dcfce7;color:#166534;border-color:#bbf7d0}
+.push-status{text-align:center;color:#64748b;font-size:12px;line-height:1.4;margin-top:7px}
+
+.message{
+  display:none;
+  margin-top:15px;
+  padding:12px 14px;
+  border-radius:10px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.message.error{
+  display:block;
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.message.ok{
+  display:block;
+  background:#dcfce7;
+  color:#166534;
+}
+
+.security-note{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid #e2e8f0;
+  text-align:center;
+  color:#64748b;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.family-header{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.family-name{
+  font-size:18px;
+  font-weight:700;
+  color:#0f172a;
+  margin-top:10px;
+}
+
+.family-document{
+  color:#64748b;
+  font-size:14px;
+  margin-top:4px;
+}
+
+.password-panel{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  border-radius:14px;
+  padding:20px;
+  margin-top:20px;
+}
+
+.password-panel h3{
+  color:#9a3412;
+  margin-bottom:8px;
+}
+
+.password-panel .intro{
+  color:#9a3412;
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:18px;
+}
+
+.password-help{
+  color:#64748b;
+  font-size:12px;
+  margin:-6px 0 15px;
+  line-height:1.5;
+}
+
+.section-title{
+  margin:20px 0 12px;
+  font-size:19px;
+}
+
+.student-list{
+  display:grid;
+  gap:12px;
+}
+
+.student-card{
+  width:100%;
+  border:1px solid #dbe4ef;
+  border-radius:15px;
+  padding:16px;
+  background:#f8fafc;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  transition:.18s;
+}
+
+.student-card:hover{
+  border-color:#7ba7d2;
+  transform:translateY(-1px);
+  box-shadow:0 5px 14px rgba(15,63,115,.09);
+}
+
+.student-icon{
+  min-width:48px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#e3edf8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.student-info{flex:1;}
+
+.student-name{
+  font-weight:700;
+  color:#0f172a;
+  line-height:1.35;
+}
+
+.student-meta{
+  color:#64748b;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.student-arrow{
+  color:#123f73;
+  font-size:23px;
+}
+
+.student-alerts{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-top:7px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#dbeafe;
+  color:#1d4ed8;
+  font-size:11px;
+  font-weight:800;
+}
+
+.student-alerts.none{
+  background:#dcfce7;
+  color:#166534;
+}
+
+
+.empty-state{
+  background:#f8fafc;
+  border:1px dashed #cbd5e1;
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.back-button{
+  background:transparent;
+  color:#123f73;
+  padding:7px 0;
+  margin-bottom:16px;
+}
+
+.student-header{
+  text-align:center;
+  border-bottom:1px solid #e2e8f0;
+  padding-bottom:20px;
+}
+
+.student-header h2{
+  font-size:21px;
+  line-height:1.35;
+}
+
+.course-line{
+  color:#64748b;
+  margin-top:7px;
+  font-size:14px;
+}
+
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+  margin:20px 0;
+  background:#f1f5f9;
+  padding:6px;
+  border-radius:13px;
+}
+
+.tab{
+  background:transparent;
+  color:#64748b;
+  padding:10px 5px;
+  font-size:13px;
+}
+
+.tab.active{
+  background:#123f73;
+  color:#fff;
+}
+
+.summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.stat{
+  border-radius:14px;
+  padding:15px 7px;
+  text-align:center;
+  border:1px solid #e2e8f0;
+  background:#f8fafc;
+}
+
+.stat-number{
+  display:block;
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:4px;
+  color:#123f73;
+}
+
+.stat-label{
+  font-size:12px;
+  color:#64748b;
+}
+
+.history-title{
+  margin:18px 0 10px;
+  font-size:17px;
+}
+
+.history{
+  display:grid;
+  gap:10px;
+}
+
+.history-item{
+  border:1px solid #e2e8f0;
+  border-radius:13px;
+  padding:14px;
+}
+
+.history-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+
+.history-subject{
+  font-weight:700;
+  color:#0f172a;
+  font-size:14px;
+}
+
+.history-date{
+  color:#64748b;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.status-p{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.status-f{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.status-a{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.observation{
+  margin-top:9px;
+  padding-top:9px;
+  border-top:1px solid #eef2f7;
+  font-size:13px;
+  color:#475569;
+  line-height:1.4;
+}
+
+.notice-card{
+  border:1px solid #e2e8f0;
+  border-radius:13px;
+  padding:15px;
+  margin-bottom:10px;
+}
+
+.notice-type{
+  display:inline-block;
+  background:#e3edf8;
+  color:#123f73;
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.notice-title{
+  font-weight:700;
+  color:#0f172a;
+  line-height:1.4;
+}
+
+.notice-text{
+  color:#475569;
+  font-size:13px;
+  line-height:1.45;
+  margin-top:7px;
+}
+
+.notice-date{
+  color:#94a3b8;
+  font-size:12px;
+  margin-top:8px;
+}
+
+.notice-meta{
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid #eef2f7;
+  display:grid;
+  gap:5px;
+  color:#475569;
+  font-size:12px;
+  line-height:1.4;
+}
+.notice-meta strong{color:#334155;}
+
+.notice-new{
+  border-color:#93c5fd;
+  background:#eff6ff;
+  box-shadow:0 3px 10px rgba(37,99,235,.08);
+}
+.new-badge{
+  display:inline-block;
+  margin-left:6px;
+  padding:3px 7px;
+  border-radius:999px;
+  background:#2563eb;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  vertical-align:middle;
+}
+
+
+.grade-intro{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:14px;margin-bottom:14px;color:#334155;font-size:13px;line-height:1.45}
+.grade-list{display:grid;gap:12px}
+.grade-card{border:1px solid #dbe4ef;border-radius:15px;padding:15px;background:#fff}
+.grade-subject{font-weight:800;color:#123f73;margin-bottom:11px;line-height:1.3}
+.grade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.grade-box{text-align:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:9px 4px}
+.grade-box-label{display:block;font-size:10px;color:#64748b;font-weight:700;margin-bottom:4px}
+.grade-value{font-size:15px;font-weight:800;color:#0f172a}
+.grade-low{background:#fef2f2;border-color:#fecaca}.grade-low .grade-value{color:#b91c1c}
+.special-section{margin-top:20px;padding-top:16px;border-top:1px solid #e2e8f0}
+.special-card{border:1px solid #dbe4ef;border-radius:15px;padding:15px;margin-top:10px;background:#f8fafc}
+.special-title{font-weight:800;color:#123f73;margin-bottom:10px}
+.special-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.behavior-value{font-size:12px;line-height:1.35}
+
+
+
+.grade-card{overflow:hidden}
+.grade-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.grade-card-head .grade-subject{margin-bottom:0}
+.grade-detail-button{background:#e8f2ff;color:#123f73;border:1px solid #c9def5;padding:8px 10px;font-size:12px;border-radius:9px;white-space:nowrap}
+.grade-detail{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0}
+.grade-trimester{border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-top:10px;background:#fbfdff}
+.grade-trimester:first-child{margin-top:0}
+.grade-trimester-title{font-weight:800;color:#123f73;margin-bottom:9px}
+.grade-detail-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #e2e8f0;font-size:12px;line-height:1.35}
+.grade-detail-row:last-child{border-bottom:0}
+.grade-detail-label{color:#475569}
+.grade-detail-value{font-weight:800;color:#0f172a;text-align:right}
+.grade-improvement{margin:6px 0 7px 10px;padding:8px 10px;border-left:3px solid #93c5fd;background:#eff6ff;border-radius:0 9px 9px 0}
+.grade-improvement-title{font-size:11px;font-weight:800;color:#1d4ed8;margin-bottom:4px}
+.grade-formative-list{margin-bottom:8px}
+.grade-result-row{font-weight:800;background:#f8fafc;margin-top:4px;padding-left:7px;padding-right:7px;border-radius:7px}
+.grade-project-block{margin-top:10px;padding-top:9px;border-top:1px solid #dbe4ef}
+.grade-pending{color:#64748b;font-weight:700}
+
+.loading{
+  text-align:center;
+  color:#64748b;
+  padding:25px 10px;
+}
+
+.attention-intro{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:14px;margin-bottom:14px;color:#334155;font-size:13px;line-height:1.45}
+.attention-list{display:grid;gap:12px}
+.attention-card{border:1px solid #e2e8f0;border-radius:14px;padding:15px;background:#fff}
+.attention-teacher{font-weight:800;color:#123f73;font-size:14px;line-height:1.35}
+.attention-subject{margin-top:4px;color:#475569;font-size:13px}
+.attention-times{display:grid;gap:6px;margin-top:11px}
+.attention-time{background:#f8fafc;border-radius:10px;padding:8px 10px;color:#334155;font-size:13px}
+
+@media(max-width:520px){
+  .page{
+    padding:12px;
+    align-items:flex-start;
+  }
+
+  .card{
+    padding:23px 18px;
+    border-radius:20px;
+    margin-top:10px;
+  }
+
+  .institution-logo{
+    width:130px;
+  }
+
+  .tabs{
+    grid-template-columns:repeat(2,1fr);
+    gap:4px;
+  }
+
+  .tab{
+    font-size:12px;
+  }
+}
+
+/* ACTUALIZACIÓN DE DATOS */
+.data-update-intro{background:#f8fafc;border:1px solid #dbe4ef;border-radius:14px;padding:14px;margin-bottom:16px;color:#475569;line-height:1.45;}
+.data-update-status{display:inline-block;padding:5px 10px;border-radius:999px;background:#e2e8f0;font-size:12px;font-weight:700;margin-bottom:12px;}
+.data-update-status.BORRADOR{background:#fef3c7;color:#92400e}.data-update-status.ENVIADO{background:#dbeafe;color:#1e40af}.data-update-status.OBSERVADO{background:#fee2e2;color:#991b1b}.data-update-status.REVISADO{background:#dcfce7;color:#166534}
+.data-update-section{border:1px solid #e2e8f0;border-radius:14px;padding:14px;margin:12px 0;background:#fff}.data-update-section h4{margin:0 0 12px;color:#163f6d}.data-update-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.data-update-field label{display:block;font-size:12px;font-weight:700;color:#475569;margin-bottom:5px}.data-update-field input,.data-update-field select,.data-update-field textarea{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:9px;padding:10px;font:inherit;background:#fff}.data-update-field textarea{min-height:72px;resize:vertical}.data-update-field.full{grid-column:1/-1}.data-update-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.data-update-observation{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;border-radius:12px;padding:12px;margin:10px 0}.data-update-closed{padding:18px;text-align:center;background:#f8fafc;border-radius:12px;color:#64748b}.readonly-note{font-size:11px;color:#64748b;margin-top:4px}@media(max-width:700px){.data-update-grid{grid-template-columns:1fr}}
+
+</style>
+<style>.calendar-family-filters{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.calendar-family-filters label{display:grid;gap:6px}.calendar-family-filters input{font:inherit;padding:10px;max-width:100%}.calendar-family-event{padding:14px;border:1px solid #dce5ef;border-radius:12px;margin:12px 0}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #2876c7;outline-offset:3px}#calendarTab{scroll-margin-top:16px}@media(max-width:600px){.calendar-family-filters label{flex:1 1 100%}}</style></head>
+
+<body>
+
+<div class="page">
+<main class="card">
+
+<!-- LOGIN -->
+<section id="loginView">
+
+  <div class="brand">
+    <img src="NEW%20LOGO.png"
+         alt="Escudo UEBRA"
+         class="institution-logo">
+
+    <h1>UEBRA<span style="color:#2563eb">+</span> Familias</h1>
+
+    <p class="subtitle">
+      Unidad Educativa Benjamín Ramírez Arteaga
+    </p>
+  </div>
+
+  <form id="loginForm">
+
+    <div class="field">
+      <label for="documento">
+        Documento del representante
+      </label>
+
+      <input id="documento"
+             type="text"
+             autocomplete="username"
+             placeholder="Ej.: 1234567890"
+             required>
+    </div>
+
+    <div class="field">
+      <label for="password">Contraseña</label>
+
+      <input id="password"
+             type="password"
+             autocomplete="current-password"
+             placeholder="Ingrese su contraseña"
+             required>
+    </div>
+
+    <button id="loginButton"
+            class="primary full"
+            type="submit">
+      Ingresar
+    </button>
+
+    <div id="loginMessage" class="message"></div>
+  </form>
+
+  <div class="security-note">
+    Acceso exclusivo para representantes autorizados.<br>
+    La información estudiantil es de carácter confidencial.
+  </div>
+
+</section>
+
+
+<!-- CUENTA FAMILIAR -->
+<section id="familyView" class="hidden">
+
+  <div class="family-header">
+
+    <img src="NEW%20LOGO.png"
+         alt="Escudo UEBRA"
+         class="institution-logo">
+
+    <h2>UEBRA<span style="color:#2563eb">+</span> Familias</h2>
+
+    <div id="familyName" class="family-name"></div>
+    <div id="familyDocument" class="family-document"></div>
+
+  </div>
+
+
+  <!-- PRIMER INGRESO -->
+  <div id="passwordChangePanel"
+       class="password-panel hidden">
+
+    <h3>Primer ingreso</h3>
+
+    <p class="intro">
+      Su contraseña actual es temporal.
+      Antes de consultar información estudiantil
+      debe crear una nueva contraseña.
+    </p>
+
+    <form id="changePasswordForm">
+
+      <div class="field">
+        <label>Nueva contraseña</label>
+
+        <input id="newPassword"
+               type="password"
+               minlength="8"
+               autocomplete="new-password"
+               required>
+      </div>
+
+      <div class="field">
+        <label>Confirmar nueva contraseña</label>
+
+        <input id="confirmPassword"
+               type="password"
+               minlength="8"
+               autocomplete="new-password"
+               required>
+      </div>
+
+      <p class="password-help">
+        Utilice al menos 8 caracteres y no use su
+        documento como contraseña.
+      </p>
+
+      <button id="changePasswordButton"
+              class="primary full"
+              type="submit">
+        Guardar nueva contraseña
+      </button>
+
+      <div id="passwordMessage" class="message"></div>
+
+    </form>
+
+  </div>
+
+
+  <!-- REPRESENTADOS -->
+  <div id="representativesView" class="hidden">
+
+    <h3 class="section-title">
+      Mis representados
+    </h3>
+
+    <div id="studentList" class="student-list"></div>
+
+  </div>
+
+
+  <!-- PANEL ESTUDIANTE -->
+  <div id="studentView" class="hidden">
+
+    <button id="backButton"
+            class="back-button"
+            type="button">
+      ← Mis representados
+    </button>
+
+    <div class="student-header">
+
+      <h2 id="selectedStudentName"></h2>
+
+      <div id="selectedStudentCourse"
+           class="course-line">
+      </div>
+
+    </div>
+
+
+    <div class="tabs"><button type="button" class="tab" data-tab="calendar">📅 Calendario institucional</button>
+
+      <button class="tab active"
+              data-tab="attendance"
+              type="button">
+        Asistencia
+      </button>
+
+      <button id="gradesTabButton"
+              class="tab"
+              data-tab="grades"
+              type="button">
+        Calificaciones
+      </button>
+
+      <button id="noticesTabButton"
+              class="tab"
+              data-tab="notices"
+              type="button">
+        Novedades <span id="unreadNoticesCount"></span>
+      </button>
+
+      <button id="notificationsTabButton"
+              class="tab"
+              data-tab="notifications"
+              type="button">
+        Notificaciones <span id="unreadCount"></span>
+      </button>
+
+      <button id="attentionTabButton"
+              class="tab"
+              data-tab="attention"
+              type="button">
+        Atención
+      </button>
+
+      <button id="dataUpdateTabButton"
+              class="tab"
+              data-tab="dataUpdate"
+              type="button">
+        Actualización de datos
+      </button>
+
+    </div>
+
+
+    <!-- ASISTENCIA -->
+    <div id="attendanceTab">
+
+      <div class="summary">
+
+        <div class="stat">
+          <span id="countP" class="stat-number">0</span>
+          <span class="stat-label">Presentes</span>
+        </div>
+
+        <div class="stat">
+          <span id="countF" class="stat-number">0</span>
+          <span class="stat-label">Faltas</span>
+        </div>
+
+        <div class="stat">
+          <span id="countA" class="stat-number">0</span>
+          <span class="stat-label">Atrasos</span>
+        </div>
+
+      </div>
+
+      <h3 class="history-title">
+        Historial de asistencia
+      </h3>
+
+      <div id="attendanceHistory"></div>
+
+    </div>
+
+
+    <!-- CALIFICACIONES -->
+    <div id="gradesTab" class="hidden">
+      <h3 class="history-title">Calificaciones</h3>
+      <div class="grade-intro">Consulta los resultados registrados por los docentes. Cuando una calificación aún no esté disponible se mostrará <strong>Pendiente</strong>.</div>
+      <div id="gradesList"></div>
+      <div id="specialGrades"></div>
+    </div>
+
+    <!-- NOVEDADES -->
+    <div id="noticesTab" class="hidden">
+
+      <h3 class="history-title">
+        Novedades del estudiante
+      </h3>
+
+      <div id="noticesList"></div>
+
+    </div>
+
+
+    <!-- NOTIFICACIONES -->
+    <div id="notificationsTab" class="hidden">
+
+      <h3 class="history-title">
+        Notificaciones
+      </h3>
+
+      <div id="notificationsList"></div>
+
+    </div>
+
+    <!-- ATENCIÓN A FAMILIAS -->
+    <div id="attentionTab" class="hidden">
+      <h3 class="history-title">Atención a familias</h3>
+      <div class="attention-intro">Consulte los horarios establecidos para comunicarse con los docentes de su representado.</div>
+      <div id="attentionList" class="attention-list"></div>
+    </div>
+
+    <!-- ACTUALIZACIÓN DE DATOS -->
+    <div id="dataUpdateTab" class="hidden">
+      <h3 class="history-title">Actualización de datos</h3>
+      <div id="dataUpdateContent"><div class="loading">Comprobando cronograma...</div></div>
+    </div>
+
+  </div>
+
+
+  <button id="pushButton" class="push-button hidden" type="button">🔔 Activar notificaciones</button>
+  <div id="pushStatus" class="push-status hidden"></div>
+
+  <button id="logoutButton"
+          class="secondary"
+          type="button">
+    Cerrar sesión
+  </button>
+
+</section>
+
+</main>
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://ohfxllcapjrjogpeofwa.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_qLsRH4XC-MhfEisjCmtc1g_3a_Sty34";
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY,
+  {
+    auth: {
+      storageKey: "uebra-familias-auth",
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    }
+  }
+);
+
+const VAPID_PUBLIC_KEY =
+"BNH4ttxelktkfwbKn6igForFToiB0LW0YMWaMgaTy6KTs870N26KiOGZmNJCf_T2QwHeRd-wqjX7sBO_IRc-BQg";
+
+
+let currentFamily = null;
+let currentStudent = null;
+
+
+const loginView =
+document.getElementById("loginView");
+
+const familyView =
+document.getElementById("familyView");
+
+const representativesView =
+document.getElementById("representativesView");
+
+const studentView =
+document.getElementById("studentView");
+
+const passwordChangePanel =
+document.getElementById("passwordChangePanel");
+
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+function internalEmail(documento){
+
+  const safe =
+    String(documento)
+    .trim()
+    .replace(/[^A-Za-z0-9]/g,"")
+    .toLowerCase();
+
+  return `familia.${safe}@familias.uebra.local`;
+}
+
+
+function showMessage(element,text,type="error"){
+
+  element.textContent=text;
+  element.className=`message ${type}`;
+}
+
+
+function clearMessage(element){
+
+  element.textContent="";
+  element.className="message";
+}
+
+
+function formatDate(date){
+
+  if(!date) return "";
+
+  const parts=date.split("-");
+
+  if(parts.length!==3) return date;
+
+  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+
+// LOGIN
+
+document.getElementById("loginForm")
+.addEventListener("submit",async e=>{
+
+  e.preventDefault();
+
+  const documento =
+  document.getElementById("documento").value.trim();
+
+  const password =
+  document.getElementById("password").value;
+
+  const message =
+  document.getElementById("loginMessage");
+
+  const button =
+  document.getElementById("loginButton");
+
+  clearMessage(message);
+
+  button.disabled=true;
+  button.textContent="Ingresando...";
+
+  try{
+
+    const {error} =
+    await db.auth.signInWithPassword({
+
+      email:internalEmail(documento),
+      password
+    });
+
+    if(error){
+
+      showMessage(
+        message,
+        "Documento o contraseña incorrectos."
+      );
+
+      return;
+    }
+
+    await loadFamily();
+
+  }catch(error){
+
+    console.error(error);
+
+    showMessage(
+      message,
+      "No fue posible iniciar sesión."
+    );
+
+  }finally{
+
+    button.disabled=false;
+    button.textContent="Ingresar";
+  }
+
+});
+
+
+// CARGAR FAMILIAR
+
+async function loadFamily(){
+
+  const {
+    data:{user}
+  }=await db.auth.getUser();
+
+  if(!user){
+    showLogin();
+    return;
+  }
+
+
+  const {data,error}=
+  await db
+  .from("family_members")
+  .select(`
+    id,
+    documento,
+    nombres,
+    activo,
+    must_change_password
+  `)
+  .eq("auth_user_id",user.id)
+  .maybeSingle();
+
+
+  if(error || !data){
+
+    console.error(error);
+
+    await db.auth.signOut();
+
+    showLogin();
+
+    showMessage(
+      document.getElementById("loginMessage"),
+      "La cuenta no está vinculada a un representante autorizado."
+    );
+
+    return;
+  }
+
+
+  currentFamily=data;
+
+  // Registrar de forma segura el primer y último acceso del representante.
+  // La RPC identifica al usuario mediante auth.uid(); no recibe IDs desde el navegador.
+  const {error:accessError}=
+  await db.rpc("registrar_acceso_familia");
+
+  if(accessError){
+    // El registro de actividad no debe bloquear el acceso a Familias.
+    console.error("No fue posible registrar el acceso familiar:",accessError);
+  }
+
+  document.getElementById("familyName")
+  .textContent=data.nombres;
+
+  document.getElementById("familyDocument")
+  .textContent=`Documento: ${data.documento}`;
+
+
+  loginView.classList.add("hidden");
+  familyView.classList.remove("hidden");
+
+
+  if(data.must_change_password){
+
+    passwordChangePanel.classList.remove("hidden");
+    representativesView.classList.add("hidden");
+    studentView.classList.add("hidden");
+
+  }else{
+
+    passwordChangePanel.classList.add("hidden");
+    representativesView.classList.remove("hidden");
+    studentView.classList.add("hidden");
+
+    await loadStudents();
+    await setupPushUI();
+    await updateUnreadCount();
+  }
+
+}
+
+
+// CAMBIO CONTRASEÑA
+
+document.getElementById("changePasswordForm")
+.addEventListener("submit",async e=>{
+
+  e.preventDefault();
+
+  const password =
+  document.getElementById("newPassword").value;
+
+  const confirm =
+  document.getElementById("confirmPassword").value;
+
+  const message =
+  document.getElementById("passwordMessage");
+
+  const button =
+  document.getElementById("changePasswordButton");
+
+  clearMessage(message);
+
+
+  if(password.length<8){
+
+    showMessage(
+      message,
+      "La contraseña debe tener al menos 8 caracteres."
+    );
+
+    return;
+  }
+
+
+  if(password!==confirm){
+
+    showMessage(
+      message,
+      "Las contraseñas no coinciden."
+    );
+
+    return;
+  }
+
+
+  button.disabled=true;
+  button.textContent="Guardando...";
+
+
+  try{
+
+    const {error:updateError}=
+    await db.auth.updateUser({
+      password
+    });
+
+
+    if(updateError){
+
+      console.error(updateError);
+
+      showMessage(
+        message,
+        "No fue posible cambiar la contraseña."
+      );
+
+      return;
+    }
+
+
+    const {
+      data:rpcData,
+      error:rpcError
+    }=
+    await db.rpc(
+      "finalizar_primer_acceso_familia"
+    );
+
+
+    if(rpcError || rpcData!==true){
+
+      console.error(rpcError);
+
+      showMessage(
+        message,
+        "La contraseña cambió, pero no fue posible completar la activación."
+      );
+
+      return;
+    }
+
+
+    currentFamily.must_change_password=false;
+
+    passwordChangePanel.classList.add("hidden");
+    representativesView.classList.remove("hidden");
+
+    await loadStudents();
+    await setupPushUI();
+    await updateUnreadCount();
+
+
+  }finally{
+
+    button.disabled=false;
+    button.textContent="Guardar nueva contraseña";
+  }
+
+});
+
+
+// REPRESENTADOS
+
+async function loadStudents(){
+
+  const list =
+  document.getElementById("studentList");
+
+  list.innerHTML=
+  `<div class="loading">Cargando representados...</div>`;
+
+
+  const {data,error}=
+  await db
+  .from("student_family")
+  .select(`
+    parentesco,
+    student_id,
+    students(
+      id,
+      nombre,
+      cedula,
+      estado,
+      course_id,
+      courses(
+        id,
+        nombre,
+        jornada
+      )
+    )
+  `)
+  .eq("family_member_id",currentFamily.id)
+  .eq("es_representante",true)
+  .eq("activo",true);
+
+
+  if(error){
+
+    console.error(error);
+
+    list.innerHTML=
+    `<div class="empty-state">
+      No fue posible cargar los representados.
+    </div>`;
+
+    return;
+  }
+
+
+  if(!data?.length){
+
+    list.innerHTML=
+    `<div class="empty-state">
+      No existen estudiantes vinculados a esta cuenta.
+    </div>`;
+
+    return;
+  }
+
+
+  list.innerHTML="";
+
+
+  const {data:unreadRows,error:unreadError}=
+  await db
+  .from("family_notifications")
+  .select("student_id")
+  .eq("family_member_id",currentFamily.id)
+  .eq("leida",false);
+
+  if(unreadError)
+    console.error(unreadError);
+
+  const {data:pendingNotices,error:pendingNoticesError}=
+  await db.rpc("novedades_pendientes_familia");
+
+  if(pendingNoticesError)
+    console.error(pendingNoticesError);
+
+  const unreadByStudent={};
+
+  (unreadRows || []).forEach(row=>{
+    if(!row.student_id) return;
+
+    unreadByStudent[row.student_id]=
+      (unreadByStudent[row.student_id] || 0)+1;
+  });
+
+  (pendingNotices || []).forEach(row=>{
+    if(!row.student_id) return;
+
+    unreadByStudent[row.student_id]=
+      (unreadByStudent[row.student_id] || 0)+1;
+  });
+
+
+  data.forEach(row=>{
+
+    if(!row.students) return;
+
+    const s=row.students;
+
+    const course=s.courses;
+
+    const courseText=course
+      ? `${course.nombre} · ${course.jornada}`
+      : "Curso no disponible";
+
+
+    const button=document.createElement("button");
+
+    button.type="button";
+    button.className="student-card";
+
+    button.innerHTML=`
+
+      <div class="student-icon">🎓</div>
+
+      <div class="student-info">
+
+        <div class="student-name">
+          ${escapeHtml(s.nombre)}
+        </div>
+
+        <div class="student-meta">
+          ${escapeHtml(courseText)}
+        </div>
+
+        <div class="student-meta">
+          Parentesco:
+          ${escapeHtml(row.parentesco || "Representante")}
+        </div>
+
+        ${
+          (unreadByStudent[s.id] || 0) > 0
+          ? `<div class="student-alerts">
+               🔔 ${unreadByStudent[s.id]} ${
+                 unreadByStudent[s.id] === 1
+                 ? "aviso nuevo"
+                 : "avisos nuevos"
+               }
+             </div>`
+          : `<div class="student-alerts none">
+               ✓ Sin avisos nuevos
+             </div>`
+        }
+
+      </div>
+
+      <div class="student-arrow">›</div>
+    `;
+
+
+    button.addEventListener("click",()=>{
+
+      openStudent({
+        ...s,
+        parentesco:row.parentesco,
+        course
+      });
+
+    });
+
+
+    list.appendChild(button);
+
+  });
+
+}
+
+
+// ABRIR ESTUDIANTE
+
+async function openStudent(student){
+
+  currentStudent=student;
+
+  representativesView.classList.add("hidden");
+  studentView.classList.remove("hidden");
+
+
+  document.getElementById("selectedStudentName")
+  .textContent=student.nombre;
+
+
+  document.getElementById("selectedStudentCourse")
+  .textContent=student.course
+    ? `${student.course.nombre} · ${student.course.jornada}`
+    : "Información del curso no disponible";
+
+
+  activateTab("attendance");
+
+  await loadAttendance();
+  await updateUnreadCount();
+  await updateUnreadNoticesCount();
+}
+
+
+// VOLVER
+
+document.getElementById("backButton")
+.addEventListener("click",async()=>{
+
+  currentStudent=null;
+
+  studentView.classList.add("hidden");
+  representativesView.classList.remove("hidden");
+
+  await loadStudents();
+
+});
+
+
+// PESTAÑAS
+
+document.querySelectorAll(".tab")
+.forEach(button=>{
+
+  button.addEventListener("click",async()=>{
+
+    const tab=button.dataset.tab;
+
+    activateTab(tab);
+
+    if(tab==="calendar") await loadInstitutionalCalendar();
+
+    if(tab==="attendance")
+      await loadAttendance();
+
+    if(tab==="grades")
+      await loadGrades();
+
+    if(tab==="notices")
+      await loadNotices();
+
+    if(tab==="notifications")
+      await loadNotifications();
+
+    if(tab==="attention")
+      await loadAttentionSchedules();
+
+    if(tab==="dataUpdate")
+      await loadFamilyDataUpdate();
+
+  });
+
+});
+
+
+function activateTab(tab){
+ document.getElementById("calendarTab").classList.toggle("hidden",tab!=="calendar");
+ requestAnimationFrame(()=>{const panel=document.getElementById(tab+"Tab");if(panel){panel.tabIndex=-1;panel.focus({preventScroll:true});panel.scrollIntoView({block:"start",behavior:"instant"})}});
+
+  document.querySelectorAll(".tab")
+  .forEach(b=>{
+
+    b.classList.toggle(
+      "active",
+      b.dataset.tab===tab
+    );
+
+  });
+
+
+  document.getElementById("attendanceTab")
+  .classList.toggle("hidden",tab!=="attendance");
+
+  document.getElementById("gradesTab")
+  .classList.toggle("hidden",tab!=="grades");
+
+  document.getElementById("noticesTab")
+  .classList.toggle("hidden",tab!=="notices");
+
+  document.getElementById("notificationsTab")
+  .classList.toggle("hidden",tab!=="notifications");
+
+  document.getElementById("attentionTab")
+  .classList.toggle("hidden",tab!=="attention");
+
+  document.getElementById("dataUpdateTab")
+  .classList.toggle("hidden",tab!=="dataUpdate");
+}
+
+
+
+
+// ACTUALIZACIÓN DE DATOS DE FAMILIAS
+let currentDataUpdate=null;
+let currentDataPrefill=null;
+
+function duGet(obj,path,fallback=""){
+  const value=path.split(".").reduce(
+    (v,k)=>v && v[k]!==undefined ? v[k] : undefined,
+    obj
+  );
+  return value ?? fallback;
+}
+
+function duHasPath(obj,path){
+  const parts=path.split(".");
+  let cur=obj;
+
+  for(const part of parts){
+    if(
+      cur===null ||
+      typeof cur!=="object" ||
+      !Object.prototype.hasOwnProperty.call(cur,part)
+    ){
+      return false;
+    }
+    cur=cur[part];
+  }
+
+  return true;
+}
+
+function duMonthNumber(month){
+  const months={
+    ENERO:"01",
+    FEBRERO:"02",
+    MARZO:"03",
+    ABRIL:"04",
+    MAYO:"05",
+    JUNIO:"06",
+    JULIO:"07",
+    AGOSTO:"08",
+    SEPTIEMBRE:"09",
+    SETIEMBRE:"09",
+    OCTUBRE:"10",
+    NOVIEMBRE:"11",
+    DICIEMBRE:"12"
+  };
+
+  if(month===null || month===undefined || month==="") return "";
+
+  const raw=String(month).trim();
+
+  if(/^\d{1,2}$/.test(raw)){
+    const n=Number(raw);
+    if(n>=1 && n<=12) return String(n).padStart(2,"0");
+  }
+
+  return months[raw.toUpperCase()] || "";
+}
+
+function duDate(year,month,day){
+  if(!year || !month || !day) return "";
+
+  const m=duMonthNumber(month);
+  if(!m) return "";
+
+  const y=String(year).trim();
+  const d=String(day).trim().padStart(2,"0");
+
+  if(!/^\d{4}$/.test(y) || !/^\d{2}$/.test(d)) return "";
+
+  return `${y}-${m}-${d}`;
+}
+
+function duPrefillValue(path){
+  const p=currentDataPrefill || {};
+
+  const values={
+    "estudiante.repite_anio":duGet(p,"estudiante.repite_anio",""),
+    "estudiante.informe_udai":duGet(p,"estudiante.informe_udai",""),
+
+    "nacimiento.fecha":duDate(
+      duGet(p,"nacimiento.anio",""),
+      duGet(p,"nacimiento.mes",""),
+      duGet(p,"nacimiento.dia","")
+    ),
+    "nacimiento.pais":duGet(p,"nacimiento.pais",""),
+    "nacimiento.provincia":duGet(p,"nacimiento.provincia",""),
+    "nacimiento.canton":duGet(p,"nacimiento.canton",""),
+
+    "salud.tipo_sangre":duGet(p,"salud.tipo_sangre",""),
+    "salud.alergia":duGet(p,"salud.alergia",""),
+
+    "domicilio.provincia":duGet(p,"domicilio.provincia",""),
+    "domicilio.canton":duGet(p,"domicilio.canton",""),
+    "domicilio.parroquia":duGet(p,"domicilio.parroquia",""),
+    "domicilio.direccion":duGet(p,"domicilio.direccion",""),
+    "domicilio.referencia":duGet(p,"domicilio.referencia",""),
+
+    "representante.profesion":duGet(p,"representante.profesion",""),
+    "representante.celular":duGet(p,"representante.celular",""),
+    "representante.email":duGet(p,"representante.email",""),
+    "representante.telefono_domicilio":duGet(p,"representante.telefono_domicilio",""),
+    "representante.telefono_trabajo":duGet(p,"representante.telefono_trabajo",""),
+    "representante.telefono_emergencia":duGet(p,"representante.telefono_emergencia",""),
+
+    "madre.nombres":duGet(p,"madre.nombres",""),
+    "madre.cedula":duGet(p,"madre.cedula",""),
+    "madre.fecha_nacimiento":duDate(
+      duGet(p,"madre.nacimiento_anio",""),
+      duGet(p,"madre.nacimiento_mes",""),
+      duGet(p,"madre.nacimiento_dia","")
+    ),
+    "madre.pais":duGet(p,"madre.pais",""),
+    "madre.ciudad":duGet(p,"madre.ciudad",""),
+    "madre.celular":duGet(p,"madre.celular",""),
+    "madre.domicilio":duGet(p,"madre.domicilio",""),
+
+    "padre.nombres":duGet(p,"padre.nombres",""),
+    "padre.cedula":duGet(p,"padre.cedula",""),
+    "padre.fecha_nacimiento":duDate(
+      duGet(p,"padre.nacimiento_anio",""),
+      duGet(p,"padre.nacimiento_mes",""),
+      duGet(p,"padre.nacimiento_dia","")
+    ),
+    "padre.pais":duGet(p,"padre.pais",""),
+    "padre.ciudad":duGet(p,"padre.ciudad",""),
+    "padre.celular":duGet(p,"padre.celular",""),
+    "padre.domicilio":duGet(p,"padre.domicilio","")
+  };
+
+  return values[path] ?? "";
+}
+
+function duValue(path,explicitFallback=""){
+  const savedData=currentDataUpdate?.datos || {};
+
+  if(duHasPath(savedData,path)){
+    return duGet(savedData,path,"");
+  }
+
+  const prefill=duPrefillValue(path);
+
+  if(prefill!==undefined && prefill!==null && prefill!==""){
+    return prefill;
+  }
+
+  return explicitFallback ?? "";
+}
+
+function duField(label,path,type="text",opts={}){
+  const val=duValue(path,opts.value || "");
+  const ro=opts.readonly ? "readonly" : "";
+  const cls=opts.full ? " full" : "";
+
+  return `<div class="data-update-field${cls}">
+    <label>${escapeHtml(label)}</label>
+    <input data-du-path="${escapeHtml(path)}" type="${escapeHtml(type)}" value="${escapeHtml(val)}" ${ro}>
+    ${opts.note ? `<div class="readonly-note">${escapeHtml(opts.note)}</div>` : ""}
+  </div>`;
+}
+
+function duSelect(label,path,values){
+  const val=String(duValue(path,"")).trim().toUpperCase();
+
+  return `<div class="data-update-field">
+    <label>${escapeHtml(label)}</label>
+    <select data-du-path="${escapeHtml(path)}">
+      <option value="">Seleccione...</option>
+      ${values.map(v=>{
+        const normalized=String(v).trim().toUpperCase();
+        return `<option value="${escapeHtml(v)}" ${normalized===val ? "selected" : ""}>${escapeHtml(v)}</option>`;
+      }).join("")}
+    </select>
+  </div>`;
+}
+
+function duSetPath(obj,path,value){
+  const parts=path.split(".");
+  let cur=obj;
+
+  parts.forEach((k,i)=>{
+    if(i===parts.length-1){
+      cur[k]=value;
+    }else{
+      if(!cur[k] || typeof cur[k]!=="object") cur[k]={};
+      cur=cur[k];
+    }
+  });
+}
+
+function collectDataUpdate(){
+  const data=JSON.parse(JSON.stringify(currentDataUpdate?.datos || {}));
+
+  document
+    .querySelectorAll("#dataUpdateContent [data-du-path]")
+    .forEach(el=>{
+      duSetPath(data,el.dataset.duPath,el.value.trim());
+    });
+
+  return data;
+}
+
+function duReadOnlyField(label,value){
+  return `<div class="data-update-field">
+    <label>${escapeHtml(label)}</label>
+    <input value="${escapeHtml(value || "")}" readonly>
+    <div class="readonly-note">Dato registrado actualmente en UEBRA+</div>
+  </div>`;
+}
+
+async function loadFamilyDataUpdate(){
+  if(!currentStudent) return;
+
+  const box=document.getElementById("dataUpdateContent");
+  box.innerHTML=`<div class="loading">Comprobando cronograma...</div>`;
+
+  const {data:prefill,error:prefillError}=await db.rpc(
+    "family_data_update_prefill",
+    {p_student_id:currentStudent.id}
+  );
+
+  if(prefillError){
+    console.error("Error en precarga:",prefillError);
+    box.innerHTML=`<div class="data-update-closed">${escapeHtml(prefillError.message || "No fue posible cargar la información institucional.")}</div>`;
+    return;
+  }
+
+  currentDataPrefill=prefill || {};
+
+  const {data:rows,error}=await db.rpc(
+    "family_data_update_open",
+    {p_student_id:currentStudent.id}
+  );
+
+  if(error || !rows?.length){
+    console.error("Error al abrir ficha:",error);
+    box.innerHTML=`<div class="data-update-closed">${escapeHtml(error?.message || "No fue posible iniciar la ficha.")}</div>`;
+    return;
+  }
+
+  currentDataUpdate=rows[0];
+  renderFamilyDataUpdate();
+}
+
+function renderFamilyDataUpdate(){
+  const box=document.getElementById("dataUpdateContent");
+  const u=currentDataUpdate;
+  const p=currentDataPrefill || {};
+
+  const locked=u.estado==="ENVIADO" || u.estado==="REVISADO";
+
+  const obs=
+    u.estado==="OBSERVADO" && u.observacion_revision
+      ? `<div class="data-update-observation"><strong>Observación de Administración:</strong><br>${escapeHtml(u.observacion_revision)}</div>`
+      : "";
+
+  box.innerHTML=`
+    <div class="data-update-intro">
+      <strong>${escapeHtml(u.period_name || "Actualización de datos")}</strong><br>
+      Año lectivo ${escapeHtml(u.anio_lectivo || "")}. Complete la información con datos actuales y verídicos. Puede guardar un borrador antes de enviarla.
+    </div>
+
+    <span class="data-update-status ${escapeHtml(u.estado)}">${escapeHtml(u.estado)}</span>
+    ${obs}
+
+    <div class="data-update-section">
+      <h4>Estudiante</h4>
+      <div class="data-update-grid">
+        ${duReadOnlyField("Apellidos y nombres",duGet(p,"estudiante.nombre"))}
+        ${duReadOnlyField("Cédula",duGet(p,"estudiante.cedula"))}
+        ${duReadOnlyField("Curso",duGet(p,"curso.nombre"))}
+        ${duReadOnlyField("Jornada",duGet(p,"curso.jornada"))}
+        ${duSelect("¿Repite el año?","estudiante.repite_anio",["NO","SI"])}
+        ${duSelect("¿Cuenta con informe UDAI?","estudiante.informe_udai",["NO","SI"])}
+      </div>
+    </div>
+
+    <div class="data-update-section">
+      <h4>Nacimiento y salud</h4>
+      <div class="data-update-grid">
+        ${duField("Fecha de nacimiento","nacimiento.fecha","date")}
+        ${duField("País de nacimiento","nacimiento.pais")}
+        ${duField("Provincia de nacimiento","nacimiento.provincia")}
+        ${duField("Cantón de nacimiento","nacimiento.canton")}
+        ${duField("Tipo de sangre","salud.tipo_sangre")}
+        ${duField("Alergias / condición relevante","salud.alergia","text",{full:true})}
+      </div>
+    </div>
+
+    <div class="data-update-section">
+      <h4>Domicilio</h4>
+      <div class="data-update-grid">
+        ${duField("Provincia","domicilio.provincia")}
+        ${duField("Cantón","domicilio.canton")}
+        ${duField("Parroquia","domicilio.parroquia")}
+        ${duField("Dirección domiciliaria","domicilio.direccion","text",{full:true})}
+        ${duField("Referencia","domicilio.referencia","text",{full:true})}
+      </div>
+    </div>
+
+    <div class="data-update-section">
+      <h4>Representante</h4>
+      <div class="data-update-grid">
+        ${duReadOnlyField("Nombres",duGet(p,"representante.nombres"))}
+        ${duReadOnlyField("Documento",duGet(p,"representante.documento"))}
+        ${duReadOnlyField("Parentesco",duGet(p,"representante.parentesco"))}
+        ${duField("Profesión / ocupación","representante.profesion")}
+        ${duField("Celular","representante.celular","tel")}
+        ${duField("Correo electrónico","representante.email","email")}
+        ${duField("Teléfono domicilio","representante.telefono_domicilio","tel")}
+        ${duField("Teléfono trabajo","representante.telefono_trabajo","tel")}
+        ${duField("Teléfono de emergencia","representante.telefono_emergencia","tel")}
+      </div>
+    </div>
+
+    <div class="data-update-section">
+      <h4>Madre</h4>
+      <div class="data-update-grid">
+        ${duField("Apellidos y nombres","madre.nombres")}
+        ${duField("Cédula / documento","madre.cedula")}
+        ${duField("Fecha de nacimiento","madre.fecha_nacimiento","date")}
+        ${duField("País de nacimiento","madre.pais")}
+        ${duField("Ciudad","madre.ciudad")}
+        ${duField("Celular","madre.celular","tel")}
+        ${duField("Domicilio","madre.domicilio","text",{full:true})}
+      </div>
+    </div>
+
+    <div class="data-update-section">
+      <h4>Padre</h4>
+      <div class="data-update-grid">
+        ${duField("Apellidos y nombres","padre.nombres")}
+        ${duField("Cédula / documento","padre.cedula")}
+        ${duField("Fecha de nacimiento","padre.fecha_nacimiento","date")}
+        ${duField("País de nacimiento","padre.pais")}
+        ${duField("Ciudad","padre.ciudad")}
+        ${duField("Celular","padre.celular","tel")}
+        ${duField("Domicilio","padre.domicilio","text",{full:true})}
+      </div>
+    </div>
+
+    ${
+      locked
+        ? `<div class="data-update-closed">
+            <strong>Ficha ${escapeHtml(u.estado.toLowerCase())}.</strong><br>
+            ${u.estado==="ENVIADO"
+              ? "Administración realizará la revisión correspondiente."
+              : "La actualización ha sido revisada por Administración."}
+          </div>`
+        : `<div class="data-update-actions">
+            <button id="saveDataUpdateButton" class="secondary" type="button">Guardar borrador</button>
+            <button id="submitDataUpdateButton" class="primary" type="button">Enviar actualización</button>
+          </div>`
+    }
+  `;
+
+  if(locked){
+    box.querySelectorAll("input,select,textarea").forEach(el=>el.disabled=true);
+    return;
+  }
+
+  document
+    .getElementById("saveDataUpdateButton")
+    ?.addEventListener("click",saveFamilyDataUpdate);
+
+  document
+    .getElementById("submitDataUpdateButton")
+    ?.addEventListener("click",submitFamilyDataUpdate);
+}
+
+async function saveFamilyDataUpdate(){
+  const btn=document.getElementById("saveDataUpdateButton");
+
+  if(btn){
+    btn.disabled=true;
+    btn.textContent="Guardando...";
+  }
+
+  const datos=collectDataUpdate();
+
+  const {data,error}=await db.rpc(
+    "family_data_update_save",
+    {
+      p_update_id:currentDataUpdate.update_id,
+      p_datos:datos
+    }
+  );
+
+  if(btn){
+    btn.disabled=false;
+    btn.textContent="Guardar borrador";
+  }
+
+  if(error){
+    console.error(error);
+    alert(error.message || "No fue posible guardar el borrador.");
+    return;
+  }
+
+  currentDataUpdate.datos=datos;
+  currentDataUpdate.estado="BORRADOR";
+
+  alert(data?.mensaje || "Borrador guardado correctamente.");
+  renderFamilyDataUpdate();
+}
+
+async function submitFamilyDataUpdate(){
+  const confirmSend=confirm(
+    "¿Desea enviar la actualización? Después del envío no podrá modificarla salvo que Administración la devuelva con una observación."
+  );
+
+  if(!confirmSend) return;
+
+  const btn=document.getElementById("submitDataUpdateButton");
+
+  if(btn){
+    btn.disabled=true;
+    btn.textContent="Enviando...";
+  }
+
+  const datos=collectDataUpdate();
+
+  const {data,error}=await db.rpc(
+    "family_data_update_submit",
+    {
+      p_update_id:currentDataUpdate.update_id,
+      p_datos:datos
+    }
+  );
+
+  if(btn){
+    btn.disabled=false;
+    btn.textContent="Enviar actualización";
+  }
+
+  if(error){
+    console.error(error);
+    alert(error.message || "No fue posible enviar la actualización.");
+    return;
+  }
+
+  currentDataUpdate.datos=datos;
+  currentDataUpdate.estado="ENVIADO";
+  currentDataUpdate.fecha_envio=new Date().toISOString();
+
+  alert(data?.mensaje || "Actualización enviada correctamente.");
+  renderFamilyDataUpdate();
+}
+
+
+// ATENCIÓN A FAMILIAS
+
+function attentionDayLabel(value){
+  const labels={
+    LUNES:"Lunes",
+    MARTES:"Martes",
+    MIERCOLES:"Miércoles",
+    JUEVES:"Jueves",
+    VIERNES:"Viernes"
+  };
+  return labels[String(value || "").toUpperCase()] || value || "";
+}
+
+function attentionTime(value){
+  return String(value || "").slice(0,5);
+}
+
+async function loadAttentionSchedules(){
+  if(!currentStudent) return;
+
+  const list=document.getElementById("attentionList");
+  list.innerHTML=`<div class="loading">Cargando horarios de atención...</div>`;
+
+  const {data,error}=await db.rpc("family_student_attention_schedules",{
+    p_student_id:currentStudent.id
+  });
+
+  if(error){
+    console.error(error);
+    list.innerHTML=`<div class="empty-state">No fue posible consultar los horarios de atención.</div>`;
+    return;
+  }
+
+  const rows=data || [];
+  if(!rows.length){
+    list.innerHTML=`<div class="empty-state">No hay horarios de atención registrados para los docentes de este estudiante.</div>`;
+    return;
+  }
+
+  const groups=new Map();
+  for(const row of rows){
+    const key=`${row.teacher_id || ""}::${row.asignatura || ""}`;
+    if(!groups.has(key)){
+      groups.set(key,{
+        docente:row.docente || "Docente",
+        asignatura:row.asignatura || "Asignatura",
+        horarios:[]
+      });
+    }
+    groups.get(key).horarios.push(row);
+  }
+
+  list.innerHTML=[...groups.values()].map(group=>`
+    <div class="attention-card">
+      <div class="attention-teacher">${escapeHtml(group.docente)}</div>
+      <div class="attention-subject">${escapeHtml(group.asignatura)}</div>
+      <div class="attention-times">
+        ${group.horarios.map(row=>`
+          <div class="attention-time">🗓 ${escapeHtml(attentionDayLabel(row.dia))} · ${escapeHtml(attentionTime(row.hora_inicio))}–${escapeHtml(attentionTime(row.hora_fin))}</div>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+}
+
+// CALIFICACIONES
+
+function gradeDisplay(value){
+  if(value===null || value===undefined || value==="") return "Pendiente";
+  const n=Number(value);
+  return Number.isFinite(n) ? n.toFixed(2).replace(".",",") : String(value);
+}
+
+function gradeBox(label,value){
+  const n=Number(value);
+  const low=value!==null && value!==undefined && value!=="" && Number.isFinite(n) && n<7;
+  return `<div class="grade-box${low ? " grade-low" : ""}"><span class="grade-box-label">${escapeHtml(label)}</span><span class="grade-value">${escapeHtml(gradeDisplay(value))}</span></div>`;
+}
+
+function detailValue(value){
+  return value===null || value===undefined || value==="" ? "Pendiente" : gradeDisplay(value);
+}
+
+function detailRow(label,value,extraClass=""){
+  const pending=value===null || value===undefined || value==="";
+  return `<div class="grade-detail-row ${extraClass}"><span class="grade-detail-label">${escapeHtml(label)}</span><span class="grade-detail-value${pending ? " grade-pending" : ""}">${escapeHtml(detailValue(value))}</span></div>`;
+}
+
+function improvementLabel(value){
+  const v=String(value || "").toUpperCase();
+  if(v==="CON_REFUERZO") return "Mejora con refuerzo";
+  if(v==="DIRECTA") return "Mejora directa";
+  return value || "Mejora de calificación";
+}
+
+function renderSubjectDetail(subject,items,projects){
+  const norm=subject.asignatura_normalizada;
+  const subjectItems=items.filter(x=>x.asignatura_normalizada===norm);
+  const subjectProjects=projects.filter(x=>x.asignatura_normalizada===norm);
+  let html="";
+
+  for(let trimester=1;trimester<=3;trimester++){
+    const tItems=subjectItems.filter(x=>Number(x.trimestre)===trimester);
+    const project=subjectProjects.find(x=>Number(x.trimestre)===trimester);
+    let formative="";
+
+    if(!tItems.length){
+      formative=`<div class="empty-state">Todavía no existen insumos registrados para este trimestre.</div>`;
+    }else{
+      formative=`<div class="grade-formative-list">` + tItems.map(item=>{
+        let improvement="";
+        if(item.modalidad_mejora){
+          improvement=`<div class="grade-improvement">
+            <div class="grade-improvement-title">↳ ${escapeHtml(improvementLabel(item.modalidad_mejora))}</div>
+            ${item.nota_trabajo_refuerzo!==null && item.nota_trabajo_refuerzo!==undefined ? detailRow("Trabajo de refuerzo",item.nota_trabajo_refuerzo) : ""}
+            ${item.nota_evaluacion_mejora!==null && item.nota_evaluacion_mejora!==undefined ? detailRow("Evaluación de mejora",item.nota_evaluacion_mejora) : ""}
+            ${detailRow("Nota resultante del insumo",item.nota_resultante,"grade-result-row")}
+          </div>`;
+        }
+        const label=item.nombre || item.tipo || "Insumo formativo";
+        return `<div>
+          ${detailRow(label,item.nota_original)}
+          ${improvement}
+        </div>`;
+      }).join("") + `</div>`;
+    }
+
+    let projectHtml="";
+    if(project){
+      if(project.aplica_proyecto){
+        const aporteFormativo = project.promedio_formativo===null || project.promedio_formativo===undefined
+          ? null : Number(project.promedio_formativo) * 0.70;
+        const aporteSumativo = project.nota_sumativa===null || project.nota_sumativa===undefined
+          ? null : Number(project.nota_sumativa) * 0.30;
+
+        projectHtml=`<div class="grade-project-block">
+          <div class="grade-trimester-title">Evaluación sumativa (30%)</div>
+          ${detailRow("Aporte de la asignatura al Proyecto Trimestral",project.nota_aporte)}
+          ${detailRow("Promedio del Proyecto Trimestral",project.promedio_proyecto)}
+          ${detailRow("Nota de la evaluación sumativa",project.nota_sumativa,"grade-result-row")}
+          <div class="grade-project-block">
+            <div class="grade-trimester-title">Resultado del trimestre</div>
+            ${detailRow("Evaluación formativa (70%)",aporteFormativo)}
+            ${detailRow("Evaluación sumativa (30%)",aporteSumativo)}
+            ${detailRow("Nota final del trimestre",project.nota_trimestre,"grade-result-row")}
+          </div>
+        </div>`;
+      }else{
+        projectHtml=`<div class="grade-project-block">
+          <div class="grade-trimester-title">Cálculo del trimestre</div>
+          <div class="grade-detail-row"><span class="grade-detail-label">Modalidad</span><span class="grade-detail-value">100% insumos propios</span></div>
+        </div>`;
+      }
+    }
+
+    html+=`<div class="grade-trimester">
+      <div class="grade-trimester-title">Trimestre ${trimester}</div>
+      <div class="grade-trimester-title">Evaluación formativa (70%)</div>
+      ${formative}
+      ${project ? detailRow("Promedio formativo",project.promedio_formativo,"grade-result-row") : ""}
+      ${projectHtml}
+      ${project && !project.aplica_proyecto ? detailRow("Nota del trimestre",project.nota_trimestre,"grade-result-row") : ""}
+    </div>`;
+  }
+  return html;
+}
+
+async function loadGrades(){
+  if(!currentStudent) return;
+  const list=document.getElementById("gradesList");
+  const special=document.getElementById("specialGrades");
+  list.innerHTML=`<div class="loading">Cargando calificaciones...</div>`;
+  special.innerHTML="";
+
+  const [academicRes,specialRes,itemsRes,projectRes]=await Promise.all([
+    db.rpc("family_student_grades",{p_student_id:currentStudent.id}),
+    db.rpc("family_student_special_grades",{p_student_id:currentStudent.id}),
+    db.rpc("family_student_grade_items",{p_student_id:currentStudent.id}),
+    db.rpc("family_student_project_detail",{p_student_id:currentStudent.id})
+  ]);
+
+  if(academicRes.error){
+    console.error(academicRes.error);
+    list.innerHTML=`<div class="empty-state">No fue posible consultar las calificaciones.</div>`;
+    return;
+  }
+
+  if(itemsRes.error) console.error(itemsRes.error);
+  if(projectRes.error) console.error(projectRes.error);
+  if(specialRes.error) console.error(specialRes.error);
+
+  const rows=academicRes.data || [];
+  const items=itemsRes.error ? [] : (itemsRes.data || []);
+  const projects=projectRes.error ? [] : (projectRes.data || []);
+  const sp=specialRes.error ? null : ((specialRes.data || [])[0] || null);
+
+  const cards=[];
+
+  rows.forEach((r,index)=>{
+    const detailId=`grade-detail-${index}`;
+    cards.push(`
+      <div class="grade-card">
+        <div class="grade-card-head">
+          <div class="grade-subject">${escapeHtml(r.asignatura || "Asignatura")}</div>
+          <button class="grade-detail-button" type="button" data-detail-target="${detailId}" aria-expanded="false">Ver detalle</button>
+        </div>
+        <div class="grade-grid" style="margin-top:11px">
+          ${gradeBox("T1",r.trimestre_1)}
+          ${gradeBox("T2",r.trimestre_2)}
+          ${gradeBox("T3",r.trimestre_3)}
+          ${gradeBox("PAL",r.pal)}
+        </div>
+        <div id="${detailId}" class="grade-detail hidden">
+          ${renderSubjectDetail(r,items,projects)}
+        </div>
+      </div>`);
+  });
+
+  // Áreas cualitativas/especiales se integran en la misma lista.
+  if(sp && sp.aplica_animacion){
+    cards.push(`<div class="grade-card">
+      <div class="grade-card-head"><div class="grade-subject">📚 Animación a la Lectura</div></div>
+      <div class="special-grid" style="margin-top:11px">
+        ${gradeBox("T1",sp.animacion_t1)}
+        ${gradeBox("T2",sp.animacion_t2)}
+        ${gradeBox("T3",sp.animacion_t3)}
+      </div>
+    </div>`);
+  }
+
+  if(sp && sp.aplica_ovp){
+    cards.push(`<div class="grade-card">
+      <div class="grade-card-head"><div class="grade-subject">🧭 Orientación Vocacional y Profesional (OVP)</div></div>
+      <div class="special-grid" style="margin-top:11px">
+        ${gradeBox("T1",sp.ovp_t1)}
+        ${gradeBox("T2",sp.ovp_t2)}
+        ${gradeBox("T3",sp.ovp_t3)}
+      </div>
+    </div>`);
+  }
+
+  if(sp && sp.aplica_comportamiento){
+    const b=(label,value)=>`<div class="grade-box"><span class="grade-box-label">${label}</span><span class="grade-value behavior-value">${escapeHtml(value || "Pendiente")}</span></div>`;
+    cards.push(`<div class="grade-card">
+      <div class="grade-card-head"><div class="grade-subject">🤝 Comportamiento</div></div>
+      <div class="special-grid" style="margin-top:11px">
+        ${b("T1",sp.comportamiento_t1)}
+        ${b("T2",sp.comportamiento_t2)}
+        ${b("T3",sp.comportamiento_t3)}
+      </div>
+    </div>`);
+  }
+
+  if(!cards.length){
+    list.innerHTML=`<div class="empty-state">Todavía no existen asignaturas o evaluaciones disponibles para este estudiante.</div>`;
+    return;
+  }
+
+  list.innerHTML=`<div class="grade-list">${cards.join("")}</div>`;
+
+  list.querySelectorAll(".grade-detail-button").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const detail=document.getElementById(button.dataset.detailTarget);
+      if(!detail) return;
+      const opening=detail.classList.contains("hidden");
+      detail.classList.toggle("hidden",!opening);
+      button.textContent=opening ? "Ocultar detalle" : "Ver detalle";
+      button.setAttribute("aria-expanded",opening ? "true" : "false");
+    });
+  });
+}
+
+
+// ASISTENCIA
+
+async function loadAttendance(){
+
+  if(!currentStudent) return;
+
+
+  const history =
+  document.getElementById("attendanceHistory");
+
+
+  history.innerHTML=
+  `<div class="loading">
+    Cargando asistencia...
+  </div>`;
+
+
+  const {data,error}=
+  await db
+  .from("attendance")
+  .select(`
+    id,
+    estado,
+    observacion,
+    updated_at,
+    attendance_sessions(
+      id,
+      fecha,
+      periodo,
+      asignatura
+    )
+  `)
+  .eq("student_id",currentStudent.id);
+
+
+  if(error){
+
+    console.error(error);
+
+    history.innerHTML=
+    `<div class="empty-state">
+      No fue posible consultar la asistencia.
+    </div>`;
+
+    return;
+  }
+
+
+  const rows=(data || []).sort((a,b)=>{
+
+    const fa=a.attendance_sessions?.fecha || "";
+    const fb=b.attendance_sessions?.fecha || "";
+
+    return fb.localeCompare(fa);
+
+  });
+
+
+  const countP =
+  rows.filter(x=>x.estado==="P").length;
+
+  const countF =
+  rows.filter(x=>x.estado==="F").length;
+
+  const countA =
+  rows.filter(x=>x.estado==="A").length;
+
+
+  document.getElementById("countP")
+  .textContent=countP;
+
+  document.getElementById("countF")
+  .textContent=countF;
+
+  document.getElementById("countA")
+  .textContent=countA;
+
+
+  if(!rows.length){
+
+    history.innerHTML=
+    `<div class="empty-state">
+      Todavía no existen registros de asistencia
+      para este estudiante.
+    </div>`;
+
+    return;
+  }
+
+
+  history.innerHTML=
+  `<div class="history"></div>`;
+
+  const container=
+  history.querySelector(".history");
+
+
+  rows.forEach(row=>{
+
+    const session=row.attendance_sessions;
+
+    if(!session) return;
+
+
+    let label="Sin registro";
+    let className="";
+
+
+    if(row.estado==="P"){
+      label="Presente";
+      className="status-p";
+    }
+
+    if(row.estado==="F"){
+      label="Falta";
+      className="status-f";
+    }
+
+    if(row.estado==="A"){
+      label="Atraso";
+      className="status-a";
+    }
+
+
+    const item=document.createElement("div");
+
+    item.className="history-item";
+
+
+    item.innerHTML=`
+
+      <div class="history-top">
+
+        <div>
+
+          <div class="history-subject">
+            ${escapeHtml(session.asignatura || "Asignatura")}
+          </div>
+
+          <div class="history-date">
+            ${escapeHtml(formatDate(session.fecha))}
+            · Período ${escapeHtml(session.periodo ?? "")}
+          </div>
+
+        </div>
+
+        <span class="status ${className}">
+          ${label}
+        </span>
+
+      </div>
+
+      ${
+        row.observacion
+        ?
+        `<div class="observation">
+          ${escapeHtml(row.observacion)}
+        </div>`
+        :
+        ""
+      }
+    `;
+
+
+    container.appendChild(item);
+
+  });
+
+}
+
+
+// NOVEDADES
+
+async function getPendingPedagogicalNotices(){
+
+  const {data,error}=
+  await db.rpc("novedades_pendientes_familia");
+
+  if(error){
+    console.error(error);
+    return [];
+  }
+
+  return data || [];
+}
+
+
+async function updateUnreadNoticesCount(){
+
+  const badge=
+  document.getElementById("unreadNoticesCount");
+
+  if(!badge || !currentStudent){
+    if(badge) badge.textContent="";
+    return;
+  }
+
+  const pending=
+  await getPendingPedagogicalNotices();
+
+  const count=
+  pending.filter(
+    row=>row.student_id===currentStudent.id
+  ).length;
+
+  badge.textContent=
+    count > 0 ? `(${count})` : "";
+}
+
+
+async function markPedagogicalNoticeRead(noticeId){
+
+  const {data,error}=
+  await db.rpc(
+    "marcar_novedad_leida",
+    {p_notice_id:noticeId}
+  );
+
+  if(error){
+    console.error(error);
+    return false;
+  }
+
+  return data===true;
+}
+
+
+async function loadNotices(){
+
+  const container=
+  document.getElementById("noticesList");
+
+  container.innerHTML=
+  `<div class="loading">
+    Cargando novedades...
+  </div>`;
+
+
+  const {data,error}=
+  await db
+  .from("student_notices")
+  .select(`
+    id,
+    tipo,
+    motivo,
+    observacion,
+    asignatura,
+    fecha,
+    created_at,
+    teachers(
+      nombre
+    )
+  `)
+  .eq("student_id",currentStudent.id)
+  .eq("activo",true)
+  .eq("notificar_familia",true)
+  .order("fecha",{ascending:false});
+
+
+  if(error){
+
+    console.error(error);
+
+    container.innerHTML=
+    `<div class="empty-state">
+      No fue posible consultar las novedades.
+    </div>`;
+
+    return;
+  }
+
+
+  if(!data?.length){
+
+    container.innerHTML=
+    `<div class="empty-state">
+      No existen novedades registradas
+      para este estudiante.
+    </div>`;
+
+    return;
+  }
+
+
+  container.innerHTML="";
+
+  const pending=
+  await getPendingPedagogicalNotices();
+
+  const pendingIds=
+  new Set(
+    pending
+      .filter(row=>row.student_id===currentStudent.id)
+      .map(row=>row.notice_id)
+  );
+
+
+  data.forEach(n=>{
+
+    const item=document.createElement("div");
+
+    const isNew=
+      pendingIds.has(n.id);
+
+    item.className=
+      `notice-card${isNew ? " notice-new" : ""}`;
+
+    item.innerHTML=`
+
+      <span class="notice-type">
+        ${escapeHtml(formatNoticeType(n.tipo))}
+      </span>
+
+      ${
+        isNew
+        ? `<span class="new-badge">Nueva</span>`
+        : ""
+      }
+
+      <div class="notice-title">
+        ${escapeHtml(n.motivo)}
+      </div>
+
+      ${
+        n.observacion
+        ?
+        `<div class="notice-text">
+          ${escapeHtml(n.observacion)}
+        </div>`
+        :
+        ""
+      }
+
+      <div class="notice-meta">
+        ${
+          n.asignatura
+          ? `<div><strong>Asignatura:</strong> ${escapeHtml(n.asignatura)}</div>`
+          : ""
+        }
+        ${
+          n.teachers?.nombre
+          ? `<div><strong>Docente:</strong> ${escapeHtml(n.teachers.nombre)}</div>`
+          : ""
+        }
+        <div><strong>Fecha:</strong> ${escapeHtml(formatDate(n.fecha))}</div>
+      </div>
+    `;
+
+    if(isNew){
+
+      item.style.cursor="pointer";
+      item.title="Abrir y marcar como leída";
+
+      item.addEventListener("click",async()=>{
+
+        const ok=
+        await markPedagogicalNoticeRead(n.id);
+
+        if(!ok) return;
+
+        item.classList.remove("notice-new");
+
+        const badge=
+        item.querySelector(".new-badge");
+
+        if(badge)
+          badge.remove();
+
+        item.style.cursor="";
+        item.title="";
+
+        await updateUnreadNoticesCount();
+      });
+    }
+
+    container.appendChild(item);
+
+  });
+
+  await updateUnreadNoticesCount();
+
+}
+
+
+function formatNoticeType(type){
+
+  const labels={
+    ACADEMICA:"Académica",
+    CONVIVENCIA:"Convivencia",
+    UNIFORME:"Uniforme",
+    INFORMACION:"Información",
+    FELICITACION:"Felicitación"
+  };
+
+  return labels[type] || type || "Novedad";
+}
+
+
+
+// CONTADOR DE NOTIFICACIONES NUEVAS
+async function updateUnreadCount(){
+
+  const badge =
+  document.getElementById("unreadCount");
+
+  if(!badge || !currentFamily){
+    return;
+  }
+
+  if(!currentStudent){
+    badge.textContent="";
+    return;
+  }
+
+  const {count,error}=
+  await db
+  .from("family_notifications")
+  .select("id",{count:"exact",head:true})
+  .eq("family_member_id",currentFamily.id)
+  .eq("student_id",currentStudent.id)
+  .eq("leida",false);
+
+  if(error){
+    console.error(error);
+    badge.textContent="";
+    return;
+  }
+
+  badge.textContent =
+    count > 0 ? `(${count})` : "";
+}
+
+
+// MARCAR UNA NOTIFICACIÓN PROPIA COMO LEÍDA
+async function markNotificationRead(notificationId){
+
+  const {data,error}=
+  await db.rpc(
+    "marcar_notificacion_leida",
+    {p_notification_id:notificationId}
+  );
+
+  if(error){
+    console.error(error);
+    return false;
+  }
+
+  return data === true || data === false;
+}
+
+
+// NOTIFICACIONES
+
+async function loadNotifications(){
+
+  const container=
+  document.getElementById("notificationsList");
+
+  container.innerHTML=
+  `<div class="loading">
+    Cargando notificaciones...
+  </div>`;
+
+
+  const {data,error}=
+  await db
+  .from("family_notifications")
+  .select(`
+    id,
+    tipo,
+    titulo,
+    mensaje,
+    leida,
+    created_at
+  `)
+  .eq("family_member_id",currentFamily.id)
+  .eq("student_id",currentStudent.id)
+  .order("created_at",{ascending:false});
+
+
+  if(error){
+
+    console.error(error);
+
+    container.innerHTML=
+    `<div class="empty-state">
+      No fue posible consultar las notificaciones.
+    </div>`;
+
+    return;
+  }
+
+
+  if(!data?.length){
+
+    container.innerHTML=
+    `<div class="empty-state">
+      No existen notificaciones para este estudiante.
+    </div>`;
+
+    return;
+  }
+
+
+  container.innerHTML="";
+
+
+  data.forEach(n=>{
+
+    const item=document.createElement("div");
+
+    item.className=
+      `notice-card${n.leida ? "" : " notice-new"}`;
+
+    const date=n.created_at
+      ? new Date(n.created_at)
+        .toLocaleString("es-EC")
+      : "";
+
+
+    item.innerHTML=`
+
+      <span class="notice-type">
+        ${escapeHtml(n.tipo || "Notificación")}
+      </span>
+
+      ${
+        n.leida
+        ? ""
+        : `<span class="new-badge">Nueva</span>`
+      }
+
+      <div class="notice-title">
+        ${escapeHtml(n.titulo || "Notificación")}
+      </div>
+
+      <div class="notice-text">
+        ${escapeHtml(n.mensaje || "")}
+      </div>
+
+      <div class="notice-date">
+        ${escapeHtml(date)}
+      </div>
+    `;
+
+
+    if(!n.leida){
+      item.style.cursor="pointer";
+      item.title="Abrir y marcar como leída";
+
+      item.addEventListener("click",async()=>{
+
+        const ok=
+        await markNotificationRead(n.id);
+
+        if(ok){
+          n.leida=true;
+          item.classList.remove("notice-new");
+
+          const badge=
+          item.querySelector(".new-badge");
+
+          if(badge)
+            badge.remove();
+
+          item.style.cursor="";
+          item.title="";
+
+          await updateUnreadCount();
+        }
+      });
+    }
+
+
+    container.appendChild(item);
+
+  });
+
+  await updateUnreadCount();
+
+}
+
+
+
+// NOTIFICACIONES PUSH
+function urlBase64ToUint8Array(base64String){
+  const padding="=".repeat((4-base64String.length%4)%4);
+  const base64=(base64String+padding).replace(/-/g,"+").replace(/_/g,"/");
+  const rawData=atob(base64);
+  return Uint8Array.from([...rawData].map(c=>c.charCodeAt(0)));
+}
+async function setupPushUI(){
+  const button=document.getElementById("pushButton"),status=document.getElementById("pushStatus");
+  if(!("serviceWorker" in navigator)||!("PushManager" in window)||!("Notification" in window)){
+    button.classList.add("hidden");status.classList.remove("hidden");status.textContent="Este navegador no admite notificaciones Push.";return;
+  }
+  button.classList.remove("hidden");status.classList.remove("hidden");
+  try{
+    const registration=await navigator.serviceWorker.register("./sw.js");
+    const subscription=await registration.pushManager.getSubscription();
+    if(subscription&&Notification.permission==="granted"){
+      button.textContent="✓ Notificaciones activadas";button.classList.add("enabled");
+      status.textContent="Este dispositivo está preparado para recibir avisos.";
+    }else{
+      button.textContent="🔔 Activar notificaciones";button.classList.remove("enabled");
+      status.textContent="Activa los avisos para recibir faltas, atrasos y novedades.";
+    }
+  }catch(error){console.error(error);status.textContent="No fue posible preparar las notificaciones."}
+}
+async function activatePush(){
+  const button=document.getElementById("pushButton"),status=document.getElementById("pushStatus");
+  if(!currentFamily)return;
+  button.disabled=true;status.textContent="Preparando notificaciones…";
+  try{
+    const before=Notification.permission;
+    const permission=await Notification.requestPermission();
+    if(permission!=="granted"){
+      status.textContent=`DIAGNÓSTICO PUSH — antes: ${before} · después: ${permission} · HTTPS: ${window.isSecureContext ? "sí" : "no"} · Service Worker: ${"serviceWorker" in navigator ? "sí" : "no"} · PushManager: ${"PushManager" in window ? "sí" : "no"}.`;
+      return;
+    }
+    const registration=await navigator.serviceWorker.register("./sw.js");
+    await navigator.serviceWorker.ready;
+    let subscription=await registration.pushManager.getSubscription();
+    if(!subscription){
+      subscription=await registration.pushManager.subscribe({
+        userVisibleOnly:true,
+        applicationServerKey:urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+      });
+    }
+    const json=subscription.toJSON();
+    const {error}=await db.from("family_push_subscriptions").upsert({
+      family_member_id:currentFamily.id,endpoint:json.endpoint,
+      p256dh:json.keys?.p256dh,auth_key:json.keys?.auth,activo:true,
+      updated_at:new Date().toISOString()
+    },{onConflict:"endpoint"});
+    if(error)throw error;
+    button.textContent="✓ Notificaciones activadas";button.classList.add("enabled");
+    status.textContent="Este dispositivo está preparado para recibir avisos.";
+  }catch(error){
+    console.error(error);status.textContent="No fue posible activar las notificaciones: "+(error.message||"Error desconocido");
+  }finally{button.disabled=false}
+}
+document.getElementById("pushButton").addEventListener("click",activatePush);
+
+// CERRAR SESIÓN
+
+document.getElementById("logoutButton")
+.addEventListener("click",async()=>{
+
+  await db.auth.signOut();
+
+  currentFamily=null;
+  currentStudent=null;
+
+  const unreadCount=
+  document.getElementById("unreadCount");
+
+  if(unreadCount)
+    unreadCount.textContent="";
+
+  const unreadNoticesCount=
+  document.getElementById("unreadNoticesCount");
+
+  if(unreadNoticesCount)
+    unreadNoticesCount.textContent="";
+
+  showLogin();
+
+});
+
+
+function showLogin(){
+
+  familyView.classList.add("hidden");
+  loginView.classList.remove("hidden");
+
+  document.getElementById("password").value="";
+
+}
+
+
+// RESTAURAR SESIÓN
+
+async function init(){
+
+  const {
+    data:{session}
+  }=await db.auth.getSession();
+
+  if(session)
+    await loadFamily();
+
+}
+
+
+init();
+
+</script>
+
+<script>
+let familyCalendarRequest=0;
+async function loadInstitutionalCalendar(){
+ const host=document.getElementById('calendarList'),studentId=currentStudent?.id,request=++familyCalendarRequest;
+ if(!studentId){host.textContent='Seleccione un representado.';return}
+ host.textContent='Cargando calendario…';
+ const from=new Date().toLocaleDateString('en-CA',{timeZone:'America/Guayaquil'});
+ const end=new Date(from+'T12:00:00Z');end.setUTCDate(end.getUTCDate()+365);const to=end.toISOString().slice(0,10);
+ if(!from||!to||from>to){host.textContent='Seleccione un rango de fechas válido.';return}
+ try{let {data,error}=await db.rpc('family_student_agenda',{p_student_id:studentId,p_from:from,p_to:to});
+ if(error&&['PGRST202','42883'].includes(error.code)){const legacy=await db.rpc('family_student_school_calendar',{p_student_id:studentId,p_from:from,p_to:to});error=legacy.error;data=(legacy.data||[]).map(x=>({...x,tipo:'FECHA_SIN_CLASE',titulo:x.motivo,sin_clases:true}));}
+ if(request!==familyCalendarRequest||currentStudent?.id!==studentId)return;
+ if(error){host.textContent='El calendario no está disponible. La institución debe habilitar el acceso autorizado para familias.';return}
+ const rows=[...(data||[])].sort((a,b)=>String(a.fecha).localeCompare(String(b.fecha)));host.innerHTML=rows.length?rows.map(x=>`<article class="calendar-family-event"><h3>${escapeHtml(formatDate(x.fecha))}</h3><p><b>${escapeHtml(({FERIADO:'Feriado',PRUEBA:'Prueba',LECCION:'Lección',PROYECTO:'Entrega de proyecto',REUNION:'Reunión',ACTIVIDAD:'Actividad',FECHA_SIN_CLASE:'Fecha sin clase'})[x.tipo]||'Actividad')}</b></p><p>${escapeHtml(x.titulo||x.motivo||'Fecha institucional')}</p>${x.asignatura?'<p>Asignatura: '+escapeHtml(x.asignatura)+'</p>':''}${x.observacion?'<p style="white-space:pre-wrap">'+escapeHtml(x.observacion)+'</p>':''}<p><b>${x.sin_clases?'No hay clases ni asistencia.':'Clases normales.'}</b></p><small>${escapeHtml(x.curso||x.jornada||'Toda la institución')}</small></article>`).join(''):'<div class="empty-state">No hay próximas fechas institucionales publicadas.</div>';
+ }catch(e){if(request===familyCalendarRequest&&currentStudent?.id===studentId)host.textContent='No fue posible cargar el calendario. Intente nuevamente.'}
+}
+const calendarPanel=document.createElement('section');calendarPanel.id='calendarTab';calendarPanel.className='hidden';
+calendarPanel.innerHTML=`<h2>Calendario institucional</h2><p>Próximas fechas institucionales para la jornada de este representado.</p><div id="calendarList" role="status" aria-live="polite"></div>`;
+document.getElementById('studentView').appendChild(calendarPanel);
+</script></body>
+</html>
