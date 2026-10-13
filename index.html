@@ -749,6 +749,7 @@ button{
     </div>
 
 
+    <div id="satFamilyNotice" class="hidden" role="status" style="background:#fff4d6;border:1px solid #e6c66b;border-radius:12px;padding:14px;margin:12px 0"></div>
     <div class="tabs"><button type="button" class="tab" data-tab="calendar">📅 Calendario institucional</button>
 
       <button class="tab active"
@@ -2439,6 +2440,21 @@ async function getPendingPedagogicalNotices(){
 }
 
 
+async function updateSatFamilyBanner(pending){
+ const box=document.getElementById('satFamilyNotice');if(!box)return;
+ box.classList.add('hidden');box.replaceChildren();
+ const studentId=currentStudent?.id;if(!studentId)return;
+ const ids=pending.filter(row=>row.student_id===studentId).map(row=>row.notice_id);
+ if(!ids.length)return;
+ const {data,error}=await db.from('student_notices').select('id,asignatura,observacion').eq('student_id',studentId).eq('activo',true).eq('notificar_familia',true).like('observacion','[SAT]%').in('id',ids);
+ if(error||currentStudent?.id!==studentId)return;
+ if(!data?.length)return;
+ const title=document.createElement('strong');title.textContent='🚦 Tiene '+data.length+' aviso(s) nuevo(s) de refuerzo pedagógico (SAT).';
+ const detail=document.createElement('p');detail.textContent='Asignaturas: '+[...new Set(data.map(n=>n.asignatura))].join(', ')+'. Revise el plan y coordine con el docente.';
+ const button=document.createElement('button');button.type='button';button.textContent='Ver avisos del SAT';button.onclick=async()=>{activateTab('notices');await loadNotices()};
+ box.append(title,detail,button);box.classList.remove('hidden');
+}
+
 async function updateUnreadNoticesCount(){
 
   const badge=
@@ -2459,6 +2475,7 @@ async function updateUnreadNoticesCount(){
 
   badge.textContent=
     count > 0 ? `(${count})` : "";
+  await updateSatFamilyBanner(pending);
 }
 
 
@@ -2572,13 +2589,13 @@ async function loadNotices(){
       }
 
       <div class="notice-title">
-        ${escapeHtml(n.motivo)}
+        ${escapeHtml(String(n.observacion||" ").startsWith("[SAT]")?"Sistema de Alerta Temprana (SAT)":n.motivo)}
       </div>
 
       ${
         n.observacion
         ?
-        `<div class="notice-text">
+        `<div class="notice-text" style="white-space:pre-line">
           ${escapeHtml(n.observacion)}
         </div>`
         :
